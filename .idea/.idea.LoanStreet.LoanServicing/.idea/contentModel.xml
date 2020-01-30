@@ -39,6 +39,7 @@
           <e p="OpenAPIDateConverter.cs" t="Include" />
           <e p="RequestOptions.cs" t="Include" />
         </e>
+        <e p="icon.png" t="Include" />
         <e p="LoanStreet.LoanServicing.csproj" t="IncludeRecursive" />
         <e p="Model" t="Include">
           <e p="Address.cs" t="Include" />
@@ -60,6 +61,7 @@
           <e p="PrincipalCharge.cs" t="Include" />
           <e p="ProfileData.cs" t="Include" />
           <e p="RecordLoanSaleRequest.cs" t="Include" />
+          <e p="Sale.cs" t="Include" />
           <e p="SystemStatusResponse.cs" t="Include" />
           <e p="Tranche.cs" t="Include" />
           <e p="User.cs" t="Include" />
@@ -73,11 +75,17 @@
       <e p="src/LoanStreet.LoanServicing.Examples" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="ClientFactory.cs" t="Include" />
+        <e p="deals" t="Include" />
+        <e p="institutions" t="Include">
+          <e p="InstutitionsCRUD.cs" t="Include" />
+        </e>
         <e p="InstutitionsExample.cs" t="Include" />
-        <e p="LoansExample.cs" t="Include" />
+        <e p="loans" t="Include">
+          <e p="LoansCRUD.cs" t="Include" />
+        </e>
         <e p="LoanStreet.LoanServicing.Examples.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="LoanStreet.LoanServicing.Examples.AssemblyInfo.cs" t="Include" />
             </e>
@@ -117,29 +125,18 @@
           <e p="PrincipalChargeTests.cs" t="Include" />
           <e p="ProfileDataTests.cs" t="Include" />
           <e p="RecordLoanSaleRequestTests.cs" t="Include" />
+          <e p="SaleTests.cs" t="Include" />
           <e p="SystemStatusResponseTests.cs" t="Include" />
           <e p="TrancheTests.cs" t="Include" />
           <e p="UserTests.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp2.0" t="Include">
               <e p="LoanStreet.LoanServicing.Test.Program.cs" t="Include" />
             </e>
           </e>
         </e>
-      </e>
-      <e p="src/TestClient" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp3.1" t="Include">
-              <e p="TestClient.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="Program.cs" t="Include" />
-        <e p="TestClient.csproj" t="IncludeRecursive" />
       </e>
     </e>
   </component>

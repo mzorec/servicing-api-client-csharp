@@ -35,9 +35,9 @@ namespace LoanStreet.LoanServicing.Api
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
-        /// <param name="recordLoanSaleRequest"> (optional)</param>
-        /// <returns>Object</returns>
-        Object CreateSyndication (string loanId, RecordLoanSaleRequest recordLoanSaleRequest = default(RecordLoanSaleRequest));
+        /// <param name="sale"> (optional)</param>
+        /// <returns>Sale</returns>
+        Sale CreateSyndication (string loanId, Sale sale = default(Sale));
 
         /// <summary>
         /// 
@@ -47,53 +47,9 @@ namespace LoanStreet.LoanServicing.Api
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
-        /// <param name="recordLoanSaleRequest"> (optional)</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> CreateSyndicationWithHttpInfo (string loanId, RecordLoanSaleRequest recordLoanSaleRequest = default(RecordLoanSaleRequest));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <param name="institutionId"></param>
-        /// <returns>Object</returns>
-        Object GetSyndication (string loanId, string institutionId);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <param name="institutionId"></param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GetSyndicationWithHttpInfo (string loanId, string institutionId);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <returns>List&lt;Object&gt;</returns>
-        List<Object> ListSyndications (string loanId);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
-        ApiResponse<List<Object>> ListSyndicationsWithHttpInfo (string loanId);
+        /// <param name="sale"> (optional)</param>
+        /// <returns>ApiResponse of Sale</returns>
+        ApiResponse<Sale> CreateSyndicationWithHttpInfo (string loanId, Sale sale = default(Sale));
         #endregion Synchronous Operations
     }
 
@@ -111,9 +67,9 @@ namespace LoanStreet.LoanServicing.Api
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
-        /// <param name="recordLoanSaleRequest"> (optional)</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> CreateSyndicationAsync (string loanId, RecordLoanSaleRequest recordLoanSaleRequest = default(RecordLoanSaleRequest));
+        /// <param name="sale"> (optional)</param>
+        /// <returns>Task of Sale</returns>
+        System.Threading.Tasks.Task<Sale> CreateSyndicationAsync (string loanId, Sale sale = default(Sale));
 
         /// <summary>
         /// 
@@ -123,53 +79,9 @@ namespace LoanStreet.LoanServicing.Api
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
-        /// <param name="recordLoanSaleRequest"> (optional)</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateSyndicationAsyncWithHttpInfo (string loanId, RecordLoanSaleRequest recordLoanSaleRequest = default(RecordLoanSaleRequest));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <param name="institutionId"></param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GetSyndicationAsync (string loanId, string institutionId);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <param name="institutionId"></param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetSyndicationAsyncWithHttpInfo (string loanId, string institutionId);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <returns>Task of List&lt;Object&gt;</returns>
-        System.Threading.Tasks.Task<List<Object>> ListSyndicationsAsync (string loanId);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <returns>Task of ApiResponse (List&lt;Object&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Object>>> ListSyndicationsAsyncWithHttpInfo (string loanId);
+        /// <param name="sale"> (optional)</param>
+        /// <returns>Task of ApiResponse (Sale)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Sale>> CreateSyndicationAsyncWithHttpInfo (string loanId, Sale sale = default(Sale));
         #endregion Asynchronous Operations
     }
 
@@ -295,11 +207,11 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
-        /// <param name="recordLoanSaleRequest"> (optional)</param>
-        /// <returns>Object</returns>
-        public Object CreateSyndication (string loanId, RecordLoanSaleRequest recordLoanSaleRequest = default(RecordLoanSaleRequest))
+        /// <param name="sale"> (optional)</param>
+        /// <returns>Sale</returns>
+        public Sale CreateSyndication (string loanId, Sale sale = default(Sale))
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<Object> localVarResponse = CreateSyndicationWithHttpInfo(loanId, recordLoanSaleRequest);
+             LoanStreet.LoanServicing.Client.ApiResponse<Sale> localVarResponse = CreateSyndicationWithHttpInfo(loanId, sale);
              return localVarResponse.Data;
         }
 
@@ -308,9 +220,9 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
-        /// <param name="recordLoanSaleRequest"> (optional)</param>
-        /// <returns>ApiResponse of Object</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< Object > CreateSyndicationWithHttpInfo (string loanId, RecordLoanSaleRequest recordLoanSaleRequest = default(RecordLoanSaleRequest))
+        /// <param name="sale"> (optional)</param>
+        /// <returns>ApiResponse of Sale</returns>
+        public LoanStreet.LoanServicing.Client.ApiResponse< Sale > CreateSyndicationWithHttpInfo (string loanId, Sale sale = default(Sale))
         {
             // verify the required parameter 'loanId' is set
             if (loanId == null)
@@ -335,11 +247,11 @@ namespace LoanStreet.LoanServicing.Api
 
             if (loanId != null)
                 localVarRequestOptions.PathParameters.Add("loanId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(loanId)); // path parameter
-            localVarRequestOptions.Data = recordLoanSaleRequest;
+            localVarRequestOptions.Data = sale;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post< Object >("/v1/private/loans/{loanId}/syndications", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post< Sale >("/v1/private/loans/{loanId}/syndications", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -355,11 +267,11 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
-        /// <param name="recordLoanSaleRequest"> (optional)</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> CreateSyndicationAsync (string loanId, RecordLoanSaleRequest recordLoanSaleRequest = default(RecordLoanSaleRequest))
+        /// <param name="sale"> (optional)</param>
+        /// <returns>Task of Sale</returns>
+        public async System.Threading.Tasks.Task<Sale> CreateSyndicationAsync (string loanId, Sale sale = default(Sale))
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<Object> localVarResponse = await CreateSyndicationAsyncWithHttpInfo(loanId, recordLoanSaleRequest);
+             LoanStreet.LoanServicing.Client.ApiResponse<Sale> localVarResponse = await CreateSyndicationAsyncWithHttpInfo(loanId, sale);
              return localVarResponse.Data;
 
         }
@@ -369,9 +281,9 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
-        /// <param name="recordLoanSaleRequest"> (optional)</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<Object>> CreateSyndicationAsyncWithHttpInfo (string loanId, RecordLoanSaleRequest recordLoanSaleRequest = default(RecordLoanSaleRequest))
+        /// <param name="sale"> (optional)</param>
+        /// <returns>Task of ApiResponse (Sale)</returns>
+        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<Sale>> CreateSyndicationAsyncWithHttpInfo (string loanId, Sale sale = default(Sale))
         {
             // verify the required parameter 'loanId' is set
             if (loanId == null)
@@ -397,262 +309,16 @@ namespace LoanStreet.LoanServicing.Api
             
             if (loanId != null)
                 localVarRequestOptions.PathParameters.Add("loanId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(loanId)); // path parameter
-            localVarRequestOptions.Data = recordLoanSaleRequest;
+            localVarRequestOptions.Data = sale;
 
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/v1/private/loans/{loanId}/syndications", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Sale>("/v1/private/loans/{loanId}/syndications", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateSyndication", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <param name="institutionId"></param>
-        /// <returns>Object</returns>
-        public Object GetSyndication (string loanId, string institutionId)
-        {
-             LoanStreet.LoanServicing.Client.ApiResponse<Object> localVarResponse = GetSyndicationWithHttpInfo(loanId, institutionId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <param name="institutionId"></param>
-        /// <returns>ApiResponse of Object</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< Object > GetSyndicationWithHttpInfo (string loanId, string institutionId)
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'loanId' when calling LoanSyndicationsControllerApi->GetSyndication");
-
-            // verify the required parameter 'institutionId' is set
-            if (institutionId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'institutionId' when calling LoanSyndicationsControllerApi->GetSyndication");
-
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            var localVarContentType = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (loanId != null)
-                localVarRequestOptions.PathParameters.Add("loanId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(loanId)); // path parameter
-            if (institutionId != null)
-                localVarRequestOptions.PathParameters.Add("institutionId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(institutionId)); // path parameter
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get< Object >("/v1/private/loans/{loanId}/syndications/{institutionId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetSyndication", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <param name="institutionId"></param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GetSyndicationAsync (string loanId, string institutionId)
-        {
-             LoanStreet.LoanServicing.Client.ApiResponse<Object> localVarResponse = await GetSyndicationAsyncWithHttpInfo(loanId, institutionId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <param name="institutionId"></param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<Object>> GetSyndicationAsyncWithHttpInfo (string loanId, string institutionId)
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'loanId' when calling LoanSyndicationsControllerApi->GetSyndication");
-
-            // verify the required parameter 'institutionId' is set
-            if (institutionId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'institutionId' when calling LoanSyndicationsControllerApi->GetSyndication");
-
-
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
-            if (loanId != null)
-                localVarRequestOptions.PathParameters.Add("loanId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(loanId)); // path parameter
-            if (institutionId != null)
-                localVarRequestOptions.PathParameters.Add("institutionId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(institutionId)); // path parameter
-
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/private/loans/{loanId}/syndications/{institutionId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetSyndication", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <returns>List&lt;Object&gt;</returns>
-        public List<Object> ListSyndications (string loanId)
-        {
-             LoanStreet.LoanServicing.Client.ApiResponse<List<Object>> localVarResponse = ListSyndicationsWithHttpInfo(loanId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< List<Object> > ListSyndicationsWithHttpInfo (string loanId)
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'loanId' when calling LoanSyndicationsControllerApi->ListSyndications");
-
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            var localVarContentType = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (loanId != null)
-                localVarRequestOptions.PathParameters.Add("loanId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(loanId)); // path parameter
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get< List<Object> >("/v1/private/loans/{loanId}/syndications", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListSyndications", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <returns>Task of List&lt;Object&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Object>> ListSyndicationsAsync (string loanId)
-        {
-             LoanStreet.LoanServicing.Client.ApiResponse<List<Object>> localVarResponse = await ListSyndicationsAsyncWithHttpInfo(loanId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loanId"></param>
-        /// <returns>Task of ApiResponse (List&lt;Object&gt;)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<List<Object>>> ListSyndicationsAsyncWithHttpInfo (string loanId)
-        {
-            // verify the required parameter 'loanId' is set
-            if (loanId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'loanId' when calling LoanSyndicationsControllerApi->ListSyndications");
-
-
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
-            if (loanId != null)
-                localVarRequestOptions.PathParameters.Add("loanId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(loanId)); // path parameter
-
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Object>>("/v1/private/loans/{loanId}/syndications", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListSyndications", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

@@ -27,6 +27,7 @@ using System.Diagnostics;
 using LoanStreet.LoanServicing.Api;
 using LoanStreet.LoanServicing.Client;
 using LoanStreet.LoanServicing.Model;
+using LoanStreet.LoanServicing.Examples;
 
 namespace Example
 {
@@ -35,8 +36,8 @@ namespace Example
         public static void Main()
         {
 
-            Configuration.Default.BasePath = "https://api.loan-street.com:8443";
-            var apiInstance = new DealsControllerApi(Configuration.Default);
+            ClientFactory.SetBearerToken("Your Bearer Token");
+            var apiInstance = ClientFactory.GetDealsControllerApi();
             var deal = new Deal(); // Deal |  (optional) 
 
             try

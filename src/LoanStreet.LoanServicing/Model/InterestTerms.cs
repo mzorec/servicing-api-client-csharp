@@ -36,92 +36,6 @@ namespace LoanStreet.LoanServicing.Model
     public partial class InterestTerms :  IEquatable<InterestTerms>, IValidatableObject
     {
         /// <summary>
-        /// Defines DayCount
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum DayCountEnum
-        {
-            /// <summary>
-            /// Enum ACTUAL360 for value: ACTUAL_360
-            /// </summary>
-            [EnumMember(Value = "ACTUAL_360")]
-            ACTUAL360 = 1,
-
-            /// <summary>
-            /// Enum ACTUAL365 for value: ACTUAL_365
-            /// </summary>
-            [EnumMember(Value = "ACTUAL_365")]
-            ACTUAL365 = 2,
-
-            /// <summary>
-            /// Enum ACTUAL360ADJUSTED for value: ACTUAL_360_ADJUSTED
-            /// </summary>
-            [EnumMember(Value = "ACTUAL_360_ADJUSTED")]
-            ACTUAL360ADJUSTED = 3,
-
-            /// <summary>
-            /// Enum ACTUALACTUALICMA for value: ACTUAL_ACTUAL_ICMA
-            /// </summary>
-            [EnumMember(Value = "ACTUAL_ACTUAL_ICMA")]
-            ACTUALACTUALICMA = 4,
-
-            /// <summary>
-            /// Enum ACTUALACTUALISDA for value: ACTUAL_ACTUAL_ISDA
-            /// </summary>
-            [EnumMember(Value = "ACTUAL_ACTUAL_ISDA")]
-            ACTUALACTUALISDA = 5,
-
-            /// <summary>
-            /// Enum THIRTY360 for value: THIRTY_360
-            /// </summary>
-            [EnumMember(Value = "THIRTY_360")]
-            THIRTY360 = 6
-
-        }
-
-        /// <summary>
-        /// Gets or Sets DayCount
-        /// </summary>
-        [DataMember(Name="dayCount", EmitDefaultValue=false)]
-        public DayCountEnum DayCount { get; set; }
-        /// <summary>
-        /// Defines Compounding
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum CompoundingEnum
-        {
-            /// <summary>
-            /// Enum Simple for value: Simple
-            /// </summary>
-            [EnumMember(Value = "Simple")]
-            Simple = 1,
-
-            /// <summary>
-            /// Enum Compounded for value: Compounded
-            /// </summary>
-            [EnumMember(Value = "Compounded")]
-            Compounded = 2,
-
-            /// <summary>
-            /// Enum Continuous for value: Continuous
-            /// </summary>
-            [EnumMember(Value = "Continuous")]
-            Continuous = 3,
-
-            /// <summary>
-            /// Enum SimpleThenCompounded for value: SimpleThenCompounded
-            /// </summary>
-            [EnumMember(Value = "SimpleThenCompounded")]
-            SimpleThenCompounded = 4
-
-        }
-
-        /// <summary>
-        /// Gets or Sets Compounding
-        /// </summary>
-        [DataMember(Name="compounding", EmitDefaultValue=false)]
-        public CompoundingEnum Compounding { get; set; }
-        /// <summary>
         /// Defines Benchmark
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
@@ -328,6 +242,92 @@ namespace LoanStreet.LoanServicing.Model
         [DataMember(Name="interestType", EmitDefaultValue=false)]
         public InterestTypeEnum InterestType { get; set; }
         /// <summary>
+        /// Defines Compounding
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CompoundingEnum
+        {
+            /// <summary>
+            /// Enum Simple for value: Simple
+            /// </summary>
+            [EnumMember(Value = "Simple")]
+            Simple = 1,
+
+            /// <summary>
+            /// Enum Compounded for value: Compounded
+            /// </summary>
+            [EnumMember(Value = "Compounded")]
+            Compounded = 2,
+
+            /// <summary>
+            /// Enum Continuous for value: Continuous
+            /// </summary>
+            [EnumMember(Value = "Continuous")]
+            Continuous = 3,
+
+            /// <summary>
+            /// Enum SimpleThenCompounded for value: SimpleThenCompounded
+            /// </summary>
+            [EnumMember(Value = "SimpleThenCompounded")]
+            SimpleThenCompounded = 4
+
+        }
+
+        /// <summary>
+        /// Gets or Sets Compounding
+        /// </summary>
+        [DataMember(Name="compounding", EmitDefaultValue=false)]
+        public CompoundingEnum Compounding { get; set; }
+        /// <summary>
+        /// Defines DayCount
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum DayCountEnum
+        {
+            /// <summary>
+            /// Enum ACTUAL360 for value: ACTUAL_360
+            /// </summary>
+            [EnumMember(Value = "ACTUAL_360")]
+            ACTUAL360 = 1,
+
+            /// <summary>
+            /// Enum ACTUAL365 for value: ACTUAL_365
+            /// </summary>
+            [EnumMember(Value = "ACTUAL_365")]
+            ACTUAL365 = 2,
+
+            /// <summary>
+            /// Enum ACTUAL360ADJUSTED for value: ACTUAL_360_ADJUSTED
+            /// </summary>
+            [EnumMember(Value = "ACTUAL_360_ADJUSTED")]
+            ACTUAL360ADJUSTED = 3,
+
+            /// <summary>
+            /// Enum ACTUALACTUALICMA for value: ACTUAL_ACTUAL_ICMA
+            /// </summary>
+            [EnumMember(Value = "ACTUAL_ACTUAL_ICMA")]
+            ACTUALACTUALICMA = 4,
+
+            /// <summary>
+            /// Enum ACTUALACTUALISDA for value: ACTUAL_ACTUAL_ISDA
+            /// </summary>
+            [EnumMember(Value = "ACTUAL_ACTUAL_ISDA")]
+            ACTUALACTUALISDA = 5,
+
+            /// <summary>
+            /// Enum THIRTY360 for value: THIRTY_360
+            /// </summary>
+            [EnumMember(Value = "THIRTY_360")]
+            THIRTY360 = 6
+
+        }
+
+        /// <summary>
+        /// Gets or Sets DayCount
+        /// </summary>
+        [DataMember(Name="dayCount", EmitDefaultValue=false)]
+        public DayCountEnum DayCount { get; set; }
+        /// <summary>
         /// Defines PaymentFrequency
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
@@ -414,18 +414,30 @@ namespace LoanStreet.LoanServicing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InterestTerms" /> class.
         /// </summary>
-        /// <param name="effectiveDate">effectiveDate (required).</param>
-        /// <param name="annualRate">annualRate (required).</param>
-        /// <param name="dayCount">dayCount (required).</param>
-        /// <param name="compounding">compounding (required).</param>
         /// <param name="benchmark">benchmark.</param>
         /// <param name="interestType">interestType (required).</param>
         /// <param name="numAmortizationPeriods">numAmortizationPeriods (required).</param>
+        /// <param name="compounding">compounding (required).</param>
+        /// <param name="effectiveDate">effectiveDate (required).</param>
+        /// <param name="annualRate">annualRate (required).</param>
+        /// <param name="dayCount">dayCount (required).</param>
         /// <param name="numInterestOnlyPeriods">numInterestOnlyPeriods (required).</param>
         /// <param name="numPeriods">numPeriods (required).</param>
         /// <param name="paymentFrequency">paymentFrequency (required).</param>
-        public InterestTerms(DateTime effectiveDate = default(DateTime), string annualRate = default(string), DayCountEnum dayCount = default(DayCountEnum), CompoundingEnum compounding = default(CompoundingEnum), BenchmarkEnum? benchmark = default(BenchmarkEnum?), InterestTypeEnum interestType = default(InterestTypeEnum), int numAmortizationPeriods = default(int), int numInterestOnlyPeriods = default(int), int numPeriods = default(int), PaymentFrequencyEnum paymentFrequency = default(PaymentFrequencyEnum))
+        public InterestTerms(BenchmarkEnum? benchmark = default(BenchmarkEnum?), InterestTypeEnum interestType = default(InterestTypeEnum), int numAmortizationPeriods = default(int), CompoundingEnum compounding = default(CompoundingEnum), DateTime effectiveDate = default(DateTime), string annualRate = default(string), DayCountEnum dayCount = default(DayCountEnum), int numInterestOnlyPeriods = default(int), int numPeriods = default(int), PaymentFrequencyEnum paymentFrequency = default(PaymentFrequencyEnum))
         {
+            this.InterestType = interestType;
+            // to ensure "numAmortizationPeriods" is required (not null)
+            if (numAmortizationPeriods == null)
+            {
+                throw new InvalidDataException("numAmortizationPeriods is a required property for InterestTerms and cannot be null");
+            }
+            else
+            {
+                this.NumAmortizationPeriods = numAmortizationPeriods;
+            }
+
+            this.Compounding = compounding;
             // to ensure "effectiveDate" is required (not null)
             if (effectiveDate == null)
             {
@@ -447,18 +459,6 @@ namespace LoanStreet.LoanServicing.Model
             }
 
             this.DayCount = dayCount;
-            this.Compounding = compounding;
-            this.InterestType = interestType;
-            // to ensure "numAmortizationPeriods" is required (not null)
-            if (numAmortizationPeriods == null)
-            {
-                throw new InvalidDataException("numAmortizationPeriods is a required property for InterestTerms and cannot be null");
-            }
-            else
-            {
-                this.NumAmortizationPeriods = numAmortizationPeriods;
-            }
-
             // to ensure "numInterestOnlyPeriods" is required (not null)
             if (numInterestOnlyPeriods == null)
             {
@@ -484,6 +484,12 @@ namespace LoanStreet.LoanServicing.Model
         }
         
         /// <summary>
+        /// Gets or Sets NumAmortizationPeriods
+        /// </summary>
+        [DataMember(Name="numAmortizationPeriods", EmitDefaultValue=false)]
+        public int NumAmortizationPeriods { get; set; }
+
+        /// <summary>
         /// Gets or Sets EffectiveDate
         /// </summary>
         [DataMember(Name="effectiveDate", EmitDefaultValue=false)]
@@ -495,12 +501,6 @@ namespace LoanStreet.LoanServicing.Model
         /// </summary>
         [DataMember(Name="annualRate", EmitDefaultValue=false)]
         public string AnnualRate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets NumAmortizationPeriods
-        /// </summary>
-        [DataMember(Name="numAmortizationPeriods", EmitDefaultValue=false)]
-        public int NumAmortizationPeriods { get; set; }
 
         /// <summary>
         /// Gets or Sets NumInterestOnlyPeriods
@@ -522,13 +522,13 @@ namespace LoanStreet.LoanServicing.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InterestTerms {\n");
-            sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
-            sb.Append("  AnnualRate: ").Append(AnnualRate).Append("\n");
-            sb.Append("  DayCount: ").Append(DayCount).Append("\n");
-            sb.Append("  Compounding: ").Append(Compounding).Append("\n");
             sb.Append("  Benchmark: ").Append(Benchmark).Append("\n");
             sb.Append("  InterestType: ").Append(InterestType).Append("\n");
             sb.Append("  NumAmortizationPeriods: ").Append(NumAmortizationPeriods).Append("\n");
+            sb.Append("  Compounding: ").Append(Compounding).Append("\n");
+            sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
+            sb.Append("  AnnualRate: ").Append(AnnualRate).Append("\n");
+            sb.Append("  DayCount: ").Append(DayCount).Append("\n");
             sb.Append("  NumInterestOnlyPeriods: ").Append(NumInterestOnlyPeriods).Append("\n");
             sb.Append("  NumPeriods: ").Append(NumPeriods).Append("\n");
             sb.Append("  PaymentFrequency: ").Append(PaymentFrequency).Append("\n");
@@ -567,6 +567,22 @@ namespace LoanStreet.LoanServicing.Model
 
             return 
                 (
+                    this.Benchmark == input.Benchmark ||
+                    this.Benchmark.Equals(input.Benchmark)
+                ) && 
+                (
+                    this.InterestType == input.InterestType ||
+                    this.InterestType.Equals(input.InterestType)
+                ) && 
+                (
+                    this.NumAmortizationPeriods == input.NumAmortizationPeriods ||
+                    this.NumAmortizationPeriods.Equals(input.NumAmortizationPeriods)
+                ) && 
+                (
+                    this.Compounding == input.Compounding ||
+                    this.Compounding.Equals(input.Compounding)
+                ) && 
+                (
                     this.EffectiveDate == input.EffectiveDate ||
                     (this.EffectiveDate != null &&
                     this.EffectiveDate.Equals(input.EffectiveDate))
@@ -579,22 +595,6 @@ namespace LoanStreet.LoanServicing.Model
                 (
                     this.DayCount == input.DayCount ||
                     this.DayCount.Equals(input.DayCount)
-                ) && 
-                (
-                    this.Compounding == input.Compounding ||
-                    this.Compounding.Equals(input.Compounding)
-                ) && 
-                (
-                    this.Benchmark == input.Benchmark ||
-                    this.Benchmark.Equals(input.Benchmark)
-                ) && 
-                (
-                    this.InterestType == input.InterestType ||
-                    this.InterestType.Equals(input.InterestType)
-                ) && 
-                (
-                    this.NumAmortizationPeriods == input.NumAmortizationPeriods ||
-                    this.NumAmortizationPeriods.Equals(input.NumAmortizationPeriods)
                 ) && 
                 (
                     this.NumInterestOnlyPeriods == input.NumInterestOnlyPeriods ||
@@ -619,15 +619,15 @@ namespace LoanStreet.LoanServicing.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.Benchmark.GetHashCode();
+                hashCode = hashCode * 59 + this.InterestType.GetHashCode();
+                hashCode = hashCode * 59 + this.NumAmortizationPeriods.GetHashCode();
+                hashCode = hashCode * 59 + this.Compounding.GetHashCode();
                 if (this.EffectiveDate != null)
                     hashCode = hashCode * 59 + this.EffectiveDate.GetHashCode();
                 if (this.AnnualRate != null)
                     hashCode = hashCode * 59 + this.AnnualRate.GetHashCode();
                 hashCode = hashCode * 59 + this.DayCount.GetHashCode();
-                hashCode = hashCode * 59 + this.Compounding.GetHashCode();
-                hashCode = hashCode * 59 + this.Benchmark.GetHashCode();
-                hashCode = hashCode * 59 + this.InterestType.GetHashCode();
-                hashCode = hashCode * 59 + this.NumAmortizationPeriods.GetHashCode();
                 hashCode = hashCode * 59 + this.NumInterestOnlyPeriods.GetHashCode();
                 hashCode = hashCode * 59 + this.NumPeriods.GetHashCode();
                 hashCode = hashCode * 59 + this.PaymentFrequency.GetHashCode();

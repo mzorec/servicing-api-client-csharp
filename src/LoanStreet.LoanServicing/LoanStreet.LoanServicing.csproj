@@ -13,7 +13,7 @@ The version of the OpenAPI document: v0
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D9C631B7-733A-4E59-AC1D-66278F8D3503}</ProjectGuid>
+    <ProjectGuid>{3DB67A23-B992-4683-80B6-1F98DEBBDABF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LoanStreet.LoanServicing</RootNamespace>
@@ -22,6 +22,18 @@ The version of the OpenAPI document: v0
     <TargetFramework>netstandard2.0</TargetFramework>
     <FileAlignment>512</FileAlignment>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\LoanStreet.LoanServicing.xml</DocumentationFile>
+    <PackageVersion>0.0.2</PackageVersion>
+    <Title>LoanStreet Loan Servicing Client</Title>
+    <Authors>LoanStreet, LLC</Authors>
+    <Description>.NET Client for the LoanStreet Loan Servicing System</Description>
+    <Copyright>LoanStreet, LLC</Copyright>
+    <PackageProjectUrl>https://github.com/loanstreet-usa/LoanServicingAPI-Client</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/loanstreet-usa/LoanServicingAPI-Client</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/loanstreet-usa/LoanServicingAPI-Client</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <AssemblyVersion>0.0.2</AssemblyVersion>
+    <FileVersion>0.0.2</FileVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
