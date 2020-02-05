@@ -30,7 +30,7 @@ The version of the OpenAPI document: v0
   </ItemGroup>
   <ItemGroup>
       <ProjectReference Include="..\LoanStreet.LoanServicing\LoanStreet.LoanServicing.csproj">
-          <Project>{3DB67A23-B992-4683-80B6-1F98DEBBDABF}</Project>
+          <Project>{EDC59CA5-12A7-456C-A041-97FF1A0F90B4}</Project>
           <Name>LoanStreet.LoanServicing</Name>
       </ProjectReference>
   </ItemGroup>

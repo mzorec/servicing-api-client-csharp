@@ -2,11 +2,34 @@
 
 ![.NET Core](https://github.com/loanstreet-usa/LoanServicingAPI-Client/workflows/.NET%20Core/badge.svg)
 
+- [Servicing API Documentation](https://api.loan-street.com/docs/index.html)
+- [Swagger File](https://api.loan-street.com:8443/v1/api-docs)
+
 <a name="frameworks-supported"></a>
 ## Frameworks supported
 - .NET Core >=1.0
 - .NET Framework >=4.6
 - Mono/Xamarin >=vNext
+
+<a name="dependencies"></a>
+## Dependencies
+
+- [RestSharp](https://www.nuget.org/packages/RestSharp) - 106.6.7 or later
+- [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/) - 12.0.1 or later
+- [JsonSubTypes](https://www.nuget.org/packages/JsonSubTypes/) - 1.5.2 or later
+- [CompareNETObjects](https://www.nuget.org/packages/CompareNETObjects) - 4.57.0 or later
+- [System.ComponentModel.Annotations](https://www.nuget.org/packages/System.ComponentModel.Annotations) - 4.5.0 or later
+
+The DLLs included in the package may not be the latest version. We recommend using [NuGet](https://docs.nuget.org/consume/installing-nuget) to obtain the latest version of the packages:
+```
+Install-Package RestSharp
+Install-Package Newtonsoft.Json
+Install-Package JsonSubTypes
+Install-Package System.ComponentModel.Annotations
+Install-Package CompareNETObjects
+```
+
+NOTE: RestSharp versions greater than 105.1.0 have a bug which causes file uploads to fail. See [RestSharp#742](https://github.com/restsharp/RestSharp/issues/742)
 
 <a name="installation"></a>
 ## Installation
@@ -27,7 +50,6 @@ using System.Diagnostics;
 using LoanStreet.LoanServicing.Api;
 using LoanStreet.LoanServicing.Client;
 using LoanStreet.LoanServicing.Model;
-using LoanStreet.LoanServicing.Examples;
 
 namespace Example
 {
@@ -35,8 +57,8 @@ namespace Example
     {
         public static void Main()
         {
+            ClientFactory.SetBearerToken("YourBearerToken");
 
-            ClientFactory.SetBearerToken("Your Bearer Token");
             var apiInstance = ClientFactory.GetDealsControllerApi();
             var deal = new Deal(); // Deal |  (optional) 
 
@@ -68,6 +90,8 @@ Class | Method | HTTP request | Description
 *DealsControllerApi* | [**FetchDeal**](docs/DealsControllerApi.md#fetchdeal) | **GET** /v1/private/deals/{dealId} | 
 *DealsControllerApi* | [**FetchDeals**](docs/DealsControllerApi.md#fetchdeals) | **GET** /v1/private/deals | 
 *DealsControllerApi* | [**UpdateDeal**](docs/DealsControllerApi.md#updatedeal) | **PUT** /v1/private/deals/{dealId} | 
+*FinanceControllerApi* | [**NextBusinessDayResponse**](docs/FinanceControllerApi.md#nextbusinessdayresponse) | **GET** /v1/public/finance/next-business-day/{inputDate} | 
+*FinanceControllerApi* | [**PreviousBusinessDayResponse**](docs/FinanceControllerApi.md#previousbusinessdayresponse) | **GET** /v1/public/finance/previous-business-day/{inputDate} | 
 *InstitutionsControllerApi* | [**Create**](docs/InstitutionsControllerApi.md#create) | **POST** /v1/private/institutions | 
 *InstitutionsControllerApi* | [**Fetch**](docs/InstitutionsControllerApi.md#fetch) | **GET** /v1/private/institutions/{institutionId} | 
 *InstitutionsControllerApi* | [**FetchAll**](docs/InstitutionsControllerApi.md#fetchall) | **GET** /v1/private/institutions | 
@@ -79,8 +103,6 @@ Class | Method | HTTP request | Description
 *LoanPaymentsControllerApi* | [**GetPayment**](docs/LoanPaymentsControllerApi.md#getpayment) | **GET** /v1/private/loans/{loanId}/payments/{paymentId} | 
 *LoanPaymentsControllerApi* | [**ListPayments**](docs/LoanPaymentsControllerApi.md#listpayments) | **GET** /v1/private/loans/{loanId}/payments | 
 *LoanSyndicationsControllerApi* | [**CreateSyndication**](docs/LoanSyndicationsControllerApi.md#createsyndication) | **POST** /v1/private/loans/{loanId}/syndications | 
-*LoanSyndicationsControllerApi* | [**GetSyndication**](docs/LoanSyndicationsControllerApi.md#getsyndication) | **GET** /v1/private/loans/{loanId}/syndications/{institutionId} | 
-*LoanSyndicationsControllerApi* | [**ListSyndications**](docs/LoanSyndicationsControllerApi.md#listsyndications) | **GET** /v1/private/loans/{loanId}/syndications | 
 *LoansControllerApi* | [**CreateLoan**](docs/LoansControllerApi.md#createloan) | **POST** /v1/private/loans | 
 *LoansControllerApi* | [**GetLoan**](docs/LoansControllerApi.md#getloan) | **GET** /v1/private/loans/{loanId} | 
 *LoansControllerApi* | [**ListLoans**](docs/LoansControllerApi.md#listloans) | **GET** /v1/private/loans | 
@@ -94,6 +116,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Model.Address](docs/Address.md)
+ - [Model.BusinessDayResponse](docs/BusinessDayResponse.md)
  - [Model.Charge](docs/Charge.md)
  - [Model.CreateUserRequest](docs/CreateUserRequest.md)
  - [Model.Deal](docs/Deal.md)
@@ -106,12 +129,11 @@ Class | Method | HTTP request | Description
  - [Model.InterestTerms](docs/InterestTerms.md)
  - [Model.Invoice](docs/Invoice.md)
  - [Model.Loan](docs/Loan.md)
- - [Model.LoanSaleData](docs/LoanSaleData.md)
  - [Model.Money](docs/Money.md)
  - [Model.Payment](docs/Payment.md)
  - [Model.PrincipalCharge](docs/PrincipalCharge.md)
  - [Model.ProfileData](docs/ProfileData.md)
- - [Model.RecordLoanSaleRequest](docs/RecordLoanSaleRequest.md)
+ - [Model.Sale](docs/Sale.md)
  - [Model.SystemStatusResponse](docs/SystemStatusResponse.md)
  - [Model.Tranche](docs/Tranche.md)
  - [Model.User](docs/User.md)
@@ -120,4 +142,8 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
+<a name="bearer-token"></a>
+### bearer-token
+
+- **Type**: HTTP basic authentication
+

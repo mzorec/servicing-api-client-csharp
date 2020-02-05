@@ -40,10 +40,10 @@ namespace LoanStreet.LoanServicing.Model
         /// Initializes a new instance of the <see cref="InterestCharge" /> class.
         /// </summary>
         /// <param name="date">date (required).</param>
-        /// <param name="amount">amount (required).</param>
         /// <param name="chargeId">chargeId (required).</param>
+        /// <param name="amount">amount (required).</param>
         /// <param name="type">type (required).</param>
-        public InterestCharge(DateTime date = default(DateTime), Money amount = default(Money), string chargeId = default(string), TypeEnum type = default(TypeEnum)) : base(date, amount, chargeId, type)
+        public InterestCharge(DateTime date = default(DateTime), string chargeId = default(string), Money amount = default(Money), TypeEnum type = default(TypeEnum)) : base(date, chargeId, amount, type)
         {
         }
         

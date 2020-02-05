@@ -10,13 +10,18 @@ namespace LoanStreet.LoanServicing.Examples
         public static string BasePath = "https://api.loan-street.com:8443";
         private static string BearerToken = "";
 
+        
         public static void SetBearerToken(string bearerToken)
         {
             BearerToken = bearerToken;
         }
+
+   
         
         private static void RequireBearerToken()
         {
+           
+            
             if (String.IsNullOrEmpty(ClientFactory.BearerToken))
             {
                 throw new AuthenticationException("Bearer Token not provided, unable to configure client!");

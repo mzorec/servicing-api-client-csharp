@@ -24,7 +24,7 @@ namespace LoanStreet.LoanServicing.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IUsersControllerApiSync : IApiAccessor
+    public interface IFinanceControllerApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
@@ -34,9 +34,9 @@ namespace LoanStreet.LoanServicing.Api
         /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUserRequest"> (optional)</param>
-        /// <returns>User</returns>
-        User Create1 (CreateUserRequest createUserRequest = default(CreateUserRequest));
+        /// <param name="inputDate"></param>
+        /// <returns>BusinessDayResponse</returns>
+        BusinessDayResponse NextBusinessDayResponse (DateTime inputDate);
 
         /// <summary>
         /// 
@@ -45,9 +45,9 @@ namespace LoanStreet.LoanServicing.Api
         /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUserRequest"> (optional)</param>
-        /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> Create1WithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest));
+        /// <param name="inputDate"></param>
+        /// <returns>ApiResponse of BusinessDayResponse</returns>
+        ApiResponse<BusinessDayResponse> NextBusinessDayResponseWithHttpInfo (DateTime inputDate);
         /// <summary>
         /// 
         /// </summary>
@@ -55,9 +55,9 @@ namespace LoanStreet.LoanServicing.Api
         /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <returns>User</returns>
-        User Fetch1 (string userId);
+        /// <param name="inputDate"></param>
+        /// <returns>BusinessDayResponse</returns>
+        BusinessDayResponse PreviousBusinessDayResponse (DateTime inputDate);
 
         /// <summary>
         /// 
@@ -66,35 +66,16 @@ namespace LoanStreet.LoanServicing.Api
         /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> Fetch1WithHttpInfo (string userId);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;User&gt;</returns>
-        List<User> List ();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;User&gt;</returns>
-        ApiResponse<List<User>> ListWithHttpInfo ();
+        /// <param name="inputDate"></param>
+        /// <returns>ApiResponse of BusinessDayResponse</returns>
+        ApiResponse<BusinessDayResponse> PreviousBusinessDayResponseWithHttpInfo (DateTime inputDate);
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IUsersControllerApiAsync : IApiAccessor
+    public interface IFinanceControllerApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -104,9 +85,9 @@ namespace LoanStreet.LoanServicing.Api
         /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUserRequest"> (optional)</param>
-        /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> Create1Async (CreateUserRequest createUserRequest = default(CreateUserRequest));
+        /// <param name="inputDate"></param>
+        /// <returns>Task of BusinessDayResponse</returns>
+        System.Threading.Tasks.Task<BusinessDayResponse> NextBusinessDayResponseAsync (DateTime inputDate);
 
         /// <summary>
         /// 
@@ -115,9 +96,9 @@ namespace LoanStreet.LoanServicing.Api
         /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUserRequest"> (optional)</param>
-        /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> Create1AsyncWithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest));
+        /// <param name="inputDate"></param>
+        /// <returns>Task of ApiResponse (BusinessDayResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BusinessDayResponse>> NextBusinessDayResponseAsyncWithHttpInfo (DateTime inputDate);
         /// <summary>
         /// 
         /// </summary>
@@ -125,9 +106,9 @@ namespace LoanStreet.LoanServicing.Api
         /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> Fetch1Async (string userId);
+        /// <param name="inputDate"></param>
+        /// <returns>Task of BusinessDayResponse</returns>
+        System.Threading.Tasks.Task<BusinessDayResponse> PreviousBusinessDayResponseAsync (DateTime inputDate);
 
         /// <summary>
         /// 
@@ -136,35 +117,16 @@ namespace LoanStreet.LoanServicing.Api
         /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> Fetch1AsyncWithHttpInfo (string userId);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of List&lt;User&gt;</returns>
-        System.Threading.Tasks.Task<List<User>> ListAsync ();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (List&lt;User&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<User>>> ListAsyncWithHttpInfo ();
+        /// <param name="inputDate"></param>
+        /// <returns>Task of ApiResponse (BusinessDayResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BusinessDayResponse>> PreviousBusinessDayResponseAsyncWithHttpInfo (DateTime inputDate);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IUsersControllerApi : IUsersControllerApiSync, IUsersControllerApiAsync
+    public interface IFinanceControllerApi : IFinanceControllerApiSync, IFinanceControllerApiAsync
     {
 
     }
@@ -172,23 +134,23 @@ namespace LoanStreet.LoanServicing.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class UsersControllerApi : IUsersControllerApi
+    public partial class FinanceControllerApi : IFinanceControllerApi
     {
         private LoanStreet.LoanServicing.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UsersControllerApi"/> class.
+        /// Initializes a new instance of the <see cref="FinanceControllerApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public UsersControllerApi() : this((string) null)
+        public FinanceControllerApi() : this((string) null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UsersControllerApi"/> class.
+        /// Initializes a new instance of the <see cref="FinanceControllerApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public UsersControllerApi(String basePath)
+        public FinanceControllerApi(String basePath)
         {
             this.Configuration = LoanStreet.LoanServicing.Client.Configuration.MergeConfigurations(
                 LoanStreet.LoanServicing.Client.GlobalConfiguration.Instance,
@@ -200,12 +162,12 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UsersControllerApi"/> class
+        /// Initializes a new instance of the <see cref="FinanceControllerApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public UsersControllerApi(LoanStreet.LoanServicing.Client.Configuration configuration)
+        public FinanceControllerApi(LoanStreet.LoanServicing.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -219,13 +181,13 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UsersControllerApi"/> class
+        /// Initializes a new instance of the <see cref="FinanceControllerApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public UsersControllerApi(LoanStreet.LoanServicing.Client.ISynchronousClient client,LoanStreet.LoanServicing.Client.IAsynchronousClient asyncClient, LoanStreet.LoanServicing.Client.IReadableConfiguration configuration)
+        public FinanceControllerApi(LoanStreet.LoanServicing.Client.ISynchronousClient client,LoanStreet.LoanServicing.Client.IAsynchronousClient asyncClient, LoanStreet.LoanServicing.Client.IReadableConfiguration configuration)
         {
             if(client == null) throw new ArgumentNullException("client");
             if(asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -282,11 +244,11 @@ namespace LoanStreet.LoanServicing.Api
         ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUserRequest"> (optional)</param>
-        /// <returns>User</returns>
-        public User Create1 (CreateUserRequest createUserRequest = default(CreateUserRequest))
+        /// <param name="inputDate"></param>
+        /// <returns>BusinessDayResponse</returns>
+        public BusinessDayResponse NextBusinessDayResponse (DateTime inputDate)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = Create1WithHttpInfo(createUserRequest);
+             LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse> localVarResponse = NextBusinessDayResponseWithHttpInfo(inputDate);
              return localVarResponse.Data;
         }
 
@@ -294,132 +256,13 @@ namespace LoanStreet.LoanServicing.Api
         ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUserRequest"> (optional)</param>
-        /// <returns>ApiResponse of User</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< User > Create1WithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest))
+        /// <param name="inputDate"></param>
+        /// <returns>ApiResponse of BusinessDayResponse</returns>
+        public LoanStreet.LoanServicing.Client.ApiResponse< BusinessDayResponse > NextBusinessDayResponseWithHttpInfo (DateTime inputDate)
         {
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            var localVarContentType = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.Data = createUserRequest;
-
-            // authentication (bearer-token) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post< User >("/v1/private/users", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("Create1", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUserRequest"> (optional)</param>
-        /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> Create1Async (CreateUserRequest createUserRequest = default(CreateUserRequest))
-        {
-             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = await Create1AsyncWithHttpInfo(createUserRequest);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createUserRequest"> (optional)</param>
-        /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<User>> Create1AsyncWithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest))
-        {
-
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
-            localVarRequestOptions.Data = createUserRequest;
-
-            // authentication (bearer-token) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<User>("/v1/private/users", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("Create1", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <returns>User</returns>
-        public User Fetch1 (string userId)
-        {
-             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = Fetch1WithHttpInfo(userId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <returns>ApiResponse of User</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< User > Fetch1WithHttpInfo (string userId)
-        {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersControllerApi->Fetch1");
+            // verify the required parameter 'inputDate' is set
+            if (inputDate == null)
+                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'inputDate' when calling FinanceControllerApi->NextBusinessDayResponse");
 
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
 
@@ -437,8 +280,8 @@ namespace LoanStreet.LoanServicing.Api
             var localVarAccept = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (userId != null)
-                localVarRequestOptions.PathParameters.Add("userId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            if (inputDate != null)
+                localVarRequestOptions.PathParameters.Add("inputDate", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(inputDate)); // path parameter
 
             // authentication (bearer-token) required
             // http basic authentication required
@@ -448,11 +291,11 @@ namespace LoanStreet.LoanServicing.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< User >("/v1/private/users/{userId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< BusinessDayResponse >("/v1/public/finance/next-business-day/{inputDate}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Fetch1", localVarResponse);
+                Exception _exception = this.ExceptionFactory("NextBusinessDayResponse", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -463,11 +306,11 @@ namespace LoanStreet.LoanServicing.Api
         ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> Fetch1Async (string userId)
+        /// <param name="inputDate"></param>
+        /// <returns>Task of BusinessDayResponse</returns>
+        public async System.Threading.Tasks.Task<BusinessDayResponse> NextBusinessDayResponseAsync (DateTime inputDate)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = await Fetch1AsyncWithHttpInfo(userId);
+             LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse> localVarResponse = await NextBusinessDayResponseAsyncWithHttpInfo(inputDate);
              return localVarResponse.Data;
 
         }
@@ -476,13 +319,13 @@ namespace LoanStreet.LoanServicing.Api
         ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<User>> Fetch1AsyncWithHttpInfo (string userId)
+        /// <param name="inputDate"></param>
+        /// <returns>Task of ApiResponse (BusinessDayResponse)</returns>
+        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse>> NextBusinessDayResponseAsyncWithHttpInfo (DateTime inputDate)
         {
-            // verify the required parameter 'userId' is set
-            if (userId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersControllerApi->Fetch1");
+            // verify the required parameter 'inputDate' is set
+            if (inputDate == null)
+                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'inputDate' when calling FinanceControllerApi->NextBusinessDayResponse");
 
 
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
@@ -501,8 +344,8 @@ namespace LoanStreet.LoanServicing.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
-            if (userId != null)
-                localVarRequestOptions.PathParameters.Add("userId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            if (inputDate != null)
+                localVarRequestOptions.PathParameters.Add("inputDate", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(inputDate)); // path parameter
 
             // authentication (bearer-token) required
             // http basic authentication required
@@ -513,11 +356,11 @@ namespace LoanStreet.LoanServicing.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<User>("/v1/private/users/{userId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<BusinessDayResponse>("/v1/public/finance/next-business-day/{inputDate}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Fetch1", localVarResponse);
+                Exception _exception = this.ExceptionFactory("NextBusinessDayResponse", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -528,10 +371,11 @@ namespace LoanStreet.LoanServicing.Api
         ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;User&gt;</returns>
-        public List<User> List ()
+        /// <param name="inputDate"></param>
+        /// <returns>BusinessDayResponse</returns>
+        public BusinessDayResponse PreviousBusinessDayResponse (DateTime inputDate)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<List<User>> localVarResponse = ListWithHttpInfo();
+             LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse> localVarResponse = PreviousBusinessDayResponseWithHttpInfo(inputDate);
              return localVarResponse.Data;
         }
 
@@ -539,9 +383,14 @@ namespace LoanStreet.LoanServicing.Api
         ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;User&gt;</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< List<User> > ListWithHttpInfo ()
+        /// <param name="inputDate"></param>
+        /// <returns>ApiResponse of BusinessDayResponse</returns>
+        public LoanStreet.LoanServicing.Client.ApiResponse< BusinessDayResponse > PreviousBusinessDayResponseWithHttpInfo (DateTime inputDate)
         {
+            // verify the required parameter 'inputDate' is set
+            if (inputDate == null)
+                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'inputDate' when calling FinanceControllerApi->PreviousBusinessDayResponse");
+
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
 
             String[] _contentTypes = new String[] {
@@ -558,6 +407,8 @@ namespace LoanStreet.LoanServicing.Api
             var localVarAccept = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (inputDate != null)
+                localVarRequestOptions.PathParameters.Add("inputDate", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(inputDate)); // path parameter
 
             // authentication (bearer-token) required
             // http basic authentication required
@@ -567,11 +418,11 @@ namespace LoanStreet.LoanServicing.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< List<User> >("/v1/private/users", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< BusinessDayResponse >("/v1/public/finance/previous-business-day/{inputDate}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("List", localVarResponse);
+                Exception _exception = this.ExceptionFactory("PreviousBusinessDayResponse", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -582,10 +433,11 @@ namespace LoanStreet.LoanServicing.Api
         ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of List&lt;User&gt;</returns>
-        public async System.Threading.Tasks.Task<List<User>> ListAsync ()
+        /// <param name="inputDate"></param>
+        /// <returns>Task of BusinessDayResponse</returns>
+        public async System.Threading.Tasks.Task<BusinessDayResponse> PreviousBusinessDayResponseAsync (DateTime inputDate)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<List<User>> localVarResponse = await ListAsyncWithHttpInfo();
+             LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse> localVarResponse = await PreviousBusinessDayResponseAsyncWithHttpInfo(inputDate);
              return localVarResponse.Data;
 
         }
@@ -594,9 +446,14 @@ namespace LoanStreet.LoanServicing.Api
         ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (List&lt;User&gt;)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<List<User>>> ListAsyncWithHttpInfo ()
+        /// <param name="inputDate"></param>
+        /// <returns>Task of ApiResponse (BusinessDayResponse)</returns>
+        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse>> PreviousBusinessDayResponseAsyncWithHttpInfo (DateTime inputDate)
         {
+            // verify the required parameter 'inputDate' is set
+            if (inputDate == null)
+                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'inputDate' when calling FinanceControllerApi->PreviousBusinessDayResponse");
+
 
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
 
@@ -614,6 +471,8 @@ namespace LoanStreet.LoanServicing.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
+            if (inputDate != null)
+                localVarRequestOptions.PathParameters.Add("inputDate", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(inputDate)); // path parameter
 
             // authentication (bearer-token) required
             // http basic authentication required
@@ -624,11 +483,11 @@ namespace LoanStreet.LoanServicing.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<User>>("/v1/private/users", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<BusinessDayResponse>("/v1/public/finance/previous-business-day/{inputDate}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("List", localVarResponse);
+                Exception _exception = this.ExceptionFactory("PreviousBusinessDayResponse", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

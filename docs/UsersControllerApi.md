@@ -30,6 +30,10 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "https://api.loan-street.com:8443";
+            // Configure HTTP basic authorization: bearer-token
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+
             var apiInstance = new UsersControllerApi(Configuration.Default);
             var createUserRequest = new CreateUserRequest(); // CreateUserRequest |  (optional) 
 
@@ -61,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-token](../README.md#bearer-token)
 
 ### HTTP request headers
 
@@ -96,6 +100,10 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "https://api.loan-street.com:8443";
+            // Configure HTTP basic authorization: bearer-token
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+
             var apiInstance = new UsersControllerApi(Configuration.Default);
             var userId = userId_example;  // string | 
 
@@ -127,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-token](../README.md#bearer-token)
 
 ### HTTP request headers
 
@@ -162,6 +170,10 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "https://api.loan-street.com:8443";
+            // Configure HTTP basic authorization: bearer-token
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+
             var apiInstance = new UsersControllerApi(Configuration.Default);
 
             try
@@ -189,7 +201,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[bearer-token](../README.md#bearer-token)
 
 ### HTTP request headers
 

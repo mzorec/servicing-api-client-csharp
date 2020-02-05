@@ -229,6 +229,12 @@ namespace LoanStreet.LoanServicing.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (bearer-token) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Get< SystemStatusResponse >("/v1/public/status", localVarRequestOptions, this.Configuration);
@@ -279,6 +285,12 @@ namespace LoanStreet.LoanServicing.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
 
+            // authentication (bearer-token) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
 
             // make the HTTP request
 

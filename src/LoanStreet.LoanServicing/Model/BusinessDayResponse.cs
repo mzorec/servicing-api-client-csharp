@@ -26,27 +26,41 @@ using OpenAPIDateConverter = LoanStreet.LoanServicing.Client.OpenAPIDateConverte
 namespace LoanStreet.LoanServicing.Model
 {
     /// <summary>
-    /// PrincipalCharge
+    /// BusinessDayResponse
     /// </summary>
     [DataContract]
-    public partial class PrincipalCharge : Charge,  IEquatable<PrincipalCharge>, IValidatableObject
+    public partial class BusinessDayResponse :  IEquatable<BusinessDayResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PrincipalCharge" /> class.
+        /// Initializes a new instance of the <see cref="BusinessDayResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PrincipalCharge() { }
+        protected BusinessDayResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PrincipalCharge" /> class.
+        /// Initializes a new instance of the <see cref="BusinessDayResponse" /> class.
         /// </summary>
         /// <param name="date">date (required).</param>
-        /// <param name="chargeId">chargeId (required).</param>
-        /// <param name="amount">amount (required).</param>
-        /// <param name="type">type (required).</param>
-        public PrincipalCharge(DateTime date = default(DateTime), string chargeId = default(string), Money amount = default(Money), TypeEnum type = default(TypeEnum)) : base(date, chargeId, amount, type)
+        public BusinessDayResponse(DateTime date = default(DateTime))
         {
+            // to ensure "date" is required (not null)
+            if (date == null)
+            {
+                throw new InvalidDataException("date is a required property for BusinessDayResponse and cannot be null");
+            }
+            else
+            {
+                this.Date = date;
+            }
+
         }
         
+        /// <summary>
+        /// Gets or Sets Date
+        /// </summary>
+        [DataMember(Name="date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime Date { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -54,8 +68,8 @@ namespace LoanStreet.LoanServicing.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PrincipalCharge {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("class BusinessDayResponse {\n");
+            sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -64,7 +78,7 @@ namespace LoanStreet.LoanServicing.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -76,20 +90,25 @@ namespace LoanStreet.LoanServicing.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PrincipalCharge);
+            return this.Equals(input as BusinessDayResponse);
         }
 
         /// <summary>
-        /// Returns true if PrincipalCharge instances are equal
+        /// Returns true if BusinessDayResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PrincipalCharge to be compared</param>
+        /// <param name="input">Instance of BusinessDayResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PrincipalCharge input)
+        public bool Equals(BusinessDayResponse input)
         {
             if (input == null)
                 return false;
 
-            return base.Equals(input);
+            return 
+                (
+                    this.Date == input.Date ||
+                    (this.Date != null &&
+                    this.Date.Equals(input.Date))
+                );
         }
 
         /// <summary>
@@ -100,7 +119,9 @@ namespace LoanStreet.LoanServicing.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
+                if (this.Date != null)
+                    hashCode = hashCode * 59 + this.Date.GetHashCode();
                 return hashCode;
             }
         }
@@ -112,7 +133,6 @@ namespace LoanStreet.LoanServicing.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            foreach(var x in BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }

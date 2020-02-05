@@ -8,7 +8,13 @@ namespace LoanStreet.LoanServicing.Examples.institutions
 {
     public class InstutitionsCRUD
     {
-        protected T Execute<T>(Func<InstitutionsControllerApi, T> toExecute)
+
+        public InstutitionsCRUD()
+        {
+            ClientFactory.SetBearerToken("YourToken");
+        }
+        
+        public static T Execute<T>(Func<InstitutionsControllerApi, T> toExecute)
         {
             try
             {
@@ -28,16 +34,8 @@ namespace LoanStreet.LoanServicing.Examples.institutions
                 throw;
             }
         }
-
-        [Fact]
-        public void ListInstitutions()
-        {
-            var allInstitutions = Execute(api => api.FetchAll());
-            Assert.NotNull(allInstitutions);
-        }
-
-        [Fact]
-        public void CreateInstitution()
+        
+        public static Institution GetTestInstitution()
         {
             var name = Guid.NewGuid().ToString();
             var ticker = name.Substring(0, 5);
@@ -48,15 +46,48 @@ namespace LoanStreet.LoanServicing.Examples.institutions
                 "NY",
                 "10025"
             );
-            var pending = new Institution(
+            return new Institution(
                 name,
                 ticker,
                 address
             );
-
-            var created = Execute(api => api.Create(pending));
             
-            Assert.NotNull(created);
+            
         }
+
+    
+        
+        [Fact]
+        public void ListInstitutions()
+        {
+            var allInstitutions = Execute(api => api.FetchAll());
+            Assert.NotNull(allInstitutions);
+        }
+
+        [Fact]
+        public void CreateInstitution()
+        {
+
+            var institution = GetTestInstitution();
+
+            var createdInstitution = Execute(api => api.Create(institution));
+            
+            Assert.NotNull(createdInstitution);
+        }
+
+
+        [Fact]
+        public void GetInstitution()
+        {
+
+            var createdInstitution = Execute(api => api.Create(GetTestInstitution()));
+            
+            Assert.NotNull(createdInstitution);
+
+            var loadedById = Execute(api => api.Fetch(createdInstitution.InstitutionId));
+            
+            Assert.NotNull(loadedById);
+        }
+        
     }
 }

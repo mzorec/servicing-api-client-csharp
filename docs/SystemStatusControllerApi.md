@@ -28,6 +28,10 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "https://api.loan-street.com:8443";
+            // Configure HTTP basic authorization: bearer-token
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+
             var apiInstance = new SystemStatusControllerApi(Configuration.Default);
 
             try
@@ -55,7 +59,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[bearer-token](../README.md#bearer-token)
 
 ### HTTP request headers
 

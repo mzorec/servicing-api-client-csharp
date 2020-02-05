@@ -31,6 +31,10 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "https://api.loan-street.com:8443";
+            // Configure HTTP basic authorization: bearer-token
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+
             var apiInstance = new InstitutionsControllerApi(Configuration.Default);
             var institution = new Institution(); // Institution |  (optional) 
 
@@ -62,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-token](../README.md#bearer-token)
 
 ### HTTP request headers
 
@@ -97,6 +101,10 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "https://api.loan-street.com:8443";
+            // Configure HTTP basic authorization: bearer-token
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+
             var apiInstance = new InstitutionsControllerApi(Configuration.Default);
             var institutionId = institutionId_example;  // string | 
 
@@ -128,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-token](../README.md#bearer-token)
 
 ### HTTP request headers
 
@@ -163,6 +171,10 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "https://api.loan-street.com:8443";
+            // Configure HTTP basic authorization: bearer-token
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+
             var apiInstance = new InstitutionsControllerApi(Configuration.Default);
 
             try
@@ -190,7 +202,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[bearer-token](../README.md#bearer-token)
 
 ### HTTP request headers
 
@@ -225,6 +237,10 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "https://api.loan-street.com:8443";
+            // Configure HTTP basic authorization: bearer-token
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+
             var apiInstance = new InstitutionsControllerApi(Configuration.Default);
             var institutionId = institutionId_example;  // string | 
             var body = ;  // Object |  (optional) 
@@ -258,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-token](../README.md#bearer-token)
 
 ### HTTP request headers
 

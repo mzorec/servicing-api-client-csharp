@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.2.0/build/netcoreapp1.0" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
     <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.1/build/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
     <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.1/build/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll" t="Include" />
     <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.1/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
@@ -13,6 +19,7 @@
       <e p="src/LoanStreet.LoanServicing" t="IncludeRecursive">
         <e p="Api" t="Include">
           <e p="DealsControllerApi.cs" t="Include" />
+          <e p="FinanceControllerApi.cs" t="Include" />
           <e p="InstitutionsControllerApi.cs" t="Include" />
           <e p="LoanInvoicesControllerApi.cs" t="Include" />
           <e p="LoanPaymentsControllerApi.cs" t="Include" />
@@ -43,6 +50,7 @@
         <e p="LoanStreet.LoanServicing.csproj" t="IncludeRecursive" />
         <e p="Model" t="Include">
           <e p="Address.cs" t="Include" />
+          <e p="BusinessDayResponse.cs" t="Include" />
           <e p="Charge.cs" t="Include" />
           <e p="CreateUserRequest.cs" t="Include" />
           <e p="Deal.cs" t="Include" />
@@ -79,7 +87,6 @@
         <e p="institutions" t="Include">
           <e p="InstutitionsCRUD.cs" t="Include" />
         </e>
-        <e p="InstutitionsExample.cs" t="Include" />
         <e p="loans" t="Include">
           <e p="LoansCRUD.cs" t="Include" />
         </e>
@@ -95,6 +102,7 @@
       <e p="src/LoanStreet.LoanServicing.Test" t="IncludeRecursive">
         <e p="Api" t="Include">
           <e p="DealsControllerApiTests.cs" t="Include" />
+          <e p="FinanceControllerApiTests.cs" t="Include" />
           <e p="InstitutionsControllerApiTests.cs" t="Include" />
           <e p="LoanInvoicesControllerApiTests.cs" t="Include" />
           <e p="LoanPaymentsControllerApiTests.cs" t="Include" />
@@ -107,6 +115,7 @@
         <e p="LoanStreet.LoanServicing.Test.csproj" t="IncludeRecursive" />
         <e p="Model" t="Include">
           <e p="AddressTests.cs" t="Include" />
+          <e p="BusinessDayResponseTests.cs" t="Include" />
           <e p="ChargeTests.cs" t="Include" />
           <e p="CreateUserRequestTests.cs" t="Include" />
           <e p="DealTests.cs" t="Include" />

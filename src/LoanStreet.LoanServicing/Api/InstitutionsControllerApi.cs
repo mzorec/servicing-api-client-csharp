@@ -363,6 +363,12 @@ namespace LoanStreet.LoanServicing.Api
 
             localVarRequestOptions.Data = institution;
 
+            // authentication (bearer-token) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Post< Institution >("/v1/private/institutions", localVarRequestOptions, this.Configuration);
@@ -417,6 +423,12 @@ namespace LoanStreet.LoanServicing.Api
             
             localVarRequestOptions.Data = institution;
 
+            // authentication (bearer-token) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
 
             // make the HTTP request
 
@@ -474,6 +486,12 @@ namespace LoanStreet.LoanServicing.Api
             if (institutionId != null)
                 localVarRequestOptions.PathParameters.Add("institutionId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(institutionId)); // path parameter
 
+            // authentication (bearer-token) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Get< Institution >("/v1/private/institutions/{institutionId}", localVarRequestOptions, this.Configuration);
@@ -532,6 +550,12 @@ namespace LoanStreet.LoanServicing.Api
             if (institutionId != null)
                 localVarRequestOptions.PathParameters.Add("institutionId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(institutionId)); // path parameter
 
+            // authentication (bearer-token) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
 
             // make the HTTP request
 
@@ -581,6 +605,12 @@ namespace LoanStreet.LoanServicing.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (bearer-token) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Get< List<Institution> >("/v1/private/institutions", localVarRequestOptions, this.Configuration);
@@ -631,6 +661,12 @@ namespace LoanStreet.LoanServicing.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
 
+            // authentication (bearer-token) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
 
             // make the HTTP request
 
@@ -692,6 +728,12 @@ namespace LoanStreet.LoanServicing.Api
                 localVarRequestOptions.PathParameters.Add("institutionId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(institutionId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (bearer-token) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Put< Object >("/v1/private/institutions/{institutionId}", localVarRequestOptions, this.Configuration);
@@ -754,6 +796,12 @@ namespace LoanStreet.LoanServicing.Api
                 localVarRequestOptions.PathParameters.Add("institutionId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(institutionId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (bearer-token) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
 
             // make the HTTP request
 
