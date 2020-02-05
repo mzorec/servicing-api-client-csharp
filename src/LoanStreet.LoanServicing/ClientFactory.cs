@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Authentication;
 using LoanStreet.LoanServicing.Api;
 
-namespace LoanStreet.LoanServicing.Examples
+namespace LoanStreet.LoanServicing
 {
     public class ClientFactory
     {

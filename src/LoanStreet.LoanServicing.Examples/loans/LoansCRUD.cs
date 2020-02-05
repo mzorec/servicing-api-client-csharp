@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using LoanStreet.LoanServicing;
 using LoanStreet.LoanServicing.Api;
 using LoanStreet.LoanServicing.Examples.institutions;
 using LoanStreet.LoanServicing.Model;

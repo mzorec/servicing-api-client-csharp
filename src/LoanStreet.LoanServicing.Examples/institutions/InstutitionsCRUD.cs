@@ -1,4 +1,5 @@
 using System;
+using LoanStreet.LoanServicing;
 using LoanStreet.LoanServicing.Api;
 using LoanStreet.LoanServicing.Client;
 using LoanStreet.LoanServicing.Model;

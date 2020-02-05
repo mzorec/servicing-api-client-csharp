@@ -46,6 +46,7 @@
           <e p="OpenAPIDateConverter.cs" t="Include" />
           <e p="RequestOptions.cs" t="Include" />
         </e>
+        <e p="ClientFactory.cs" t="Include" />
         <e p="icon.png" t="Include" />
         <e p="LoanStreet.LoanServicing.csproj" t="IncludeRecursive" />
         <e p="Model" t="Include">
@@ -82,7 +83,6 @@
       </e>
       <e p="src/LoanStreet.LoanServicing.Examples" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="ClientFactory.cs" t="Include" />
         <e p="deals" t="Include" />
         <e p="institutions" t="Include">
           <e p="InstutitionsCRUD.cs" t="Include" />

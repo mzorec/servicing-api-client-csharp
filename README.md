@@ -5,10 +5,10 @@
 - [Servicing API Documentation](https://api.loan-street.com/docs/index.html)
 - [Swagger File](https://api.loan-street.com:8443/v1/api-docs)
 
+
 ## Examples
 
 - [Institutions Create and Read](src/LoanStreet.LoanServicing.Examples/institutions/InstutitionsCRUD.cs)
-
 
 <a name="frameworks-supported"></a>
 ## Frameworks supported
@@ -52,6 +52,7 @@ using LoanStreet.LoanServicing.Model;
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using LoanStreet.LoanServicing;
 using LoanStreet.LoanServicing.Api;
 using LoanStreet.LoanServicing.Client;
 using LoanStreet.LoanServicing.Model;

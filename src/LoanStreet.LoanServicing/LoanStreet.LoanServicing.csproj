@@ -22,7 +22,7 @@ The version of the OpenAPI document: v0
     <TargetFramework>netstandard2.0</TargetFramework>
     <FileAlignment>512</FileAlignment>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\LoanStreet.LoanServicing.xml</DocumentationFile>
-    <PackageVersion>0.0.3</PackageVersion>
+    <PackageVersion>0.0.4</PackageVersion>
     <Title>LoanStreet Loan Servicing API Client</Title>
     <Description>A RESTful client for the LoanStreet Loan Servicing API  </Description>
     <Copyright>2020</Copyright>
@@ -30,6 +30,8 @@ The version of the OpenAPI document: v0
     <PackageLicenseUrl>https://github.com/loanstreet-usa/LoanServicingAPI-Client</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/loanstreet-usa/LoanServicingAPI-Client</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyVersion>0.0.4</AssemblyVersion>
+    <FileVersion>0.0.4</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
