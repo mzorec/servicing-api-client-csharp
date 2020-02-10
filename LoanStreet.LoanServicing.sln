@@ -1,12 +1,12 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanStreet.LoanServicing", "src\LoanStreet.LoanServicing\LoanStreet.LoanServicing.csproj", "{EDC59CA5-12A7-456C-A041-97FF1A0F90B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanStreet.LoanServicing", "src\LoanStreet.LoanServicing\LoanStreet.LoanServicing.csproj", "{A015D30A-C481-43F8-ABB4-054F18CED733}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanStreet.LoanServicing.Test", "src\LoanStreet.LoanServicing.Test\LoanStreet.LoanServicing.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanStreet.LoanServicing.Examples", "src\LoanStreet.LoanServicing.Examples\LoanStreet.LoanServicing.Examples.csproj", "{BEFFA567-DB52-4A69-94EF-814A0A81F51E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanStreet.LoanServicing.Examples", "src\LoanStreet.LoanServicing.Examples\LoanStreet.LoanServicing.Examples.csproj", "{71C102E9-CEB7-4576-A657-3804CBB49763}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,18 +14,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EDC59CA5-12A7-456C-A041-97FF1A0F90B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EDC59CA5-12A7-456C-A041-97FF1A0F90B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EDC59CA5-12A7-456C-A041-97FF1A0F90B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EDC59CA5-12A7-456C-A041-97FF1A0F90B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A015D30A-C481-43F8-ABB4-054F18CED733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A015D30A-C481-43F8-ABB4-054F18CED733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A015D30A-C481-43F8-ABB4-054F18CED733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A015D30A-C481-43F8-ABB4-054F18CED733}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BEFFA567-DB52-4A69-94EF-814A0A81F51E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BEFFA567-DB52-4A69-94EF-814A0A81F51E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BEFFA567-DB52-4A69-94EF-814A0A81F51E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BEFFA567-DB52-4A69-94EF-814A0A81F51E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71C102E9-CEB7-4576-A657-3804CBB49763}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71C102E9-CEB7-4576-A657-3804CBB49763}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71C102E9-CEB7-4576-A657-3804CBB49763}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71C102E9-CEB7-4576-A657-3804CBB49763}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

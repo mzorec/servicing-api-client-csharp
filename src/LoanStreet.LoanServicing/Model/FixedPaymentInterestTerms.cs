@@ -40,17 +40,17 @@ namespace LoanStreet.LoanServicing.Model
         /// Initializes a new instance of the <see cref="FixedPaymentInterestTerms" /> class.
         /// </summary>
         /// <param name="paymentAmount">paymentAmount (required).</param>
-        /// <param name="benchmark">benchmark.</param>
-        /// <param name="interestType">interestType (required).</param>
-        /// <param name="numAmortizationPeriods">numAmortizationPeriods (required).</param>
-        /// <param name="compounding">compounding (required).</param>
         /// <param name="effectiveDate">effectiveDate (required).</param>
         /// <param name="annualRate">annualRate (required).</param>
         /// <param name="dayCount">dayCount (required).</param>
+        /// <param name="compounding">compounding (required).</param>
+        /// <param name="benchmark">benchmark.</param>
+        /// <param name="interestType">interestType (required).</param>
+        /// <param name="numAmortizationPeriods">numAmortizationPeriods (required).</param>
         /// <param name="numInterestOnlyPeriods">numInterestOnlyPeriods (required).</param>
         /// <param name="numPeriods">numPeriods (required).</param>
         /// <param name="paymentFrequency">paymentFrequency (required).</param>
-        public FixedPaymentInterestTerms(Money paymentAmount = default(Money), BenchmarkEnum? benchmark = default(BenchmarkEnum?), InterestTypeEnum interestType = default(InterestTypeEnum), int numAmortizationPeriods = default(int), CompoundingEnum compounding = default(CompoundingEnum), DateTime effectiveDate = default(DateTime), string annualRate = default(string), DayCountEnum dayCount = default(DayCountEnum), int numInterestOnlyPeriods = default(int), int numPeriods = default(int), PaymentFrequencyEnum paymentFrequency = default(PaymentFrequencyEnum)) : base(benchmark, interestType, numAmortizationPeriods, compounding, effectiveDate, annualRate, dayCount, numInterestOnlyPeriods, numPeriods, paymentFrequency)
+        public FixedPaymentInterestTerms(Money paymentAmount = default(Money), DateTime effectiveDate = default(DateTime), double annualRate = default(double), DayCountEnum dayCount = default(DayCountEnum), CompoundingEnum compounding = default(CompoundingEnum), BenchmarkEnum? benchmark = default(BenchmarkEnum?), InterestTypeEnum interestType = default(InterestTypeEnum), int numAmortizationPeriods = default(int), int numInterestOnlyPeriods = default(int), int numPeriods = default(int), PaymentFrequencyEnum paymentFrequency = default(PaymentFrequencyEnum)) : base(effectiveDate, annualRate, dayCount, compounding, benchmark, interestType, numAmortizationPeriods, numInterestOnlyPeriods, numPeriods, paymentFrequency)
         {
             // to ensure "paymentAmount" is required (not null)
             if (paymentAmount == null)

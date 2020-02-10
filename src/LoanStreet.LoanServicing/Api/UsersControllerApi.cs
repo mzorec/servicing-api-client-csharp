@@ -11,173 +11,152 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
-using System.Net.Mime;
+using System.Threading.Tasks;
 using LoanStreet.LoanServicing.Client;
 using LoanStreet.LoanServicing.Model;
 
 namespace LoanStreet.LoanServicing.Api
 {
-
     /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
+    ///     Represents a collection of functions to interact with the API endpoints
     /// </summary>
     public interface IUsersControllerApiSync : IApiAccessor
     {
         #region Synchronous Operations
+
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>User</returns>
-        User Create1 (CreateUserRequest createUserRequest = default(CreateUserRequest));
+        User Create1(CreateUserRequest createUserRequest = default);
 
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> Create1WithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest));
+        ApiResponse<User> Create1WithHttpInfo(CreateUserRequest createUserRequest = default);
+
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>User</returns>
-        User Fetch1 (string userId);
+        User Fetch1(string userId);
 
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> Fetch1WithHttpInfo (string userId);
+        ApiResponse<User> Fetch1WithHttpInfo(string userId);
+
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;User&gt;</returns>
-        List<User> List ();
+        List<User> List();
 
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;User&gt;</returns>
-        ApiResponse<List<User>> ListWithHttpInfo ();
+        ApiResponse<List<User>> ListWithHttpInfo();
+
         #endregion Synchronous Operations
     }
 
     /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
+    ///     Represents a collection of functions to interact with the API endpoints
     /// </summary>
     public interface IUsersControllerApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> Create1Async (CreateUserRequest createUserRequest = default(CreateUserRequest));
+        Task<User> Create1Async(CreateUserRequest createUserRequest = default);
 
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> Create1AsyncWithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest));
+        Task<ApiResponse<User>> Create1AsyncWithHttpInfo(CreateUserRequest createUserRequest = default);
+
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> Fetch1Async (string userId);
+        Task<User> Fetch1Async(string userId);
 
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> Fetch1AsyncWithHttpInfo (string userId);
+        Task<ApiResponse<User>> Fetch1AsyncWithHttpInfo(string userId);
+
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;User&gt;</returns>
-        System.Threading.Tasks.Task<List<User>> ListAsync ();
+        Task<List<User>> ListAsync();
 
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;User&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<User>>> ListAsyncWithHttpInfo ();
+        Task<ApiResponse<List<User>>> ListAsyncWithHttpInfo();
+
         #endregion Asynchronous Operations
     }
 
     /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
+    ///     Represents a collection of functions to interact with the API endpoints
     /// </summary>
     public interface IUsersControllerApi : IUsersControllerApiSync, IUsersControllerApiAsync
     {
-
     }
 
     /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
+    ///     Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class UsersControllerApi : IUsersControllerApi
+    public class UsersControllerApi : IUsersControllerApi
     {
-        private LoanStreet.LoanServicing.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UsersControllerApi"/> class.
+        ///     Initializes a new instance of the <see cref="UsersControllerApi" /> class.
         /// </summary>
         /// <returns></returns>
         public UsersControllerApi() : this((string) null)
@@ -185,151 +164,150 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UsersControllerApi"/> class.
+        ///     Initializes a new instance of the <see cref="UsersControllerApi" /> class.
         /// </summary>
         /// <returns></returns>
-        public UsersControllerApi(String basePath)
+        public UsersControllerApi(string basePath)
         {
-            this.Configuration = LoanStreet.LoanServicing.Client.Configuration.MergeConfigurations(
-                LoanStreet.LoanServicing.Client.GlobalConfiguration.Instance,
-                new LoanStreet.LoanServicing.Client.Configuration { BasePath = basePath }
+            Configuration = LoanServicing.Client.Configuration.MergeConfigurations(
+                GlobalConfiguration.Instance,
+                new Configuration {BasePath = basePath}
             );
-            this.Client = new LoanStreet.LoanServicing.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new LoanStreet.LoanServicing.Client.ApiClient(this.Configuration.BasePath);
-            this.ExceptionFactory = LoanStreet.LoanServicing.Client.Configuration.DefaultExceptionFactory;
+            Client = new ApiClient(Configuration.BasePath);
+            AsynchronousClient = new ApiClient(Configuration.BasePath);
+            ExceptionFactory = LoanServicing.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UsersControllerApi"/> class
-        /// using Configuration object
+        ///     Initializes a new instance of the <see cref="UsersControllerApi" /> class
+        ///     using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public UsersControllerApi(LoanStreet.LoanServicing.Client.Configuration configuration)
+        public UsersControllerApi(Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Configuration = LoanStreet.LoanServicing.Client.Configuration.MergeConfigurations(
-                LoanStreet.LoanServicing.Client.GlobalConfiguration.Instance,
+            Configuration = LoanServicing.Client.Configuration.MergeConfigurations(
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new LoanStreet.LoanServicing.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new LoanStreet.LoanServicing.Client.ApiClient(this.Configuration.BasePath);
-            ExceptionFactory = LoanStreet.LoanServicing.Client.Configuration.DefaultExceptionFactory;
+            Client = new ApiClient(Configuration.BasePath);
+            AsynchronousClient = new ApiClient(Configuration.BasePath);
+            ExceptionFactory = LoanServicing.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UsersControllerApi"/> class
-        /// using a Configuration object and client instance.
+        ///     Initializes a new instance of the <see cref="UsersControllerApi" /> class
+        ///     using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public UsersControllerApi(LoanStreet.LoanServicing.Client.ISynchronousClient client,LoanStreet.LoanServicing.Client.IAsynchronousClient asyncClient, LoanStreet.LoanServicing.Client.IReadableConfiguration configuration)
+        public UsersControllerApi(ISynchronousClient client, IAsynchronousClient asyncClient,
+            IReadableConfiguration configuration)
         {
-            if(client == null) throw new ArgumentNullException("client");
-            if(asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if(configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
-            this.AsynchronousClient = asyncClient;
-            this.Configuration = configuration;
-            this.ExceptionFactory = LoanStreet.LoanServicing.Client.Configuration.DefaultExceptionFactory;
+            Client = client;
+            AsynchronousClient = asyncClient;
+            Configuration = configuration;
+            ExceptionFactory = LoanServicing.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// The client for accessing this underlying API asynchronously.
+        ///     The client for accessing this underlying API asynchronously.
         /// </summary>
-        public LoanStreet.LoanServicing.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
-        /// The client for accessing this underlying API synchronously.
+        ///     The client for accessing this underlying API synchronously.
         /// </summary>
-        public LoanStreet.LoanServicing.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
-        /// Gets the base path of the API client.
+        ///     Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public String GetBasePath()
+        public string GetBasePath()
         {
-            return this.Configuration.BasePath;
+            return Configuration.BasePath;
         }
 
         /// <summary>
-        /// Gets or sets the configuration object
+        ///     Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public LoanStreet.LoanServicing.Client.IReadableConfiguration Configuration {get; set;}
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
-        /// Provides a factory method hook for the creation of exceptions.
+        ///     Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public LoanStreet.LoanServicing.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
-                {
                     throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
-                }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value;
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>User</returns>
-        public User Create1 (CreateUserRequest createUserRequest = default(CreateUserRequest))
+        public User Create1(CreateUserRequest createUserRequest = default)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = Create1WithHttpInfo(createUserRequest);
-             return localVarResponse.Data;
+            var localVarResponse = Create1WithHttpInfo(createUserRequest);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>ApiResponse of User</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< User > Create1WithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest))
+        public ApiResponse<User> Create1WithHttpInfo(CreateUserRequest createUserRequest = default)
         {
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes =
+            {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts =
+            {
                 "application/json"
             };
 
-            var localVarContentType = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = createUserRequest;
 
             // authentication (bearer-token) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password))
+                localVarRequestOptions.HeaderParameters.Add("Authorization",
+                    "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post< User >("/v1/private/users", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<User>("/v1/private/users", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Create1", localVarResponse);
+                var _exception = ExceptionFactory("Create1", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -337,60 +315,58 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> Create1Async (CreateUserRequest createUserRequest = default(CreateUserRequest))
+        public async Task<User> Create1Async(CreateUserRequest createUserRequest = default)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = await Create1AsyncWithHttpInfo(createUserRequest);
-             return localVarResponse.Data;
-
+            var localVarResponse = await Create1AsyncWithHttpInfo(createUserRequest);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<User>> Create1AsyncWithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest))
+        public async Task<ApiResponse<User>> Create1AsyncWithHttpInfo(CreateUserRequest createUserRequest = default)
         {
+            var localVarRequestOptions = new RequestOptions();
 
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes =
+            {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts =
+            {
                 "application/json"
             };
-            
+
             foreach (var _contentType in _contentTypes)
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
+
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
             localVarRequestOptions.Data = createUserRequest;
 
             // authentication (bearer-token) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password))
+                localVarRequestOptions.HeaderParameters.Add("Authorization",
+                    "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<User>("/v1/private/users", localVarRequestOptions, this.Configuration);
+            var localVarResponse =
+                await AsynchronousClient.PostAsync<User>("/v1/private/users", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Create1", localVarResponse);
+                var _exception = ExceptionFactory("Create1", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -398,61 +374,64 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>User</returns>
-        public User Fetch1 (string userId)
+        public User Fetch1(string userId)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = Fetch1WithHttpInfo(userId);
-             return localVarResponse.Data;
+            var localVarResponse = Fetch1WithHttpInfo(userId);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>ApiResponse of User</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< User > Fetch1WithHttpInfo (string userId)
+        public ApiResponse<User> Fetch1WithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersControllerApi->Fetch1");
+                throw new ApiException(400,
+                    "Missing required parameter 'userId' when calling UsersControllerApi->Fetch1");
 
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes =
+            {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts =
+            {
                 "application/json"
             };
 
-            var localVarContentType = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (userId != null)
-                localVarRequestOptions.PathParameters.Add("userId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(userId)); // path parameter
+                localVarRequestOptions.PathParameters.Add("userId",
+                    ClientUtils.ParameterToString(userId)); // path parameter
 
             // authentication (bearer-token) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password))
+                localVarRequestOptions.HeaderParameters.Add("Authorization",
+                    "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< User >("/v1/private/users/{userId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse =
+                Client.Get<User>("/v1/private/users/{userId}", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Fetch1", localVarResponse);
+                var _exception = ExceptionFactory("Fetch1", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -460,64 +439,65 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> Fetch1Async (string userId)
+        public async Task<User> Fetch1Async(string userId)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = await Fetch1AsyncWithHttpInfo(userId);
-             return localVarResponse.Data;
-
+            var localVarResponse = await Fetch1AsyncWithHttpInfo(userId);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<User>> Fetch1AsyncWithHttpInfo (string userId)
+        public async Task<ApiResponse<User>> Fetch1AsyncWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersControllerApi->Fetch1");
+                throw new ApiException(400,
+                    "Missing required parameter 'userId' when calling UsersControllerApi->Fetch1");
 
 
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes =
+            {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts =
+            {
                 "application/json"
             };
-            
+
             foreach (var _contentType in _contentTypes)
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
+
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
             if (userId != null)
-                localVarRequestOptions.PathParameters.Add("userId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(userId)); // path parameter
+                localVarRequestOptions.PathParameters.Add("userId",
+                    ClientUtils.ParameterToString(userId)); // path parameter
 
             // authentication (bearer-token) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password))
+                localVarRequestOptions.HeaderParameters.Add("Authorization",
+                    "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<User>("/v1/private/users/{userId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await AsynchronousClient.GetAsync<User>("/v1/private/users/{userId}",
+                localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Fetch1", localVarResponse);
+                var _exception = ExceptionFactory("Fetch1", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -525,53 +505,53 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;User&gt;</returns>
-        public List<User> List ()
+        public List<User> List()
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<List<User>> localVarResponse = ListWithHttpInfo();
-             return localVarResponse.Data;
+            var localVarResponse = ListWithHttpInfo();
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;User&gt;</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< List<User> > ListWithHttpInfo ()
+        public ApiResponse<List<User>> ListWithHttpInfo()
         {
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes =
+            {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts =
+            {
                 "application/json"
             };
 
-            var localVarContentType = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
             // authentication (bearer-token) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password))
+                localVarRequestOptions.HeaderParameters.Add("Authorization",
+                    "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< List<User> >("/v1/private/users", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<List<User>>("/v1/private/users", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("List", localVarResponse);
+                var _exception = ExceptionFactory("List", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -579,61 +559,59 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;User&gt;</returns>
-        public async System.Threading.Tasks.Task<List<User>> ListAsync ()
+        public async Task<List<User>> ListAsync()
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<List<User>> localVarResponse = await ListAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
+            var localVarResponse = await ListAsyncWithHttpInfo();
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;User&gt;)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<List<User>>> ListAsyncWithHttpInfo ()
+        public async Task<ApiResponse<List<User>>> ListAsyncWithHttpInfo()
         {
+            var localVarRequestOptions = new RequestOptions();
 
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes =
+            {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts =
+            {
                 "application/json"
             };
-            
+
             foreach (var _contentType in _contentTypes)
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
+
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
 
             // authentication (bearer-token) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password))
+                localVarRequestOptions.HeaderParameters.Add("Authorization",
+                    "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<User>>("/v1/private/users", localVarRequestOptions, this.Configuration);
+            var localVarResponse =
+                await AsynchronousClient.GetAsync<List<User>>("/v1/private/users", localVarRequestOptions,
+                    Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("List", localVarResponse);
+                var _exception = ExceptionFactory("List", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
         }
-
     }
 }

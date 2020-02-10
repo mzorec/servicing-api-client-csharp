@@ -11,185 +11,164 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
-using System.Net.Mime;
+using System.Threading.Tasks;
 using LoanStreet.LoanServicing.Client;
 using LoanStreet.LoanServicing.Model;
 
 namespace LoanStreet.LoanServicing.Api
 {
-
     /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
+    ///     Represents a collection of functions to interact with the API endpoints
     /// </summary>
     public interface ILoanPaymentsControllerApiSync : IApiAccessor
     {
         #region Synchronous Operations
+
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="payment"> (optional)</param>
         /// <returns>Payment</returns>
-        Payment CreatePayment (string loanId, Payment payment = default(Payment));
+        Payment CreatePayment(string loanId, Payment payment = default);
 
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="payment"> (optional)</param>
         /// <returns>ApiResponse of Payment</returns>
-        ApiResponse<Payment> CreatePaymentWithHttpInfo (string loanId, Payment payment = default(Payment));
+        ApiResponse<Payment> CreatePaymentWithHttpInfo(string loanId, Payment payment = default);
+
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="paymentId"></param>
         /// <returns>Payment</returns>
-        Payment GetPayment (string loanId, string paymentId);
+        Payment GetPayment(string loanId, string paymentId);
 
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="paymentId"></param>
         /// <returns>ApiResponse of Payment</returns>
-        ApiResponse<Payment> GetPaymentWithHttpInfo (string loanId, string paymentId);
+        ApiResponse<Payment> GetPaymentWithHttpInfo(string loanId, string paymentId);
+
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <returns>List&lt;Payment&gt;</returns>
-        List<Payment> ListPayments (string loanId);
+        List<Payment> ListPayments(string loanId);
 
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <returns>ApiResponse of List&lt;Payment&gt;</returns>
-        ApiResponse<List<Payment>> ListPaymentsWithHttpInfo (string loanId);
+        ApiResponse<List<Payment>> ListPaymentsWithHttpInfo(string loanId);
+
         #endregion Synchronous Operations
     }
 
     /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
+    ///     Represents a collection of functions to interact with the API endpoints
     /// </summary>
     public interface ILoanPaymentsControllerApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="payment"> (optional)</param>
         /// <returns>Task of Payment</returns>
-        System.Threading.Tasks.Task<Payment> CreatePaymentAsync (string loanId, Payment payment = default(Payment));
+        Task<Payment> CreatePaymentAsync(string loanId, Payment payment = default);
 
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="payment"> (optional)</param>
         /// <returns>Task of ApiResponse (Payment)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Payment>> CreatePaymentAsyncWithHttpInfo (string loanId, Payment payment = default(Payment));
+        Task<ApiResponse<Payment>> CreatePaymentAsyncWithHttpInfo(string loanId, Payment payment = default);
+
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="paymentId"></param>
         /// <returns>Task of Payment</returns>
-        System.Threading.Tasks.Task<Payment> GetPaymentAsync (string loanId, string paymentId);
+        Task<Payment> GetPaymentAsync(string loanId, string paymentId);
 
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="paymentId"></param>
         /// <returns>Task of ApiResponse (Payment)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Payment>> GetPaymentAsyncWithHttpInfo (string loanId, string paymentId);
+        Task<ApiResponse<Payment>> GetPaymentAsyncWithHttpInfo(string loanId, string paymentId);
+
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <returns>Task of List&lt;Payment&gt;</returns>
-        System.Threading.Tasks.Task<List<Payment>> ListPaymentsAsync (string loanId);
+        Task<List<Payment>> ListPaymentsAsync(string loanId);
 
         /// <summary>
-        /// 
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <returns>Task of ApiResponse (List&lt;Payment&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Payment>>> ListPaymentsAsyncWithHttpInfo (string loanId);
+        Task<ApiResponse<List<Payment>>> ListPaymentsAsyncWithHttpInfo(string loanId);
+
         #endregion Asynchronous Operations
     }
 
     /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
+    ///     Represents a collection of functions to interact with the API endpoints
     /// </summary>
     public interface ILoanPaymentsControllerApi : ILoanPaymentsControllerApiSync, ILoanPaymentsControllerApiAsync
     {
-
     }
 
     /// <summary>
-    /// Represents a collection of functions to interact with the API endpoints
+    ///     Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class LoanPaymentsControllerApi : ILoanPaymentsControllerApi
+    public class LoanPaymentsControllerApi : ILoanPaymentsControllerApi
     {
-        private LoanStreet.LoanServicing.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoanPaymentsControllerApi"/> class.
+        ///     Initializes a new instance of the <see cref="LoanPaymentsControllerApi" /> class.
         /// </summary>
         /// <returns></returns>
         public LoanPaymentsControllerApi() : this((string) null)
@@ -197,153 +176,156 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoanPaymentsControllerApi"/> class.
+        ///     Initializes a new instance of the <see cref="LoanPaymentsControllerApi" /> class.
         /// </summary>
         /// <returns></returns>
-        public LoanPaymentsControllerApi(String basePath)
+        public LoanPaymentsControllerApi(string basePath)
         {
-            this.Configuration = LoanStreet.LoanServicing.Client.Configuration.MergeConfigurations(
-                LoanStreet.LoanServicing.Client.GlobalConfiguration.Instance,
-                new LoanStreet.LoanServicing.Client.Configuration { BasePath = basePath }
+            Configuration = LoanServicing.Client.Configuration.MergeConfigurations(
+                GlobalConfiguration.Instance,
+                new Configuration {BasePath = basePath}
             );
-            this.Client = new LoanStreet.LoanServicing.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new LoanStreet.LoanServicing.Client.ApiClient(this.Configuration.BasePath);
-            this.ExceptionFactory = LoanStreet.LoanServicing.Client.Configuration.DefaultExceptionFactory;
+            Client = new ApiClient(Configuration.BasePath);
+            AsynchronousClient = new ApiClient(Configuration.BasePath);
+            ExceptionFactory = LoanServicing.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoanPaymentsControllerApi"/> class
-        /// using Configuration object
+        ///     Initializes a new instance of the <see cref="LoanPaymentsControllerApi" /> class
+        ///     using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public LoanPaymentsControllerApi(LoanStreet.LoanServicing.Client.Configuration configuration)
+        public LoanPaymentsControllerApi(Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Configuration = LoanStreet.LoanServicing.Client.Configuration.MergeConfigurations(
-                LoanStreet.LoanServicing.Client.GlobalConfiguration.Instance,
+            Configuration = LoanServicing.Client.Configuration.MergeConfigurations(
+                GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new LoanStreet.LoanServicing.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new LoanStreet.LoanServicing.Client.ApiClient(this.Configuration.BasePath);
-            ExceptionFactory = LoanStreet.LoanServicing.Client.Configuration.DefaultExceptionFactory;
+            Client = new ApiClient(Configuration.BasePath);
+            AsynchronousClient = new ApiClient(Configuration.BasePath);
+            ExceptionFactory = LoanServicing.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoanPaymentsControllerApi"/> class
-        /// using a Configuration object and client instance.
+        ///     Initializes a new instance of the <see cref="LoanPaymentsControllerApi" /> class
+        ///     using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public LoanPaymentsControllerApi(LoanStreet.LoanServicing.Client.ISynchronousClient client,LoanStreet.LoanServicing.Client.IAsynchronousClient asyncClient, LoanStreet.LoanServicing.Client.IReadableConfiguration configuration)
+        public LoanPaymentsControllerApi(ISynchronousClient client, IAsynchronousClient asyncClient,
+            IReadableConfiguration configuration)
         {
-            if(client == null) throw new ArgumentNullException("client");
-            if(asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if(configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
-            this.Client = client;
-            this.AsynchronousClient = asyncClient;
-            this.Configuration = configuration;
-            this.ExceptionFactory = LoanStreet.LoanServicing.Client.Configuration.DefaultExceptionFactory;
+            Client = client;
+            AsynchronousClient = asyncClient;
+            Configuration = configuration;
+            ExceptionFactory = LoanServicing.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// The client for accessing this underlying API asynchronously.
+        ///     The client for accessing this underlying API asynchronously.
         /// </summary>
-        public LoanStreet.LoanServicing.Client.IAsynchronousClient AsynchronousClient { get; set; }
+        public IAsynchronousClient AsynchronousClient { get; set; }
 
         /// <summary>
-        /// The client for accessing this underlying API synchronously.
+        ///     The client for accessing this underlying API synchronously.
         /// </summary>
-        public LoanStreet.LoanServicing.Client.ISynchronousClient Client { get; set; }
+        public ISynchronousClient Client { get; set; }
 
         /// <summary>
-        /// Gets the base path of the API client.
+        ///     Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public String GetBasePath()
+        public string GetBasePath()
         {
-            return this.Configuration.BasePath;
+            return Configuration.BasePath;
         }
 
         /// <summary>
-        /// Gets or sets the configuration object
+        ///     Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public LoanStreet.LoanServicing.Client.IReadableConfiguration Configuration {get; set;}
+        public IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
-        /// Provides a factory method hook for the creation of exceptions.
+        ///     Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public LoanStreet.LoanServicing.Client.ExceptionFactory ExceptionFactory
+        public ExceptionFactory ExceptionFactory
         {
             get
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
-                {
                     throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
-                }
                 return _exceptionFactory;
             }
-            set { _exceptionFactory = value; }
+            set => _exceptionFactory = value;
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="payment"> (optional)</param>
         /// <returns>Payment</returns>
-        public Payment CreatePayment (string loanId, Payment payment = default(Payment))
+        public Payment CreatePayment(string loanId, Payment payment = default)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<Payment> localVarResponse = CreatePaymentWithHttpInfo(loanId, payment);
-             return localVarResponse.Data;
+            var localVarResponse = CreatePaymentWithHttpInfo(loanId, payment);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="payment"> (optional)</param>
         /// <returns>ApiResponse of Payment</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< Payment > CreatePaymentWithHttpInfo (string loanId, Payment payment = default(Payment))
+        public ApiResponse<Payment> CreatePaymentWithHttpInfo(string loanId, Payment payment = default)
         {
             // verify the required parameter 'loanId' is set
             if (loanId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'loanId' when calling LoanPaymentsControllerApi->CreatePayment");
+                throw new ApiException(400,
+                    "Missing required parameter 'loanId' when calling LoanPaymentsControllerApi->CreatePayment");
 
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes =
+            {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts =
+            {
                 "application/json"
             };
 
-            var localVarContentType = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (loanId != null)
-                localVarRequestOptions.PathParameters.Add("loanId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(loanId)); // path parameter
+                localVarRequestOptions.PathParameters.Add("loanId",
+                    ClientUtils.ParameterToString(loanId)); // path parameter
             localVarRequestOptions.Data = payment;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post< Payment >("/v1/private/loans/{loanId}/payments", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Post<Payment>("/v1/private/loans/{loanId}/payments", localVarRequestOptions,
+                Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreatePayment", localVarResponse);
+                var _exception = ExceptionFactory("CreatePayment", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -351,62 +333,64 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="payment"> (optional)</param>
         /// <returns>Task of Payment</returns>
-        public async System.Threading.Tasks.Task<Payment> CreatePaymentAsync (string loanId, Payment payment = default(Payment))
+        public async Task<Payment> CreatePaymentAsync(string loanId, Payment payment = default)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<Payment> localVarResponse = await CreatePaymentAsyncWithHttpInfo(loanId, payment);
-             return localVarResponse.Data;
-
+            var localVarResponse = await CreatePaymentAsyncWithHttpInfo(loanId, payment);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="payment"> (optional)</param>
         /// <returns>Task of ApiResponse (Payment)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<Payment>> CreatePaymentAsyncWithHttpInfo (string loanId, Payment payment = default(Payment))
+        public async Task<ApiResponse<Payment>> CreatePaymentAsyncWithHttpInfo(string loanId, Payment payment = default)
         {
             // verify the required parameter 'loanId' is set
             if (loanId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'loanId' when calling LoanPaymentsControllerApi->CreatePayment");
+                throw new ApiException(400,
+                    "Missing required parameter 'loanId' when calling LoanPaymentsControllerApi->CreatePayment");
 
 
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes =
+            {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts =
+            {
                 "application/json"
             };
-            
+
             foreach (var _contentType in _contentTypes)
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
+
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
             if (loanId != null)
-                localVarRequestOptions.PathParameters.Add("loanId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(loanId)); // path parameter
+                localVarRequestOptions.PathParameters.Add("loanId",
+                    ClientUtils.ParameterToString(loanId)); // path parameter
             localVarRequestOptions.Data = payment;
 
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Payment>("/v1/private/loans/{loanId}/payments", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await AsynchronousClient.PostAsync<Payment>("/v1/private/loans/{loanId}/payments",
+                localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreatePayment", localVarResponse);
+                var _exception = ExceptionFactory("CreatePayment", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -414,63 +398,69 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="paymentId"></param>
         /// <returns>Payment</returns>
-        public Payment GetPayment (string loanId, string paymentId)
+        public Payment GetPayment(string loanId, string paymentId)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<Payment> localVarResponse = GetPaymentWithHttpInfo(loanId, paymentId);
-             return localVarResponse.Data;
+            var localVarResponse = GetPaymentWithHttpInfo(loanId, paymentId);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="paymentId"></param>
         /// <returns>ApiResponse of Payment</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< Payment > GetPaymentWithHttpInfo (string loanId, string paymentId)
+        public ApiResponse<Payment> GetPaymentWithHttpInfo(string loanId, string paymentId)
         {
             // verify the required parameter 'loanId' is set
             if (loanId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'loanId' when calling LoanPaymentsControllerApi->GetPayment");
+                throw new ApiException(400,
+                    "Missing required parameter 'loanId' when calling LoanPaymentsControllerApi->GetPayment");
 
             // verify the required parameter 'paymentId' is set
             if (paymentId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'paymentId' when calling LoanPaymentsControllerApi->GetPayment");
+                throw new ApiException(400,
+                    "Missing required parameter 'paymentId' when calling LoanPaymentsControllerApi->GetPayment");
 
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes =
+            {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts =
+            {
                 "application/json"
             };
 
-            var localVarContentType = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (loanId != null)
-                localVarRequestOptions.PathParameters.Add("loanId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(loanId)); // path parameter
+                localVarRequestOptions.PathParameters.Add("loanId",
+                    ClientUtils.ParameterToString(loanId)); // path parameter
             if (paymentId != null)
-                localVarRequestOptions.PathParameters.Add("paymentId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(paymentId)); // path parameter
+                localVarRequestOptions.PathParameters.Add("paymentId",
+                    ClientUtils.ParameterToString(paymentId)); // path parameter
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< Payment >("/v1/private/loans/{loanId}/payments/{paymentId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<Payment>("/v1/private/loans/{loanId}/payments/{paymentId}",
+                localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPayment", localVarResponse);
+                var _exception = ExceptionFactory("GetPayment", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -478,66 +468,70 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="paymentId"></param>
         /// <returns>Task of Payment</returns>
-        public async System.Threading.Tasks.Task<Payment> GetPaymentAsync (string loanId, string paymentId)
+        public async Task<Payment> GetPaymentAsync(string loanId, string paymentId)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<Payment> localVarResponse = await GetPaymentAsyncWithHttpInfo(loanId, paymentId);
-             return localVarResponse.Data;
-
+            var localVarResponse = await GetPaymentAsyncWithHttpInfo(loanId, paymentId);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <param name="paymentId"></param>
         /// <returns>Task of ApiResponse (Payment)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<Payment>> GetPaymentAsyncWithHttpInfo (string loanId, string paymentId)
+        public async Task<ApiResponse<Payment>> GetPaymentAsyncWithHttpInfo(string loanId, string paymentId)
         {
             // verify the required parameter 'loanId' is set
             if (loanId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'loanId' when calling LoanPaymentsControllerApi->GetPayment");
+                throw new ApiException(400,
+                    "Missing required parameter 'loanId' when calling LoanPaymentsControllerApi->GetPayment");
 
             // verify the required parameter 'paymentId' is set
             if (paymentId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'paymentId' when calling LoanPaymentsControllerApi->GetPayment");
+                throw new ApiException(400,
+                    "Missing required parameter 'paymentId' when calling LoanPaymentsControllerApi->GetPayment");
 
 
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes =
+            {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts =
+            {
                 "application/json"
             };
-            
+
             foreach (var _contentType in _contentTypes)
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
+
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
             if (loanId != null)
-                localVarRequestOptions.PathParameters.Add("loanId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(loanId)); // path parameter
+                localVarRequestOptions.PathParameters.Add("loanId",
+                    ClientUtils.ParameterToString(loanId)); // path parameter
             if (paymentId != null)
-                localVarRequestOptions.PathParameters.Add("paymentId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(paymentId)); // path parameter
+                localVarRequestOptions.PathParameters.Add("paymentId",
+                    ClientUtils.ParameterToString(paymentId)); // path parameter
 
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Payment>("/v1/private/loans/{loanId}/payments/{paymentId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await AsynchronousClient.GetAsync<Payment>(
+                "/v1/private/loans/{loanId}/payments/{paymentId}", localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetPayment", localVarResponse);
+                var _exception = ExceptionFactory("GetPayment", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -545,55 +539,59 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <returns>List&lt;Payment&gt;</returns>
-        public List<Payment> ListPayments (string loanId)
+        public List<Payment> ListPayments(string loanId)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<List<Payment>> localVarResponse = ListPaymentsWithHttpInfo(loanId);
-             return localVarResponse.Data;
+            var localVarResponse = ListPaymentsWithHttpInfo(loanId);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <returns>ApiResponse of List&lt;Payment&gt;</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< List<Payment> > ListPaymentsWithHttpInfo (string loanId)
+        public ApiResponse<List<Payment>> ListPaymentsWithHttpInfo(string loanId)
         {
             // verify the required parameter 'loanId' is set
             if (loanId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'loanId' when calling LoanPaymentsControllerApi->ListPayments");
+                throw new ApiException(400,
+                    "Missing required parameter 'loanId' when calling LoanPaymentsControllerApi->ListPayments");
 
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes =
+            {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts =
+            {
                 "application/json"
             };
 
-            var localVarContentType = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            var localVarContentType = ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
-            var localVarAccept = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            var localVarAccept = ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (loanId != null)
-                localVarRequestOptions.PathParameters.Add("loanId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(loanId)); // path parameter
+                localVarRequestOptions.PathParameters.Add("loanId",
+                    ClientUtils.ParameterToString(loanId)); // path parameter
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< List<Payment> >("/v1/private/loans/{loanId}/payments", localVarRequestOptions, this.Configuration);
+            var localVarResponse = Client.Get<List<Payment>>("/v1/private/loans/{loanId}/payments",
+                localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListPayments", localVarResponse);
+                var _exception = ExceptionFactory("ListPayments", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -601,63 +599,65 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <returns>Task of List&lt;Payment&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Payment>> ListPaymentsAsync (string loanId)
+        public async Task<List<Payment>> ListPaymentsAsync(string loanId)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<List<Payment>> localVarResponse = await ListPaymentsAsyncWithHttpInfo(loanId);
-             return localVarResponse.Data;
-
+            var localVarResponse = await ListPaymentsAsyncWithHttpInfo(loanId);
+            return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loanId"></param>
         /// <returns>Task of ApiResponse (List&lt;Payment&gt;)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<List<Payment>>> ListPaymentsAsyncWithHttpInfo (string loanId)
+        public async Task<ApiResponse<List<Payment>>> ListPaymentsAsyncWithHttpInfo(string loanId)
         {
             // verify the required parameter 'loanId' is set
             if (loanId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'loanId' when calling LoanPaymentsControllerApi->ListPayments");
+                throw new ApiException(400,
+                    "Missing required parameter 'loanId' when calling LoanPaymentsControllerApi->ListPayments");
 
 
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
+            var localVarRequestOptions = new RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes =
+            {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts =
+            {
                 "application/json"
             };
-            
+
             foreach (var _contentType in _contentTypes)
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
+
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
             if (loanId != null)
-                localVarRequestOptions.PathParameters.Add("loanId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(loanId)); // path parameter
+                localVarRequestOptions.PathParameters.Add("loanId",
+                    ClientUtils.ParameterToString(loanId)); // path parameter
 
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Payment>>("/v1/private/loans/{loanId}/payments", localVarRequestOptions, this.Configuration);
+            var localVarResponse =
+                await AsynchronousClient.GetAsync<List<Payment>>("/v1/private/loans/{loanId}/payments",
+                    localVarRequestOptions, Configuration);
 
-            if (this.ExceptionFactory != null)
+            if (ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListPayments", localVarResponse);
+                var _exception = ExceptionFactory("ListPayments", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
         }
-
     }
 }

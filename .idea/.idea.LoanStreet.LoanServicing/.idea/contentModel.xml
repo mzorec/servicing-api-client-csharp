@@ -7,9 +7,6 @@
     <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
     <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll" t="Include" />
     <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.1/build/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.1/build/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.1/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
     <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_LoanStreet.LoanServicing.-820420240.00" t="ExcludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
@@ -18,14 +15,24 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="src/LoanStreet.LoanServicing" t="IncludeRecursive">
         <e p="Api" t="Include">
+          <e p="AuthorizationApi.cs" t="Include" />
+          <e p="DealsApi.cs" t="Include" />
           <e p="DealsControllerApi.cs" t="Include" />
+          <e p="FinanceApi.cs" t="Include" />
           <e p="FinanceControllerApi.cs" t="Include" />
+          <e p="InstitutionsApi.cs" t="Include" />
           <e p="InstitutionsControllerApi.cs" t="Include" />
+          <e p="LoanInvoicesApi.cs" t="Include" />
           <e p="LoanInvoicesControllerApi.cs" t="Include" />
+          <e p="LoanPaymentsApi.cs" t="Include" />
           <e p="LoanPaymentsControllerApi.cs" t="Include" />
+          <e p="LoansApi.cs" t="Include" />
           <e p="LoansControllerApi.cs" t="Include" />
+          <e p="LoanSyndicationsApi.cs" t="Include" />
           <e p="LoanSyndicationsControllerApi.cs" t="Include" />
+          <e p="SystemStatusApi.cs" t="Include" />
           <e p="SystemStatusControllerApi.cs" t="Include" />
+          <e p="UsersApi.cs" t="Include" />
           <e p="UsersControllerApi.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
@@ -51,6 +58,7 @@
         <e p="LoanStreet.LoanServicing.csproj" t="IncludeRecursive" />
         <e p="Model" t="Include">
           <e p="Address.cs" t="Include" />
+          <e p="Authentication.cs" t="Include" />
           <e p="BusinessDayResponse.cs" t="Include" />
           <e p="Charge.cs" t="Include" />
           <e p="CreateUserRequest.cs" t="Include" />
@@ -58,14 +66,21 @@
           <e p="Facility.cs" t="Include" />
           <e p="FixedPaymentInterestTerms.cs" t="Include" />
           <e p="FixedPaymentInterestTermsAllOf.cs" t="Include" />
+          <e p="GrantedAuthority.cs" t="Include" />
           <e p="Identity.cs" t="Include" />
           <e p="Institution.cs" t="Include" />
           <e p="InterestCharge.cs" t="Include" />
           <e p="InterestTerms.cs" t="Include" />
           <e p="Invoice.cs" t="Include" />
+          <e p="Jwt.cs" t="Include" />
+          <e p="JwtAuthenticationToken.cs" t="Include" />
           <e p="Loan.cs" t="Include" />
+          <e p="LoanRole.cs" t="Include" />
           <e p="LoanSaleData.cs" t="Include" />
+          <e p="LocalDatePeriod.cs" t="Include" />
           <e p="Money.cs" t="Include" />
+          <e p="PasswordAuthRequest.cs" t="Include" />
+          <e p="PasswordAuthResponse.cs" t="Include" />
           <e p="Payment.cs" t="Include" />
           <e p="PrincipalCharge.cs" t="Include" />
           <e p="ProfileData.cs" t="Include" />
@@ -100,52 +115,7 @@
         </e>
       </e>
       <e p="src/LoanStreet.LoanServicing.Test" t="IncludeRecursive">
-        <e p="Api" t="Include">
-          <e p="DealsControllerApiTests.cs" t="Include" />
-          <e p="FinanceControllerApiTests.cs" t="Include" />
-          <e p="InstitutionsControllerApiTests.cs" t="Include" />
-          <e p="LoanInvoicesControllerApiTests.cs" t="Include" />
-          <e p="LoanPaymentsControllerApiTests.cs" t="Include" />
-          <e p="LoansControllerApiTests.cs" t="Include" />
-          <e p="LoanSyndicationsControllerApiTests.cs" t="Include" />
-          <e p="SystemStatusControllerApiTests.cs" t="Include" />
-          <e p="UsersControllerApiTests.cs" t="Include" />
-        </e>
-        <e p="bin" t="ExcludeRecursive" />
         <e p="LoanStreet.LoanServicing.Test.csproj" t="IncludeRecursive" />
-        <e p="Model" t="Include">
-          <e p="AddressTests.cs" t="Include" />
-          <e p="BusinessDayResponseTests.cs" t="Include" />
-          <e p="ChargeTests.cs" t="Include" />
-          <e p="CreateUserRequestTests.cs" t="Include" />
-          <e p="DealTests.cs" t="Include" />
-          <e p="FacilityTests.cs" t="Include" />
-          <e p="FixedPaymentInterestTermsAllOfTests.cs" t="Include" />
-          <e p="FixedPaymentInterestTermsTests.cs" t="Include" />
-          <e p="IdentityTests.cs" t="Include" />
-          <e p="InstitutionTests.cs" t="Include" />
-          <e p="InterestChargeTests.cs" t="Include" />
-          <e p="InterestTermsTests.cs" t="Include" />
-          <e p="InvoiceTests.cs" t="Include" />
-          <e p="LoanSaleDataTests.cs" t="Include" />
-          <e p="LoanTests.cs" t="Include" />
-          <e p="MoneyTests.cs" t="Include" />
-          <e p="PaymentTests.cs" t="Include" />
-          <e p="PrincipalChargeTests.cs" t="Include" />
-          <e p="ProfileDataTests.cs" t="Include" />
-          <e p="RecordLoanSaleRequestTests.cs" t="Include" />
-          <e p="SaleTests.cs" t="Include" />
-          <e p="SystemStatusResponseTests.cs" t="Include" />
-          <e p="TrancheTests.cs" t="Include" />
-          <e p="UserTests.cs" t="Include" />
-        </e>
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
-            <e p="netcoreapp2.0" t="Include">
-              <e p="LoanStreet.LoanServicing.Test.Program.cs" t="Include" />
-            </e>
-          </e>
-        </e>
       </e>
     </e>
   </component>

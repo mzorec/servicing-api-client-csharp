@@ -3,13 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**EffectiveDate** | **DateTime** |  | 
+**AnnualRate** | **double** |  | 
+**DayCount** | **string** |  | 
+**Compounding** | **string** |  | 
 **Benchmark** | **string** |  | [optional] 
 **InterestType** | **string** |  | 
 **NumAmortizationPeriods** | **int** |  | 
-**Compounding** | **string** |  | 
-**EffectiveDate** | **DateTime** |  | 
-**AnnualRate** | **string** |  | 
-**DayCount** | **string** |  | 
 **NumInterestOnlyPeriods** | **int** |  | 
 **NumPeriods** | **int** |  | 
 **PaymentFrequency** | **string** |  | 

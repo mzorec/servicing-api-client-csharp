@@ -39,30 +39,10 @@ namespace LoanStreet.LoanServicing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Invoice" /> class.
         /// </summary>
-        /// <param name="startDate">startDate (required).</param>
-        /// <param name="endDate">endDate (required).</param>
-        public Invoice(DateTime startDate = default(DateTime), DateTime endDate = default(DateTime))
+        /// <param name="period">period.</param>
+        public Invoice(LocalDatePeriod period = default(LocalDatePeriod))
         {
-            // to ensure "startDate" is required (not null)
-            if (startDate == null)
-            {
-                throw new InvalidDataException("startDate is a required property for Invoice and cannot be null");
-            }
-            else
-            {
-                this.StartDate = startDate;
-            }
-
-            // to ensure "endDate" is required (not null)
-            if (endDate == null)
-            {
-                throw new InvalidDataException("endDate is a required property for Invoice and cannot be null");
-            }
-            else
-            {
-                this.EndDate = endDate;
-            }
-
+            this.Period = period;
         }
         
         /// <summary>
@@ -72,18 +52,10 @@ namespace LoanStreet.LoanServicing.Model
         public string InvoiceId { get; private set; }
 
         /// <summary>
-        /// Gets or Sets StartDate
+        /// Gets or Sets Period
         /// </summary>
-        [DataMember(Name="startDate", EmitDefaultValue=false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime StartDate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets EndDate
-        /// </summary>
-        [DataMember(Name="endDate", EmitDefaultValue=false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime EndDate { get; set; }
+        [DataMember(Name="period", EmitDefaultValue=false)]
+        public LocalDatePeriod Period { get; set; }
 
         /// <summary>
         /// Gets or Sets Charges
@@ -100,8 +72,7 @@ namespace LoanStreet.LoanServicing.Model
             var sb = new StringBuilder();
             sb.Append("class Invoice {\n");
             sb.Append("  InvoiceId: ").Append(InvoiceId).Append("\n");
-            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
-            sb.Append("  EndDate: ").Append(EndDate).Append("\n");
+            sb.Append("  Period: ").Append(Period).Append("\n");
             sb.Append("  Charges: ").Append(Charges).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -143,14 +114,9 @@ namespace LoanStreet.LoanServicing.Model
                     this.InvoiceId.Equals(input.InvoiceId))
                 ) && 
                 (
-                    this.StartDate == input.StartDate ||
-                    (this.StartDate != null &&
-                    this.StartDate.Equals(input.StartDate))
-                ) && 
-                (
-                    this.EndDate == input.EndDate ||
-                    (this.EndDate != null &&
-                    this.EndDate.Equals(input.EndDate))
+                    this.Period == input.Period ||
+                    (this.Period != null &&
+                    this.Period.Equals(input.Period))
                 ) && 
                 (
                     this.Charges == input.Charges ||
@@ -171,10 +137,8 @@ namespace LoanStreet.LoanServicing.Model
                 int hashCode = 41;
                 if (this.InvoiceId != null)
                     hashCode = hashCode * 59 + this.InvoiceId.GetHashCode();
-                if (this.StartDate != null)
-                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
-                if (this.EndDate != null)
-                    hashCode = hashCode * 59 + this.EndDate.GetHashCode();
+                if (this.Period != null)
+                    hashCode = hashCode * 59 + this.Period.GetHashCode();
                 if (this.Charges != null)
                     hashCode = hashCode * 59 + this.Charges.GetHashCode();
                 return hashCode;

@@ -32,38 +32,6 @@ namespace LoanStreet.LoanServicing.Model
     public partial class Loan :  IEquatable<Loan>, IValidatableObject
     {
         /// <summary>
-        /// Defines Inner
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum InnerEnum
-        {
-            /// <summary>
-            /// Enum BORROWER for value: BORROWER
-            /// </summary>
-            [EnumMember(Value = "BORROWER")]
-            BORROWER = 1,
-
-            /// <summary>
-            /// Enum AGENT for value: AGENT
-            /// </summary>
-            [EnumMember(Value = "AGENT")]
-            AGENT = 2,
-
-            /// <summary>
-            /// Enum LENDER for value: LENDER
-            /// </summary>
-            [EnumMember(Value = "LENDER")]
-            LENDER = 3
-
-        }
-
-
-        /// <summary>
-        /// Gets or Sets Permissions
-        /// </summary>
-        [DataMember(Name="permissions", EmitDefaultValue=false)]
-        public Dictionary<string, InnerEnum> Permissions { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="Loan" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -72,13 +40,13 @@ namespace LoanStreet.LoanServicing.Model
         /// Initializes a new instance of the <see cref="Loan" /> class.
         /// </summary>
         /// <param name="firstPaymentDate">firstPaymentDate (required).</param>
+        /// <param name="institutions">institutions (required).</param>
         /// <param name="interestTerms">interestTerms.</param>
-        /// <param name="permissions">permissions (required).</param>
         /// <param name="principalAmount">principalAmount (required).</param>
         /// <param name="maxParticipationPercent">maxParticipationPercent (required).</param>
         /// <param name="name">name.</param>
         /// <param name="timeZoneId">timeZoneId (required).</param>
-        public Loan(DateTime firstPaymentDate = default(DateTime), InterestTerms interestTerms = default(InterestTerms), Dictionary<string, InnerEnum> permissions = default(Dictionary<string, InnerEnum>), Money principalAmount = default(Money), string maxParticipationPercent = default(string), string name = default(string), string timeZoneId = default(string))
+        public Loan(DateTime firstPaymentDate = default(DateTime), List<LoanRole> institutions = default(List<LoanRole>), InterestTerms interestTerms = default(InterestTerms), Money principalAmount = default(Money), string maxParticipationPercent = default(string), string name = default(string), string timeZoneId = default(string))
         {
             // to ensure "firstPaymentDate" is required (not null)
             if (firstPaymentDate == null)
@@ -90,7 +58,16 @@ namespace LoanStreet.LoanServicing.Model
                 this.FirstPaymentDate = firstPaymentDate;
             }
 
-            this.Permissions = permissions;
+            // to ensure "institutions" is required (not null)
+            if (institutions == null)
+            {
+                throw new InvalidDataException("institutions is a required property for Loan and cannot be null");
+            }
+            else
+            {
+                this.Institutions = institutions;
+            }
+
             // to ensure "principalAmount" is required (not null)
             if (principalAmount == null)
             {
@@ -139,6 +116,12 @@ namespace LoanStreet.LoanServicing.Model
         public DateTime FirstPaymentDate { get; set; }
 
         /// <summary>
+        /// Gets or Sets Institutions
+        /// </summary>
+        [DataMember(Name="institutions", EmitDefaultValue=false)]
+        public List<LoanRole> Institutions { get; set; }
+
+        /// <summary>
         /// Gets or Sets InterestTerms
         /// </summary>
         [DataMember(Name="interestTerms", EmitDefaultValue=false)]
@@ -178,8 +161,8 @@ namespace LoanStreet.LoanServicing.Model
             sb.Append("class Loan {\n");
             sb.Append("  LoanId: ").Append(LoanId).Append("\n");
             sb.Append("  FirstPaymentDate: ").Append(FirstPaymentDate).Append("\n");
+            sb.Append("  Institutions: ").Append(Institutions).Append("\n");
             sb.Append("  InterestTerms: ").Append(InterestTerms).Append("\n");
-            sb.Append("  Permissions: ").Append(Permissions).Append("\n");
             sb.Append("  PrincipalAmount: ").Append(PrincipalAmount).Append("\n");
             sb.Append("  MaxParticipationPercent: ").Append(MaxParticipationPercent).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -229,13 +212,15 @@ namespace LoanStreet.LoanServicing.Model
                     this.FirstPaymentDate.Equals(input.FirstPaymentDate))
                 ) && 
                 (
+                    this.Institutions == input.Institutions ||
+                    this.Institutions != null &&
+                    input.Institutions != null &&
+                    this.Institutions.SequenceEqual(input.Institutions)
+                ) && 
+                (
                     this.InterestTerms == input.InterestTerms ||
                     (this.InterestTerms != null &&
                     this.InterestTerms.Equals(input.InterestTerms))
-                ) && 
-                (
-                    this.Permissions == input.Permissions ||
-                    this.Permissions.SequenceEqual(input.Permissions)
                 ) && 
                 (
                     this.PrincipalAmount == input.PrincipalAmount ||
@@ -272,9 +257,10 @@ namespace LoanStreet.LoanServicing.Model
                     hashCode = hashCode * 59 + this.LoanId.GetHashCode();
                 if (this.FirstPaymentDate != null)
                     hashCode = hashCode * 59 + this.FirstPaymentDate.GetHashCode();
+                if (this.Institutions != null)
+                    hashCode = hashCode * 59 + this.Institutions.GetHashCode();
                 if (this.InterestTerms != null)
                     hashCode = hashCode * 59 + this.InterestTerms.GetHashCode();
-                hashCode = hashCode * 59 + this.Permissions.GetHashCode();
                 if (this.PrincipalAmount != null)
                     hashCode = hashCode * 59 + this.PrincipalAmount.GetHashCode();
                 if (this.MaxParticipationPercent != null)

@@ -1,5 +1,5 @@
 using System;
-using LoanStreet.LoanServicing;
+using System.Collections.Generic;
 using LoanStreet.LoanServicing.Api;
 using LoanStreet.LoanServicing.Client;
 using LoanStreet.LoanServicing.Model;
@@ -9,31 +9,69 @@ namespace LoanStreet.LoanServicing.Examples.institutions
 {
     public class InstutitionsCRUD
     {
-
-        public InstutitionsCRUD()
+        [Fact]
+        public void CreateInstitution()
         {
-            ClientFactory.SetBearerToken("YourToken");
+
+            // 1) Set Credentials.  You will need to uncomment and set the following line
+            // ClientFactory.SetCredentials("YourUser", "YourPassword");
+            
+            // 2) Create an Institution Model Instance
+            var institution = GetTestInstitution();
+            
+            // 3) Get the Institutions Client
+            var client = ClientFactory.GetInstitutionsController();
+            
+            // 4) Send the Institution model to the Servicing API!
+            var createdInstitution = client.Create(institution);
+
+            // 5) The API will respond with an instance of the institution it created.  This instance will have
+            //     a populated `institutionId` property, this is the unique identifier the Servicing system has
+            //     assign to the Institution.
+            //
+            //     When creating or updating, we should always use the instance returned by the client, rather
+            //     than the instance we sent to the API 
+            //    
+            //    Strictly for testing purposes, verify that we received a response
+            Assert.NotNull(createdInstitution);
         }
-        
-        public static T Execute<T>(Func<InstitutionsControllerApi, T> toExecute)
-        {
-            try
-            {
-                var controller = ClientFactory.GetInstitutionsControllerApi();
 
-                var created = toExecute(controller);
-                return created;
-            }
-            catch (ApiException ae)
-            {
-                Console.WriteLine(ae);
-                throw;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+
+        [Fact]
+        public void GetInstitution()
+        {
+            
+            // 1) Set Credentials.  You will need to uncomment and set the following line
+            // ClientFactory.SetCredentials("YourUser", "YourPassword");
+            
+            // 2) Get the institutions client
+            var client = ClientFactory.GetInstitutionsController();
+            
+            // 3) Create an institution to use for this test
+            var createdInstitution = client.Create(GetTestInstitution());
+            
+            // 4) Load the created institution by ID
+            var loadedById = client.Fetch(createdInstitution.InstitutionId);
+            
+            // 5) Strictly for testing purposes, load the institution by id
+            Assert.NotNull(loadedById);
+        }
+
+
+        [Fact]
+        public void ListInstitutions()
+        {
+            // 1) Set Credentials.  You will need to uncomment and set the following line
+            // ClientFactory.SetCredentials("YourUser", "YourPassword");
+            
+            // 2) Get the Institutions client
+            var client = ClientFactory.GetInstitutionsController();
+
+            // 3) List institutions my user is permitted to view
+            List<Institution> allInstitutions = client.FetchAll(); 
+            
+            // 4) Strictly for testing purposes, assert that we received a response.
+            Assert.NotNull(allInstitutions);
         }
         
         public static Institution GetTestInstitution()
@@ -52,43 +90,6 @@ namespace LoanStreet.LoanServicing.Examples.institutions
                 ticker,
                 address
             );
-            
-            
         }
-
-    
-        
-        [Fact]
-        public void ListInstitutions()
-        {
-            var allInstitutions = Execute(api => api.FetchAll());
-            Assert.NotNull(allInstitutions);
-        }
-
-        [Fact]
-        public void CreateInstitution()
-        {
-
-            var institution = GetTestInstitution();
-
-            var createdInstitution = Execute(api => api.Create(institution));
-            
-            Assert.NotNull(createdInstitution);
-        }
-
-
-        [Fact]
-        public void GetInstitution()
-        {
-
-            var createdInstitution = Execute(api => api.Create(GetTestInstitution()));
-            
-            Assert.NotNull(createdInstitution);
-
-            var loadedById = Execute(api => api.Fetch(createdInstitution.InstitutionId));
-            
-            Assert.NotNull(loadedById);
-        }
-        
     }
 }

@@ -10,44 +10,63 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using OpenAPIDateConverter = LoanStreet.LoanServicing.Client.OpenAPIDateConverter;
+using System.Runtime.Serialization;
+using System.Text;
+using Newtonsoft.Json;
 
 namespace LoanStreet.LoanServicing.Model
 {
     /// <summary>
-    /// RecordLoanSaleRequest
+    ///     RecordLoanSaleRequest
     /// </summary>
     [DataContract]
-    public partial class RecordLoanSaleRequest :  IEquatable<RecordLoanSaleRequest>, IValidatableObject
+    public class RecordLoanSaleRequest : IEquatable<RecordLoanSaleRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RecordLoanSaleRequest" /> class.
+        ///     Initializes a new instance of the <see cref="RecordLoanSaleRequest" /> class.
         /// </summary>
         /// <param name="saleData">saleData.</param>
-        public RecordLoanSaleRequest(LoanSaleData saleData = default(LoanSaleData))
+        public RecordLoanSaleRequest(LoanSaleData saleData = default)
         {
-            this.SaleData = saleData;
+            SaleData = saleData;
         }
-        
+
         /// <summary>
-        /// Gets or Sets SaleData
+        ///     Gets or Sets SaleData
         /// </summary>
-        [DataMember(Name="saleData", EmitDefaultValue=false)]
+        [DataMember(Name = "saleData", EmitDefaultValue = false)]
         public LoanSaleData SaleData { get; set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        ///     Returns true if RecordLoanSaleRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of RecordLoanSaleRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(RecordLoanSaleRequest input)
+        {
+            if (input == null)
+                return false;
+
+            return
+                SaleData == input.SaleData ||
+                SaleData != null &&
+                SaleData.Equals(input.SaleData);
+        }
+
+        /// <summary>
+        ///     To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+
+        /// <summary>
+        ///     Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
@@ -58,9 +77,9 @@ namespace LoanStreet.LoanServicing.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
-        /// Returns the JSON string presentation of the object
+        ///     Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
@@ -69,57 +88,28 @@ namespace LoanStreet.LoanServicing.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
+        ///     Returns true if objects are equal
         /// </summary>
         /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RecordLoanSaleRequest);
+            return Equals(input as RecordLoanSaleRequest);
         }
 
         /// <summary>
-        /// Returns true if RecordLoanSaleRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of RecordLoanSaleRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(RecordLoanSaleRequest input)
-        {
-            if (input == null)
-                return false;
-
-            return 
-                (
-                    this.SaleData == input.SaleData ||
-                    (this.SaleData != null &&
-                    this.SaleData.Equals(input.SaleData))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
+        ///     Gets the hash code
         /// </summary>
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
-                if (this.SaleData != null)
-                    hashCode = hashCode * 59 + this.SaleData.GetHashCode();
+                var hashCode = 41;
+                if (SaleData != null)
+                    hashCode = hashCode * 59 + SaleData.GetHashCode();
                 return hashCode;
             }
         }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
-        }
     }
-
 }

@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LoanId** | **string** |  | [readonly] 
 **FirstPaymentDate** | **DateTime** |  | 
+**Institutions** | [**List&lt;LoanRole&gt;**](LoanRole.md) |  | 
 **InterestTerms** | [**InterestTerms**](InterestTerms.md) |  | [optional] 
-**Permissions** | **Dictionary&lt;string, string&gt;** |  | 
 **PrincipalAmount** | [**Money**](Money.md) |  | 
 **MaxParticipationPercent** | **string** |  | 
 **Name** | **string** |  | [optional] 

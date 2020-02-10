@@ -70,20 +70,20 @@ namespace LoanStreet.LoanServicing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Charge" /> class.
         /// </summary>
-        /// <param name="date">date (required).</param>
-        /// <param name="chargeId">chargeId (required).</param>
         /// <param name="amount">amount (required).</param>
+        /// <param name="period">period.</param>
+        /// <param name="chargeId">chargeId (required).</param>
         /// <param name="type">type (required).</param>
-        public Charge(DateTime date = default(DateTime), string chargeId = default(string), Money amount = default(Money), TypeEnum type = default(TypeEnum))
+        public Charge(Money amount = default(Money), LocalDatePeriod period = default(LocalDatePeriod), string chargeId = default(string), TypeEnum type = default(TypeEnum))
         {
-            // to ensure "date" is required (not null)
-            if (date == null)
+            // to ensure "amount" is required (not null)
+            if (amount == null)
             {
-                throw new InvalidDataException("date is a required property for Charge and cannot be null");
+                throw new InvalidDataException("amount is a required property for Charge and cannot be null");
             }
             else
             {
-                this.Date = date;
+                this.Amount = amount;
             }
 
             // to ensure "chargeId" is required (not null)
@@ -96,37 +96,27 @@ namespace LoanStreet.LoanServicing.Model
                 this.ChargeId = chargeId;
             }
 
-            // to ensure "amount" is required (not null)
-            if (amount == null)
-            {
-                throw new InvalidDataException("amount is a required property for Charge and cannot be null");
-            }
-            else
-            {
-                this.Amount = amount;
-            }
-
             this.Type = type;
+            this.Period = period;
         }
         
         /// <summary>
-        /// Gets or Sets Date
+        /// Gets or Sets Amount
         /// </summary>
-        [DataMember(Name="date", EmitDefaultValue=false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        [DataMember(Name="amount", EmitDefaultValue=false)]
+        public Money Amount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Period
+        /// </summary>
+        [DataMember(Name="period", EmitDefaultValue=false)]
+        public LocalDatePeriod Period { get; set; }
 
         /// <summary>
         /// Gets or Sets ChargeId
         /// </summary>
         [DataMember(Name="chargeId", EmitDefaultValue=false)]
         public string ChargeId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Amount
-        /// </summary>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
-        public Money Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -136,9 +126,9 @@ namespace LoanStreet.LoanServicing.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Charge {\n");
-            sb.Append("  Date: ").Append(Date).Append("\n");
-            sb.Append("  ChargeId: ").Append(ChargeId).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  Period: ").Append(Period).Append("\n");
+            sb.Append("  ChargeId: ").Append(ChargeId).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -175,19 +165,19 @@ namespace LoanStreet.LoanServicing.Model
 
             return 
                 (
-                    this.Date == input.Date ||
-                    (this.Date != null &&
-                    this.Date.Equals(input.Date))
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
+                ) && 
+                (
+                    this.Period == input.Period ||
+                    (this.Period != null &&
+                    this.Period.Equals(input.Period))
                 ) && 
                 (
                     this.ChargeId == input.ChargeId ||
                     (this.ChargeId != null &&
                     this.ChargeId.Equals(input.ChargeId))
-                ) && 
-                (
-                    this.Amount == input.Amount ||
-                    (this.Amount != null &&
-                    this.Amount.Equals(input.Amount))
                 ) && 
                 (
                     this.Type == input.Type ||
@@ -204,12 +194,12 @@ namespace LoanStreet.LoanServicing.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
-                if (this.ChargeId != null)
-                    hashCode = hashCode * 59 + this.ChargeId.GetHashCode();
                 if (this.Amount != null)
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
+                if (this.Period != null)
+                    hashCode = hashCode * 59 + this.Period.GetHashCode();
+                if (this.ChargeId != null)
+                    hashCode = hashCode * 59 + this.ChargeId.GetHashCode();
                 hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
