@@ -39,32 +39,30 @@ namespace LoanStreet.LoanServicing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Facility" /> class.
         /// </summary>
-        /// <param name="name">name (required).</param>
-        /// <param name="totalCommitmentAmount">totalCommitmentAmount (required).</param>
-        public Facility(string name = default(string), Money totalCommitmentAmount = default(Money))
+        /// <param name="name">name.</param>
+        /// <param name="timeZoneId">timeZoneId (required).</param>
+        /// <param name="institutions">institutions (required).</param>
+        /// <param name="tranches">tranches (required).</param>
+        /// <param name="borrowings">borrowings (required).</param>
+        public Facility(string name = default(string), string timeZoneId = default(string), List<FacilityInstitutionDto> institutions = default(List<FacilityInstitutionDto>), List<Tranche> tranches = default(List<Tranche>), List<Borrowing> borrowings = default(List<Borrowing>))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new InvalidDataException("name is a required property for Facility and cannot be null");
-            }
-            else
-            {
-                this.Name = name;
-            }
-
-            // to ensure "totalCommitmentAmount" is required (not null)
-            if (totalCommitmentAmount == null)
-            {
-                throw new InvalidDataException("totalCommitmentAmount is a required property for Facility and cannot be null");
-            }
-            else
-            {
-                this.TotalCommitmentAmount = totalCommitmentAmount;
-            }
-
+            // to ensure "timeZoneId" is required (not null)
+            this.TimeZoneId = timeZoneId ?? throw new ArgumentNullException("timeZoneId is a required property for Facility and cannot be null");;
+            // to ensure "institutions" is required (not null)
+            this.Institutions = institutions ?? throw new ArgumentNullException("institutions is a required property for Facility and cannot be null");;
+            // to ensure "tranches" is required (not null)
+            this.Tranches = tranches ?? throw new ArgumentNullException("tranches is a required property for Facility and cannot be null");;
+            // to ensure "borrowings" is required (not null)
+            this.Borrowings = borrowings ?? throw new ArgumentNullException("borrowings is a required property for Facility and cannot be null");;
+            this.Name = name;
         }
         
+        /// <summary>
+        /// Gets or Sets FacilityId
+        /// </summary>
+        [DataMember(Name="facilityId", EmitDefaultValue=false)]
+        public string FacilityId { get; private set; }
+
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
@@ -72,10 +70,28 @@ namespace LoanStreet.LoanServicing.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets TotalCommitmentAmount
+        /// Gets or Sets TimeZoneId
         /// </summary>
-        [DataMember(Name="totalCommitmentAmount", EmitDefaultValue=false)]
-        public Money TotalCommitmentAmount { get; set; }
+        [DataMember(Name="timeZoneId", EmitDefaultValue=false)]
+        public string TimeZoneId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Institutions
+        /// </summary>
+        [DataMember(Name="institutions", EmitDefaultValue=false)]
+        public List<FacilityInstitutionDto> Institutions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Tranches
+        /// </summary>
+        [DataMember(Name="tranches", EmitDefaultValue=false)]
+        public List<Tranche> Tranches { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Borrowings
+        /// </summary>
+        [DataMember(Name="borrowings", EmitDefaultValue=false)]
+        public List<Borrowing> Borrowings { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -85,8 +101,12 @@ namespace LoanStreet.LoanServicing.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Facility {\n");
+            sb.Append("  FacilityId: ").Append(FacilityId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  TotalCommitmentAmount: ").Append(TotalCommitmentAmount).Append("\n");
+            sb.Append("  TimeZoneId: ").Append(TimeZoneId).Append("\n");
+            sb.Append("  Institutions: ").Append(Institutions).Append("\n");
+            sb.Append("  Tranches: ").Append(Tranches).Append("\n");
+            sb.Append("  Borrowings: ").Append(Borrowings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,14 +142,37 @@ namespace LoanStreet.LoanServicing.Model
 
             return 
                 (
+                    this.FacilityId == input.FacilityId ||
+                    (this.FacilityId != null &&
+                    this.FacilityId.Equals(input.FacilityId))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.TotalCommitmentAmount == input.TotalCommitmentAmount ||
-                    (this.TotalCommitmentAmount != null &&
-                    this.TotalCommitmentAmount.Equals(input.TotalCommitmentAmount))
+                    this.TimeZoneId == input.TimeZoneId ||
+                    (this.TimeZoneId != null &&
+                    this.TimeZoneId.Equals(input.TimeZoneId))
+                ) && 
+                (
+                    this.Institutions == input.Institutions ||
+                    this.Institutions != null &&
+                    input.Institutions != null &&
+                    this.Institutions.SequenceEqual(input.Institutions)
+                ) && 
+                (
+                    this.Tranches == input.Tranches ||
+                    this.Tranches != null &&
+                    input.Tranches != null &&
+                    this.Tranches.SequenceEqual(input.Tranches)
+                ) && 
+                (
+                    this.Borrowings == input.Borrowings ||
+                    this.Borrowings != null &&
+                    input.Borrowings != null &&
+                    this.Borrowings.SequenceEqual(input.Borrowings)
                 );
         }
 
@@ -142,10 +185,18 @@ namespace LoanStreet.LoanServicing.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.FacilityId != null)
+                    hashCode = hashCode * 59 + this.FacilityId.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.TotalCommitmentAmount != null)
-                    hashCode = hashCode * 59 + this.TotalCommitmentAmount.GetHashCode();
+                if (this.TimeZoneId != null)
+                    hashCode = hashCode * 59 + this.TimeZoneId.GetHashCode();
+                if (this.Institutions != null)
+                    hashCode = hashCode * 59 + this.Institutions.GetHashCode();
+                if (this.Tranches != null)
+                    hashCode = hashCode * 59 + this.Tranches.GetHashCode();
+                if (this.Borrowings != null)
+                    hashCode = hashCode * 59 + this.Borrowings.GetHashCode();
                 return hashCode;
             }
         }

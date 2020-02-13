@@ -39,43 +39,39 @@ namespace LoanStreet.LoanServicing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tranche" /> class.
         /// </summary>
-        /// <param name="trancheId">trancheId (required).</param>
-        /// <param name="commitmentAmount">commitmentAmount (required).</param>
-        public Tranche(string trancheId = default(string), Money commitmentAmount = default(Money))
+        /// <param name="name">name.</param>
+        /// <param name="draw">draw.</param>
+        /// <param name="interest">interest.</param>
+        public Tranche(string name = default(string), DrawRules draw = default(DrawRules), InterestRules interest = default(InterestRules))
         {
-            // to ensure "trancheId" is required (not null)
-            if (trancheId == null)
-            {
-                throw new InvalidDataException("trancheId is a required property for Tranche and cannot be null");
-            }
-            else
-            {
-                this.TrancheId = trancheId;
-            }
-
-            // to ensure "commitmentAmount" is required (not null)
-            if (commitmentAmount == null)
-            {
-                throw new InvalidDataException("commitmentAmount is a required property for Tranche and cannot be null");
-            }
-            else
-            {
-                this.CommitmentAmount = commitmentAmount;
-            }
-
+            this.Name = name;
+            this.Draw = draw;
+            this.Interest = interest;
         }
         
         /// <summary>
         /// Gets or Sets TrancheId
         /// </summary>
         [DataMember(Name="trancheId", EmitDefaultValue=false)]
-        public string TrancheId { get; set; }
+        public string TrancheId { get; private set; }
 
         /// <summary>
-        /// Gets or Sets CommitmentAmount
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name="commitmentAmount", EmitDefaultValue=false)]
-        public Money CommitmentAmount { get; set; }
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Draw
+        /// </summary>
+        [DataMember(Name="draw", EmitDefaultValue=false)]
+        public DrawRules Draw { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Interest
+        /// </summary>
+        [DataMember(Name="interest", EmitDefaultValue=false)]
+        public InterestRules Interest { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -86,7 +82,9 @@ namespace LoanStreet.LoanServicing.Model
             var sb = new StringBuilder();
             sb.Append("class Tranche {\n");
             sb.Append("  TrancheId: ").Append(TrancheId).Append("\n");
-            sb.Append("  CommitmentAmount: ").Append(CommitmentAmount).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Draw: ").Append(Draw).Append("\n");
+            sb.Append("  Interest: ").Append(Interest).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,9 +125,19 @@ namespace LoanStreet.LoanServicing.Model
                     this.TrancheId.Equals(input.TrancheId))
                 ) && 
                 (
-                    this.CommitmentAmount == input.CommitmentAmount ||
-                    (this.CommitmentAmount != null &&
-                    this.CommitmentAmount.Equals(input.CommitmentAmount))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Draw == input.Draw ||
+                    (this.Draw != null &&
+                    this.Draw.Equals(input.Draw))
+                ) && 
+                (
+                    this.Interest == input.Interest ||
+                    (this.Interest != null &&
+                    this.Interest.Equals(input.Interest))
                 );
         }
 
@@ -144,8 +152,12 @@ namespace LoanStreet.LoanServicing.Model
                 int hashCode = 41;
                 if (this.TrancheId != null)
                     hashCode = hashCode * 59 + this.TrancheId.GetHashCode();
-                if (this.CommitmentAmount != null)
-                    hashCode = hashCode * 59 + this.CommitmentAmount.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Draw != null)
+                    hashCode = hashCode * 59 + this.Draw.GetHashCode();
+                if (this.Interest != null)
+                    hashCode = hashCode * 59 + this.Interest.GetHashCode();
                 return hashCode;
             }
         }

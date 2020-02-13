@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InvoiceId** | **string** |  | [readonly] 
+**Date** | **DateTime** |  | [optional] 
 **Period** | [**LocalDatePeriod**](LocalDatePeriod.md) |  | [optional] 
 **Charges** | [**List&lt;Charge&gt;**](Charge.md) |  | [readonly] 
 

@@ -44,25 +44,9 @@ namespace LoanStreet.LoanServicing.Model
         public PasswordAuthRequest(string email = default(string), string password = default(string))
         {
             // to ensure "email" is required (not null)
-            if (email == null)
-            {
-                throw new InvalidDataException("email is a required property for PasswordAuthRequest and cannot be null");
-            }
-            else
-            {
-                this.Email = email;
-            }
-
+            this.Email = email ?? throw new ArgumentNullException("email is a required property for PasswordAuthRequest and cannot be null");;
             // to ensure "password" is required (not null)
-            if (password == null)
-            {
-                throw new InvalidDataException("password is a required property for PasswordAuthRequest and cannot be null");
-            }
-            else
-            {
-                this.Password = password;
-            }
-
+            this.Password = password ?? throw new ArgumentNullException("password is a required property for PasswordAuthRequest and cannot be null");;
         }
         
         /// <summary>

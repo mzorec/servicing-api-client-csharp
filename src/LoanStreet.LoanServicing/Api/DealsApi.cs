@@ -57,7 +57,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dealId"></param>
         /// <returns>Deal</returns>
-        Deal FetchDeal (string dealId);
+        Deal GetDeal (string dealId);
 
         /// <summary>
         /// 
@@ -68,7 +68,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dealId"></param>
         /// <returns>ApiResponse of Deal</returns>
-        ApiResponse<Deal> FetchDealWithHttpInfo (string dealId);
+        ApiResponse<Deal> GetDealWithHttpInfo (string dealId);
         /// <summary>
         /// 
         /// </summary>
@@ -77,7 +77,7 @@ namespace LoanStreet.LoanServicing.Api
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;Deal&gt;</returns>
-        List<Deal> FetchDeals ();
+        List<Deal> ListDeals ();
 
         /// <summary>
         /// 
@@ -87,7 +87,7 @@ namespace LoanStreet.LoanServicing.Api
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;Deal&gt;</returns>
-        ApiResponse<List<Deal>> FetchDealsWithHttpInfo ();
+        ApiResponse<List<Deal>> ListDealsWithHttpInfo ();
         /// <summary>
         /// 
         /// </summary>
@@ -150,7 +150,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dealId"></param>
         /// <returns>Task of Deal</returns>
-        System.Threading.Tasks.Task<Deal> FetchDealAsync (string dealId);
+        System.Threading.Tasks.Task<Deal> GetDealAsync (string dealId);
 
         /// <summary>
         /// 
@@ -161,7 +161,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dealId"></param>
         /// <returns>Task of ApiResponse (Deal)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Deal>> FetchDealAsyncWithHttpInfo (string dealId);
+        System.Threading.Tasks.Task<ApiResponse<Deal>> GetDealAsyncWithHttpInfo (string dealId);
         /// <summary>
         /// 
         /// </summary>
@@ -170,7 +170,7 @@ namespace LoanStreet.LoanServicing.Api
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;Deal&gt;</returns>
-        System.Threading.Tasks.Task<List<Deal>> FetchDealsAsync ();
+        System.Threading.Tasks.Task<List<Deal>> ListDealsAsync ();
 
         /// <summary>
         /// 
@@ -180,7 +180,7 @@ namespace LoanStreet.LoanServicing.Api
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;Deal&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Deal>>> FetchDealsAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<List<Deal>>> ListDealsAsyncWithHttpInfo ();
         /// <summary>
         /// 
         /// </summary>
@@ -449,9 +449,9 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dealId"></param>
         /// <returns>Deal</returns>
-        public Deal FetchDeal (string dealId)
+        public Deal GetDeal (string dealId)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<Deal> localVarResponse = FetchDealWithHttpInfo(dealId);
+             LoanStreet.LoanServicing.Client.ApiResponse<Deal> localVarResponse = GetDealWithHttpInfo(dealId);
              return localVarResponse.Data;
         }
 
@@ -461,11 +461,11 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dealId"></param>
         /// <returns>ApiResponse of Deal</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< Deal > FetchDealWithHttpInfo (string dealId)
+        public LoanStreet.LoanServicing.Client.ApiResponse< Deal > GetDealWithHttpInfo (string dealId)
         {
             // verify the required parameter 'dealId' is set
             if (dealId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'dealId' when calling DealsApi->FetchDeal");
+                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'dealId' when calling DealsApi->GetDeal");
 
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
 
@@ -498,7 +498,7 @@ namespace LoanStreet.LoanServicing.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FetchDeal", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetDeal", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -511,9 +511,9 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dealId"></param>
         /// <returns>Task of Deal</returns>
-        public async System.Threading.Tasks.Task<Deal> FetchDealAsync (string dealId)
+        public async System.Threading.Tasks.Task<Deal> GetDealAsync (string dealId)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<Deal> localVarResponse = await FetchDealAsyncWithHttpInfo(dealId);
+             LoanStreet.LoanServicing.Client.ApiResponse<Deal> localVarResponse = await GetDealAsyncWithHttpInfo(dealId);
              return localVarResponse.Data;
 
         }
@@ -524,11 +524,11 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dealId"></param>
         /// <returns>Task of ApiResponse (Deal)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<Deal>> FetchDealAsyncWithHttpInfo (string dealId)
+        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<Deal>> GetDealAsyncWithHttpInfo (string dealId)
         {
             // verify the required parameter 'dealId' is set
             if (dealId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'dealId' when calling DealsApi->FetchDeal");
+                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'dealId' when calling DealsApi->GetDeal");
 
 
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
@@ -563,7 +563,7 @@ namespace LoanStreet.LoanServicing.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FetchDeal", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetDeal", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -575,9 +575,9 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;Deal&gt;</returns>
-        public List<Deal> FetchDeals ()
+        public List<Deal> ListDeals ()
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<List<Deal>> localVarResponse = FetchDealsWithHttpInfo();
+             LoanStreet.LoanServicing.Client.ApiResponse<List<Deal>> localVarResponse = ListDealsWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -586,7 +586,7 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;Deal&gt;</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< List<Deal> > FetchDealsWithHttpInfo ()
+        public LoanStreet.LoanServicing.Client.ApiResponse< List<Deal> > ListDealsWithHttpInfo ()
         {
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
 
@@ -617,7 +617,7 @@ namespace LoanStreet.LoanServicing.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FetchDeals", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListDeals", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -629,9 +629,9 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;Deal&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Deal>> FetchDealsAsync ()
+        public async System.Threading.Tasks.Task<List<Deal>> ListDealsAsync ()
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<List<Deal>> localVarResponse = await FetchDealsAsyncWithHttpInfo();
+             LoanStreet.LoanServicing.Client.ApiResponse<List<Deal>> localVarResponse = await ListDealsAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
@@ -641,7 +641,7 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;Deal&gt;)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<List<Deal>>> FetchDealsAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<List<Deal>>> ListDealsAsyncWithHttpInfo ()
         {
 
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
@@ -674,7 +674,7 @@ namespace LoanStreet.LoanServicing.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FetchDeals", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListDeals", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

@@ -44,25 +44,9 @@ namespace LoanStreet.LoanServicing.Model
         public Money(string amount = default(string), string currency = default(string))
         {
             // to ensure "amount" is required (not null)
-            if (amount == null)
-            {
-                throw new InvalidDataException("amount is a required property for Money and cannot be null");
-            }
-            else
-            {
-                this.Amount = amount;
-            }
-
+            this.Amount = amount ?? throw new ArgumentNullException("amount is a required property for Money and cannot be null");;
             // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new InvalidDataException("currency is a required property for Money and cannot be null");
-            }
-            else
-            {
-                this.Currency = currency;
-            }
-
+            this.Currency = currency ?? throw new ArgumentNullException("currency is a required property for Money and cannot be null");;
         }
         
         /// <summary>

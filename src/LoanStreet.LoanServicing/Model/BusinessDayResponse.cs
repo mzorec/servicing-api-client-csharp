@@ -42,16 +42,7 @@ namespace LoanStreet.LoanServicing.Model
         /// <param name="date">date (required).</param>
         public BusinessDayResponse(DateTime date = default(DateTime))
         {
-            // to ensure "date" is required (not null)
-            if (date == null)
-            {
-                throw new InvalidDataException("date is a required property for BusinessDayResponse and cannot be null");
-            }
-            else
-            {
-                this.Date = date;
-            }
-
+            this.Date = date;
         }
         
         /// <summary>

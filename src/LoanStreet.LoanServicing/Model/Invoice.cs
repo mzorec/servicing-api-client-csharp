@@ -39,9 +39,11 @@ namespace LoanStreet.LoanServicing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Invoice" /> class.
         /// </summary>
+        /// <param name="date">date.</param>
         /// <param name="period">period.</param>
-        public Invoice(LocalDatePeriod period = default(LocalDatePeriod))
+        public Invoice(DateTime date = default(DateTime), LocalDatePeriod period = default(LocalDatePeriod))
         {
+            this.Date = date;
             this.Period = period;
         }
         
@@ -50,6 +52,13 @@ namespace LoanStreet.LoanServicing.Model
         /// </summary>
         [DataMember(Name="invoiceId", EmitDefaultValue=false)]
         public string InvoiceId { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Date
+        /// </summary>
+        [DataMember(Name="date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// Gets or Sets Period
@@ -72,6 +81,7 @@ namespace LoanStreet.LoanServicing.Model
             var sb = new StringBuilder();
             sb.Append("class Invoice {\n");
             sb.Append("  InvoiceId: ").Append(InvoiceId).Append("\n");
+            sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  Period: ").Append(Period).Append("\n");
             sb.Append("  Charges: ").Append(Charges).Append("\n");
             sb.Append("}\n");
@@ -114,6 +124,11 @@ namespace LoanStreet.LoanServicing.Model
                     this.InvoiceId.Equals(input.InvoiceId))
                 ) && 
                 (
+                    this.Date == input.Date ||
+                    (this.Date != null &&
+                    this.Date.Equals(input.Date))
+                ) && 
+                (
                     this.Period == input.Period ||
                     (this.Period != null &&
                     this.Period.Equals(input.Period))
@@ -137,6 +152,8 @@ namespace LoanStreet.LoanServicing.Model
                 int hashCode = 41;
                 if (this.InvoiceId != null)
                     hashCode = hashCode * 59 + this.InvoiceId.GetHashCode();
+                if (this.Date != null)
+                    hashCode = hashCode * 59 + this.Date.GetHashCode();
                 if (this.Period != null)
                     hashCode = hashCode * 59 + this.Period.GetHashCode();
                 if (this.Charges != null)

@@ -30,382 +30,13 @@ namespace LoanStreet.LoanServicing.Model
     /// InterestTerms
     /// </summary>
     [DataContract]
-    [JsonConverter(typeof(JsonSubtypes), "InterestType")]
-    [JsonSubtypes.KnownSubType(typeof(FixedPaymentInterestTerms), "FixedPaymentInterestTerms")]
-    [JsonSubtypes.KnownSubType(typeof(FixedPaymentInterestTerms), "FixedPaymentInterestTerms")]
+    [JsonConverter(typeof(JsonSubtypes), "Type")]
+    [JsonSubtypes.KnownSubType(typeof(FloatingInterestTerms), "FloatingInterestTerms")]
+    [JsonSubtypes.KnownSubType(typeof(FixedPaymentInterestRules), "FixedPaymentInterestRules")]
+    [JsonSubtypes.KnownSubType(typeof(FixedPaymentInterestRules), "FixedPaymentInterestRules")]
+    [JsonSubtypes.KnownSubType(typeof(FloatingInterestTerms), "FloatingInterestTerms")]
     public partial class InterestTerms :  IEquatable<InterestTerms>, IValidatableObject
     {
-        /// <summary>
-        /// Defines DayCount
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum DayCountEnum
-        {
-            /// <summary>
-            /// Enum ACTUAL360 for value: ACTUAL_360
-            /// </summary>
-            [EnumMember(Value = "ACTUAL_360")]
-            ACTUAL360 = 1,
-
-            /// <summary>
-            /// Enum ACTUAL365 for value: ACTUAL_365
-            /// </summary>
-            [EnumMember(Value = "ACTUAL_365")]
-            ACTUAL365 = 2,
-
-            /// <summary>
-            /// Enum ACTUAL360ADJUSTED for value: ACTUAL_360_ADJUSTED
-            /// </summary>
-            [EnumMember(Value = "ACTUAL_360_ADJUSTED")]
-            ACTUAL360ADJUSTED = 3,
-
-            /// <summary>
-            /// Enum ACTUALACTUALICMA for value: ACTUAL_ACTUAL_ICMA
-            /// </summary>
-            [EnumMember(Value = "ACTUAL_ACTUAL_ICMA")]
-            ACTUALACTUALICMA = 4,
-
-            /// <summary>
-            /// Enum ACTUALACTUALISDA for value: ACTUAL_ACTUAL_ISDA
-            /// </summary>
-            [EnumMember(Value = "ACTUAL_ACTUAL_ISDA")]
-            ACTUALACTUALISDA = 5,
-
-            /// <summary>
-            /// Enum THIRTY360 for value: THIRTY_360
-            /// </summary>
-            [EnumMember(Value = "THIRTY_360")]
-            THIRTY360 = 6
-
-        }
-
-        /// <summary>
-        /// Gets or Sets DayCount
-        /// </summary>
-        [DataMember(Name="dayCount", EmitDefaultValue=false)]
-        public DayCountEnum DayCount { get; set; }
-        /// <summary>
-        /// Defines Compounding
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum CompoundingEnum
-        {
-            /// <summary>
-            /// Enum SIMPLE for value: SIMPLE
-            /// </summary>
-            [EnumMember(Value = "SIMPLE")]
-            SIMPLE = 1,
-
-            /// <summary>
-            /// Enum COMPOUNDED for value: COMPOUNDED
-            /// </summary>
-            [EnumMember(Value = "COMPOUNDED")]
-            COMPOUNDED = 2,
-
-            /// <summary>
-            /// Enum CONTINUOUS for value: CONTINUOUS
-            /// </summary>
-            [EnumMember(Value = "CONTINUOUS")]
-            CONTINUOUS = 3,
-
-            /// <summary>
-            /// Enum SIMPLETHENCOMPOUNDED for value: SIMPLE_THEN_COMPOUNDED
-            /// </summary>
-            [EnumMember(Value = "SIMPLE_THEN_COMPOUNDED")]
-            SIMPLETHENCOMPOUNDED = 4
-
-        }
-
-        /// <summary>
-        /// Gets or Sets Compounding
-        /// </summary>
-        [DataMember(Name="compounding", EmitDefaultValue=false)]
-        public CompoundingEnum Compounding { get; set; }
-        /// <summary>
-        /// Defines Benchmark
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum BenchmarkEnum
-        {
-            /// <summary>
-            /// Enum LIBOROVERNIGHT for value: LIBOR_OVERNIGHT
-            /// </summary>
-            [EnumMember(Value = "LIBOR_OVERNIGHT")]
-            LIBOROVERNIGHT = 1,
-
-            /// <summary>
-            /// Enum LIBOR1WEEK for value: LIBOR_1_WEEK
-            /// </summary>
-            [EnumMember(Value = "LIBOR_1_WEEK")]
-            LIBOR1WEEK = 2,
-
-            /// <summary>
-            /// Enum LIBOR1MONTH for value: LIBOR_1_MONTH
-            /// </summary>
-            [EnumMember(Value = "LIBOR_1_MONTH")]
-            LIBOR1MONTH = 3,
-
-            /// <summary>
-            /// Enum LIBOR2MONTH for value: LIBOR_2_MONTH
-            /// </summary>
-            [EnumMember(Value = "LIBOR_2_MONTH")]
-            LIBOR2MONTH = 4,
-
-            /// <summary>
-            /// Enum LIBOR3MONTH for value: LIBOR_3_MONTH
-            /// </summary>
-            [EnumMember(Value = "LIBOR_3_MONTH")]
-            LIBOR3MONTH = 5,
-
-            /// <summary>
-            /// Enum LIBOR6MONTH for value: LIBOR_6_MONTH
-            /// </summary>
-            [EnumMember(Value = "LIBOR_6_MONTH")]
-            LIBOR6MONTH = 6,
-
-            /// <summary>
-            /// Enum LIBOR12MONTH for value: LIBOR_12_MONTH
-            /// </summary>
-            [EnumMember(Value = "LIBOR_12_MONTH")]
-            LIBOR12MONTH = 7,
-
-            /// <summary>
-            /// Enum PRIME for value: PRIME
-            /// </summary>
-            [EnumMember(Value = "PRIME")]
-            PRIME = 8,
-
-            /// <summary>
-            /// Enum FEDERALFUNDS for value: FEDERAL_FUNDS
-            /// </summary>
-            [EnumMember(Value = "FEDERAL_FUNDS")]
-            FEDERALFUNDS = 9,
-
-            /// <summary>
-            /// Enum SOFR for value: SOFR
-            /// </summary>
-            [EnumMember(Value = "SOFR")]
-            SOFR = 10,
-
-            /// <summary>
-            /// Enum FHLB for value: FHLB
-            /// </summary>
-            [EnumMember(Value = "FHLB")]
-            FHLB = 11,
-
-            /// <summary>
-            /// Enum LIBORSWAP for value: LIBOR_SWAP
-            /// </summary>
-            [EnumMember(Value = "LIBOR_SWAP")]
-            LIBORSWAP = 12,
-
-            /// <summary>
-            /// Enum USTREASURYOTR1YEAR for value: US_TREASURY_OTR_1_YEAR
-            /// </summary>
-            [EnumMember(Value = "US_TREASURY_OTR_1_YEAR")]
-            USTREASURYOTR1YEAR = 13,
-
-            /// <summary>
-            /// Enum USTREASURYOTR2YEAR for value: US_TREASURY_OTR_2_YEAR
-            /// </summary>
-            [EnumMember(Value = "US_TREASURY_OTR_2_YEAR")]
-            USTREASURYOTR2YEAR = 14,
-
-            /// <summary>
-            /// Enum USTREASURYOTR5YEAR for value: US_TREASURY_OTR_5_YEAR
-            /// </summary>
-            [EnumMember(Value = "US_TREASURY_OTR_5_YEAR")]
-            USTREASURYOTR5YEAR = 15,
-
-            /// <summary>
-            /// Enum USTREASURYOTR10YEAR for value: US_TREASURY_OTR_10_YEAR
-            /// </summary>
-            [EnumMember(Value = "US_TREASURY_OTR_10_YEAR")]
-            USTREASURYOTR10YEAR = 16,
-
-            /// <summary>
-            /// Enum USTREASURYOTR30YEAR for value: US_TREASURY_OTR_30_YEAR
-            /// </summary>
-            [EnumMember(Value = "US_TREASURY_OTR_30_YEAR")]
-            USTREASURYOTR30YEAR = 17,
-
-            /// <summary>
-            /// Enum USTREASURYCMT1YEAR for value: US_TREASURY_CMT_1_YEAR
-            /// </summary>
-            [EnumMember(Value = "US_TREASURY_CMT_1_YEAR")]
-            USTREASURYCMT1YEAR = 18,
-
-            /// <summary>
-            /// Enum USTREASURYCMT2YEAR for value: US_TREASURY_CMT_2_YEAR
-            /// </summary>
-            [EnumMember(Value = "US_TREASURY_CMT_2_YEAR")]
-            USTREASURYCMT2YEAR = 19,
-
-            /// <summary>
-            /// Enum USTREASURYCMT5YEAR for value: US_TREASURY_CMT_5_YEAR
-            /// </summary>
-            [EnumMember(Value = "US_TREASURY_CMT_5_YEAR")]
-            USTREASURYCMT5YEAR = 20,
-
-            /// <summary>
-            /// Enum USTREASURYCMT7YEAR for value: US_TREASURY_CMT_7_YEAR
-            /// </summary>
-            [EnumMember(Value = "US_TREASURY_CMT_7_YEAR")]
-            USTREASURYCMT7YEAR = 21,
-
-            /// <summary>
-            /// Enum USTREASURYCMT10YEAR for value: US_TREASURY_CMT_10_YEAR
-            /// </summary>
-            [EnumMember(Value = "US_TREASURY_CMT_10_YEAR")]
-            USTREASURYCMT10YEAR = 22,
-
-            /// <summary>
-            /// Enum USTREASURYCMT20YEAR for value: US_TREASURY_CMT_20_YEAR
-            /// </summary>
-            [EnumMember(Value = "US_TREASURY_CMT_20_YEAR")]
-            USTREASURYCMT20YEAR = 23,
-
-            /// <summary>
-            /// Enum USTREASURYCMT30YEAR for value: US_TREASURY_CMT_30_YEAR
-            /// </summary>
-            [EnumMember(Value = "US_TREASURY_CMT_30_YEAR")]
-            USTREASURYCMT30YEAR = 24
-
-        }
-
-        /// <summary>
-        /// Gets or Sets Benchmark
-        /// </summary>
-        [DataMember(Name="benchmark", EmitDefaultValue=false)]
-        public BenchmarkEnum? Benchmark { get; set; }
-        /// <summary>
-        /// Defines InterestType
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum InterestTypeEnum
-        {
-            /// <summary>
-            /// Enum FIXEDPAYMENT for value: FIXED_PAYMENT
-            /// </summary>
-            [EnumMember(Value = "FIXED_PAYMENT")]
-            FIXEDPAYMENT = 1,
-
-            /// <summary>
-            /// Enum FIXEDRATE for value: FIXED_RATE
-            /// </summary>
-            [EnumMember(Value = "FIXED_RATE")]
-            FIXEDRATE = 2,
-
-            /// <summary>
-            /// Enum FLOATING for value: FLOATING
-            /// </summary>
-            [EnumMember(Value = "FLOATING")]
-            FLOATING = 3,
-
-            /// <summary>
-            /// Enum FIXEDFLOATING for value: FIXED_FLOATING
-            /// </summary>
-            [EnumMember(Value = "FIXED_FLOATING")]
-            FIXEDFLOATING = 4,
-
-            /// <summary>
-            /// Enum FLOATINGFIXED for value: FLOATING_FIXED
-            /// </summary>
-            [EnumMember(Value = "FLOATING_FIXED")]
-            FLOATINGFIXED = 5,
-
-            /// <summary>
-            /// Enum ADJUSTABLERATE for value: ADJUSTABLE_RATE
-            /// </summary>
-            [EnumMember(Value = "ADJUSTABLE_RATE")]
-            ADJUSTABLERATE = 6
-
-        }
-
-        /// <summary>
-        /// Gets or Sets InterestType
-        /// </summary>
-        [DataMember(Name="interestType", EmitDefaultValue=false)]
-        public InterestTypeEnum InterestType { get; set; }
-        /// <summary>
-        /// Defines PaymentFrequency
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum PaymentFrequencyEnum
-        {
-            /// <summary>
-            /// Enum ONCE for value: ONCE
-            /// </summary>
-            [EnumMember(Value = "ONCE")]
-            ONCE = 1,
-
-            /// <summary>
-            /// Enum ANNUALLY for value: ANNUALLY
-            /// </summary>
-            [EnumMember(Value = "ANNUALLY")]
-            ANNUALLY = 2,
-
-            /// <summary>
-            /// Enum SEMIANNUALLY for value: SEMIANNUALLY
-            /// </summary>
-            [EnumMember(Value = "SEMIANNUALLY")]
-            SEMIANNUALLY = 3,
-
-            /// <summary>
-            /// Enum EVERYFOURTHMONTH for value: EVERY_FOURTH_MONTH
-            /// </summary>
-            [EnumMember(Value = "EVERY_FOURTH_MONTH")]
-            EVERYFOURTHMONTH = 4,
-
-            /// <summary>
-            /// Enum QUARTERLY for value: QUARTERLY
-            /// </summary>
-            [EnumMember(Value = "QUARTERLY")]
-            QUARTERLY = 5,
-
-            /// <summary>
-            /// Enum BIMONTHLY for value: BIMONTHLY
-            /// </summary>
-            [EnumMember(Value = "BIMONTHLY")]
-            BIMONTHLY = 6,
-
-            /// <summary>
-            /// Enum MONTHLY for value: MONTHLY
-            /// </summary>
-            [EnumMember(Value = "MONTHLY")]
-            MONTHLY = 7,
-
-            /// <summary>
-            /// Enum EVERYFOURTHWEEK for value: EVERY_FOURTH_WEEK
-            /// </summary>
-            [EnumMember(Value = "EVERY_FOURTH_WEEK")]
-            EVERYFOURTHWEEK = 8,
-
-            /// <summary>
-            /// Enum BIWEEKLY for value: BIWEEKLY
-            /// </summary>
-            [EnumMember(Value = "BIWEEKLY")]
-            BIWEEKLY = 9,
-
-            /// <summary>
-            /// Enum WEEKLY for value: WEEKLY
-            /// </summary>
-            [EnumMember(Value = "WEEKLY")]
-            WEEKLY = 10,
-
-            /// <summary>
-            /// Enum DAILY for value: DAILY
-            /// </summary>
-            [EnumMember(Value = "DAILY")]
-            DAILY = 11
-
-        }
-
-        /// <summary>
-        /// Gets or Sets PaymentFrequency
-        /// </summary>
-        [DataMember(Name="paymentFrequency", EmitDefaultValue=false)]
-        public PaymentFrequencyEnum PaymentFrequency { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="InterestTerms" /> class.
         /// </summary>
@@ -414,105 +45,27 @@ namespace LoanStreet.LoanServicing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InterestTerms" /> class.
         /// </summary>
-        /// <param name="effectiveDate">effectiveDate (required).</param>
-        /// <param name="annualRate">annualRate (required).</param>
-        /// <param name="dayCount">dayCount (required).</param>
-        /// <param name="compounding">compounding (required).</param>
-        /// <param name="benchmark">benchmark.</param>
-        /// <param name="interestType">interestType (required).</param>
-        /// <param name="numAmortizationPeriods">numAmortizationPeriods (required).</param>
-        /// <param name="numInterestOnlyPeriods">numInterestOnlyPeriods (required).</param>
-        /// <param name="numPeriods">numPeriods (required).</param>
-        /// <param name="paymentFrequency">paymentFrequency (required).</param>
-        public InterestTerms(DateTime effectiveDate = default(DateTime), double annualRate = default(double), DayCountEnum dayCount = default(DayCountEnum), CompoundingEnum compounding = default(CompoundingEnum), BenchmarkEnum? benchmark = default(BenchmarkEnum?), InterestTypeEnum interestType = default(InterestTypeEnum), int numAmortizationPeriods = default(int), int numInterestOnlyPeriods = default(int), int numPeriods = default(int), PaymentFrequencyEnum paymentFrequency = default(PaymentFrequencyEnum))
+        /// <param name="date">date (required).</param>
+        /// <param name="type">type (required).</param>
+        public InterestTerms(DateTime date = default(DateTime), string type = default(string))
         {
-            // to ensure "effectiveDate" is required (not null)
-            if (effectiveDate == null)
-            {
-                throw new InvalidDataException("effectiveDate is a required property for InterestTerms and cannot be null");
-            }
-            else
-            {
-                this.EffectiveDate = effectiveDate;
-            }
-
-            // to ensure "annualRate" is required (not null)
-            if (annualRate == null)
-            {
-                throw new InvalidDataException("annualRate is a required property for InterestTerms and cannot be null");
-            }
-            else
-            {
-                this.AnnualRate = annualRate;
-            }
-
-            this.DayCount = dayCount;
-            this.Compounding = compounding;
-            this.InterestType = interestType;
-            // to ensure "numAmortizationPeriods" is required (not null)
-            if (numAmortizationPeriods == null)
-            {
-                throw new InvalidDataException("numAmortizationPeriods is a required property for InterestTerms and cannot be null");
-            }
-            else
-            {
-                this.NumAmortizationPeriods = numAmortizationPeriods;
-            }
-
-            // to ensure "numInterestOnlyPeriods" is required (not null)
-            if (numInterestOnlyPeriods == null)
-            {
-                throw new InvalidDataException("numInterestOnlyPeriods is a required property for InterestTerms and cannot be null");
-            }
-            else
-            {
-                this.NumInterestOnlyPeriods = numInterestOnlyPeriods;
-            }
-
-            // to ensure "numPeriods" is required (not null)
-            if (numPeriods == null)
-            {
-                throw new InvalidDataException("numPeriods is a required property for InterestTerms and cannot be null");
-            }
-            else
-            {
-                this.NumPeriods = numPeriods;
-            }
-
-            this.PaymentFrequency = paymentFrequency;
-            this.Benchmark = benchmark;
+            this.Date = date;
+            // to ensure "type" is required (not null)
+            this.Type = type ?? throw new ArgumentNullException("type is a required property for InterestTerms and cannot be null");;
         }
         
         /// <summary>
-        /// Gets or Sets EffectiveDate
+        /// Gets or Sets Date
         /// </summary>
-        [DataMember(Name="effectiveDate", EmitDefaultValue=false)]
+        [DataMember(Name="date", EmitDefaultValue=false)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime EffectiveDate { get; set; }
+        public DateTime Date { get; set; }
 
         /// <summary>
-        /// Gets or Sets AnnualRate
+        /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name="annualRate", EmitDefaultValue=false)]
-        public double AnnualRate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets NumAmortizationPeriods
-        /// </summary>
-        [DataMember(Name="numAmortizationPeriods", EmitDefaultValue=false)]
-        public int NumAmortizationPeriods { get; set; }
-
-        /// <summary>
-        /// Gets or Sets NumInterestOnlyPeriods
-        /// </summary>
-        [DataMember(Name="numInterestOnlyPeriods", EmitDefaultValue=false)]
-        public int NumInterestOnlyPeriods { get; set; }
-
-        /// <summary>
-        /// Gets or Sets NumPeriods
-        /// </summary>
-        [DataMember(Name="numPeriods", EmitDefaultValue=false)]
-        public int NumPeriods { get; set; }
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -522,16 +75,8 @@ namespace LoanStreet.LoanServicing.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InterestTerms {\n");
-            sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
-            sb.Append("  AnnualRate: ").Append(AnnualRate).Append("\n");
-            sb.Append("  DayCount: ").Append(DayCount).Append("\n");
-            sb.Append("  Compounding: ").Append(Compounding).Append("\n");
-            sb.Append("  Benchmark: ").Append(Benchmark).Append("\n");
-            sb.Append("  InterestType: ").Append(InterestType).Append("\n");
-            sb.Append("  NumAmortizationPeriods: ").Append(NumAmortizationPeriods).Append("\n");
-            sb.Append("  NumInterestOnlyPeriods: ").Append(NumInterestOnlyPeriods).Append("\n");
-            sb.Append("  NumPeriods: ").Append(NumPeriods).Append("\n");
-            sb.Append("  PaymentFrequency: ").Append(PaymentFrequency).Append("\n");
+            sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -567,45 +112,14 @@ namespace LoanStreet.LoanServicing.Model
 
             return 
                 (
-                    this.EffectiveDate == input.EffectiveDate ||
-                    (this.EffectiveDate != null &&
-                    this.EffectiveDate.Equals(input.EffectiveDate))
+                    this.Date == input.Date ||
+                    (this.Date != null &&
+                    this.Date.Equals(input.Date))
                 ) && 
                 (
-                    this.AnnualRate == input.AnnualRate ||
-                    this.AnnualRate.Equals(input.AnnualRate)
-                ) && 
-                (
-                    this.DayCount == input.DayCount ||
-                    this.DayCount.Equals(input.DayCount)
-                ) && 
-                (
-                    this.Compounding == input.Compounding ||
-                    this.Compounding.Equals(input.Compounding)
-                ) && 
-                (
-                    this.Benchmark == input.Benchmark ||
-                    this.Benchmark.Equals(input.Benchmark)
-                ) && 
-                (
-                    this.InterestType == input.InterestType ||
-                    this.InterestType.Equals(input.InterestType)
-                ) && 
-                (
-                    this.NumAmortizationPeriods == input.NumAmortizationPeriods ||
-                    this.NumAmortizationPeriods.Equals(input.NumAmortizationPeriods)
-                ) && 
-                (
-                    this.NumInterestOnlyPeriods == input.NumInterestOnlyPeriods ||
-                    this.NumInterestOnlyPeriods.Equals(input.NumInterestOnlyPeriods)
-                ) && 
-                (
-                    this.NumPeriods == input.NumPeriods ||
-                    this.NumPeriods.Equals(input.NumPeriods)
-                ) && 
-                (
-                    this.PaymentFrequency == input.PaymentFrequency ||
-                    this.PaymentFrequency.Equals(input.PaymentFrequency)
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -618,17 +132,10 @@ namespace LoanStreet.LoanServicing.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.EffectiveDate != null)
-                    hashCode = hashCode * 59 + this.EffectiveDate.GetHashCode();
-                hashCode = hashCode * 59 + this.AnnualRate.GetHashCode();
-                hashCode = hashCode * 59 + this.DayCount.GetHashCode();
-                hashCode = hashCode * 59 + this.Compounding.GetHashCode();
-                hashCode = hashCode * 59 + this.Benchmark.GetHashCode();
-                hashCode = hashCode * 59 + this.InterestType.GetHashCode();
-                hashCode = hashCode * 59 + this.NumAmortizationPeriods.GetHashCode();
-                hashCode = hashCode * 59 + this.NumInterestOnlyPeriods.GetHashCode();
-                hashCode = hashCode * 59 + this.NumPeriods.GetHashCode();
-                hashCode = hashCode * 59 + this.PaymentFrequency.GetHashCode();
+                if (this.Date != null)
+                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }

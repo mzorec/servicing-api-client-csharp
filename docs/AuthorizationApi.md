@@ -1,6 +1,6 @@
 # LoanStreet.LoanServicing.Api.AuthorizationApi
 
-All URIs are relative to *https://api-staging.loan-street.com:8443*
+All URIs are relative to *https://api.loan-street.com:8443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,8 +29,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api-staging.loan-street.com:8443";
-            var apiInstance = new AuthorizationApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.loan-street.com:8443";
+            var apiInstance = new AuthorizationApi(config);
 
             try
             {
@@ -91,8 +92,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api-staging.loan-street.com:8443";
-            var apiInstance = new AuthorizationApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.loan-street.com:8443";
+            var apiInstance = new AuthorizationApi(config);
             var principal = new JwtAuthenticationToken(); // JwtAuthenticationToken | 
 
             try
@@ -157,8 +159,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api-staging.loan-street.com:8443";
-            var apiInstance = new AuthorizationApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.loan-street.com:8443";
+            var apiInstance = new AuthorizationApi(config);
             var passwordAuthRequest = new PasswordAuthRequest(); // PasswordAuthRequest |  (optional) 
 
             try

@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **ExpiresAt** | **long** |  | [optional] 
 **Headers** | **Dictionary&lt;string, Object&gt;** |  | [optional] 
 **Claims** | **Dictionary&lt;string, Object&gt;** |  | [optional] 
-**Subject** | **string** |  | [optional] 
 **NotBefore** | **long** |  | [optional] 
 **Issuer** | **string** |  | [optional] 
+**Subject** | **string** |  | [optional] 
 **Audience** | **List&lt;string&gt;** |  | [optional] 
 **Id** | **string** |  | [optional] 
 

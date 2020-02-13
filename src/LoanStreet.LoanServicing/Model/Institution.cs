@@ -45,15 +45,7 @@ namespace LoanStreet.LoanServicing.Model
         public Institution(string name = default(string), string ticker = default(string), Address address = default(Address))
         {
             // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new InvalidDataException("name is a required property for Institution and cannot be null");
-            }
-            else
-            {
-                this.Name = name;
-            }
-
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for Institution and cannot be null");;
             this.Ticker = ticker;
             this.Address = address;
         }

@@ -1,6 +1,6 @@
 # LoanStreet.LoanServicing.Api.LoanInvoicesApi
 
-All URIs are relative to *https://api-staging.loan-street.com:8443*
+All URIs are relative to *https://api.loan-street.com:8443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,7 +29,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api-staging.loan-street.com:8443";
+            Configuration.Default.BasePath = "https://api.loan-street.com:8443";
             // Configure HTTP basic authorization: bearer-token
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -101,7 +101,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api-staging.loan-street.com:8443";
+            Configuration.Default.BasePath = "https://api.loan-street.com:8443";
             // Configure HTTP basic authorization: bearer-token
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -173,7 +173,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api-staging.loan-street.com:8443";
+            Configuration.Default.BasePath = "https://api.loan-street.com:8443";
             // Configure HTTP basic authorization: bearer-token
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";

@@ -36,7 +36,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>User</returns>
-        User Create1 (CreateUserRequest createUserRequest = default(CreateUserRequest));
+        User CreateUser (CreateUserRequest createUserRequest = default(CreateUserRequest));
 
         /// <summary>
         /// 
@@ -47,7 +47,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> Create1WithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest));
+        ApiResponse<User> CreateUserWithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest));
         /// <summary>
         /// 
         /// </summary>
@@ -57,7 +57,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>User</returns>
-        User Fetch1 (string userId);
+        User GetUser (string userId);
 
         /// <summary>
         /// 
@@ -68,7 +68,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> Fetch1WithHttpInfo (string userId);
+        ApiResponse<User> GetUserWithHttpInfo (string userId);
         /// <summary>
         /// 
         /// </summary>
@@ -77,7 +77,7 @@ namespace LoanStreet.LoanServicing.Api
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;User&gt;</returns>
-        List<User> List ();
+        List<User> ListUsers ();
 
         /// <summary>
         /// 
@@ -87,7 +87,7 @@ namespace LoanStreet.LoanServicing.Api
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;User&gt;</returns>
-        ApiResponse<List<User>> ListWithHttpInfo ();
+        ApiResponse<List<User>> ListUsersWithHttpInfo ();
         #endregion Synchronous Operations
     }
 
@@ -106,7 +106,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> Create1Async (CreateUserRequest createUserRequest = default(CreateUserRequest));
+        System.Threading.Tasks.Task<User> CreateUserAsync (CreateUserRequest createUserRequest = default(CreateUserRequest));
 
         /// <summary>
         /// 
@@ -117,7 +117,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> Create1AsyncWithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest));
+        System.Threading.Tasks.Task<ApiResponse<User>> CreateUserAsyncWithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest));
         /// <summary>
         /// 
         /// </summary>
@@ -127,7 +127,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> Fetch1Async (string userId);
+        System.Threading.Tasks.Task<User> GetUserAsync (string userId);
 
         /// <summary>
         /// 
@@ -138,7 +138,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> Fetch1AsyncWithHttpInfo (string userId);
+        System.Threading.Tasks.Task<ApiResponse<User>> GetUserAsyncWithHttpInfo (string userId);
         /// <summary>
         /// 
         /// </summary>
@@ -147,7 +147,7 @@ namespace LoanStreet.LoanServicing.Api
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;User&gt;</returns>
-        System.Threading.Tasks.Task<List<User>> ListAsync ();
+        System.Threading.Tasks.Task<List<User>> ListUsersAsync ();
 
         /// <summary>
         /// 
@@ -157,7 +157,7 @@ namespace LoanStreet.LoanServicing.Api
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;User&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<User>>> ListAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<List<User>>> ListUsersAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
     }
 
@@ -284,9 +284,9 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>User</returns>
-        public User Create1 (CreateUserRequest createUserRequest = default(CreateUserRequest))
+        public User CreateUser (CreateUserRequest createUserRequest = default(CreateUserRequest))
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = Create1WithHttpInfo(createUserRequest);
+             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = CreateUserWithHttpInfo(createUserRequest);
              return localVarResponse.Data;
         }
 
@@ -296,7 +296,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>ApiResponse of User</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< User > Create1WithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest))
+        public LoanStreet.LoanServicing.Client.ApiResponse< User > CreateUserWithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest))
         {
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
 
@@ -329,7 +329,7 @@ namespace LoanStreet.LoanServicing.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Create1", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateUser", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -342,9 +342,9 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> Create1Async (CreateUserRequest createUserRequest = default(CreateUserRequest))
+        public async System.Threading.Tasks.Task<User> CreateUserAsync (CreateUserRequest createUserRequest = default(CreateUserRequest))
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = await Create1AsyncWithHttpInfo(createUserRequest);
+             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = await CreateUserAsyncWithHttpInfo(createUserRequest);
              return localVarResponse.Data;
 
         }
@@ -355,7 +355,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUserRequest"> (optional)</param>
         /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<User>> Create1AsyncWithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest))
+        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<User>> CreateUserAsyncWithHttpInfo (CreateUserRequest createUserRequest = default(CreateUserRequest))
         {
 
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
@@ -390,7 +390,7 @@ namespace LoanStreet.LoanServicing.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Create1", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateUser", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -403,9 +403,9 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>User</returns>
-        public User Fetch1 (string userId)
+        public User GetUser (string userId)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = Fetch1WithHttpInfo(userId);
+             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = GetUserWithHttpInfo(userId);
              return localVarResponse.Data;
         }
 
@@ -415,11 +415,11 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>ApiResponse of User</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< User > Fetch1WithHttpInfo (string userId)
+        public LoanStreet.LoanServicing.Client.ApiResponse< User > GetUserWithHttpInfo (string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersApi->Fetch1");
+                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersApi->GetUser");
 
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
 
@@ -452,7 +452,7 @@ namespace LoanStreet.LoanServicing.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Fetch1", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetUser", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -465,9 +465,9 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> Fetch1Async (string userId)
+        public async System.Threading.Tasks.Task<User> GetUserAsync (string userId)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = await Fetch1AsyncWithHttpInfo(userId);
+             LoanStreet.LoanServicing.Client.ApiResponse<User> localVarResponse = await GetUserAsyncWithHttpInfo(userId);
              return localVarResponse.Data;
 
         }
@@ -478,11 +478,11 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<User>> Fetch1AsyncWithHttpInfo (string userId)
+        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<User>> GetUserAsyncWithHttpInfo (string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersApi->Fetch1");
+                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersApi->GetUser");
 
 
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
@@ -517,7 +517,7 @@ namespace LoanStreet.LoanServicing.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("Fetch1", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetUser", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -529,9 +529,9 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;User&gt;</returns>
-        public List<User> List ()
+        public List<User> ListUsers ()
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<List<User>> localVarResponse = ListWithHttpInfo();
+             LoanStreet.LoanServicing.Client.ApiResponse<List<User>> localVarResponse = ListUsersWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -540,7 +540,7 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;User&gt;</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< List<User> > ListWithHttpInfo ()
+        public LoanStreet.LoanServicing.Client.ApiResponse< List<User> > ListUsersWithHttpInfo ()
         {
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
 
@@ -571,7 +571,7 @@ namespace LoanStreet.LoanServicing.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("List", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListUsers", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -583,9 +583,9 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of List&lt;User&gt;</returns>
-        public async System.Threading.Tasks.Task<List<User>> ListAsync ()
+        public async System.Threading.Tasks.Task<List<User>> ListUsersAsync ()
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<List<User>> localVarResponse = await ListAsyncWithHttpInfo();
+             LoanStreet.LoanServicing.Client.ApiResponse<List<User>> localVarResponse = await ListUsersAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
@@ -595,7 +595,7 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (List&lt;User&gt;)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<List<User>>> ListAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<List<User>>> ListUsersAsyncWithHttpInfo ()
         {
 
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
@@ -628,7 +628,7 @@ namespace LoanStreet.LoanServicing.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("List", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListUsers", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

@@ -1,12 +1,12 @@
 # LoanStreet.LoanServicing.Api.DealsApi
 
-All URIs are relative to *https://api-staging.loan-street.com:8443*
+All URIs are relative to *https://api.loan-street.com:8443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateDeal**](DealsApi.md#createdeal) | **POST** /v1/private/deals | 
-[**FetchDeal**](DealsApi.md#fetchdeal) | **GET** /v1/private/deals/{dealId} | 
-[**FetchDeals**](DealsApi.md#fetchdeals) | **GET** /v1/private/deals | 
+[**GetDeal**](DealsApi.md#getdeal) | **GET** /v1/private/deals/{dealId} | 
+[**ListDeals**](DealsApi.md#listdeals) | **GET** /v1/private/deals | 
 [**UpdateDeal**](DealsApi.md#updatedeal) | **PUT** /v1/private/deals/{dealId} | 
 
 
@@ -30,7 +30,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api-staging.loan-street.com:8443";
+            Configuration.Default.BasePath = "https://api.loan-street.com:8443";
             // Configure HTTP basic authorization: bearer-token
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -80,9 +80,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="fetchdeal"></a>
-# **FetchDeal**
-> Deal FetchDeal (string dealId)
+<a name="getdeal"></a>
+# **GetDeal**
+> Deal GetDeal (string dealId)
 
 
 
@@ -96,11 +96,11 @@ using LoanStreet.LoanServicing.Model;
 
 namespace Example
 {
-    public class FetchDealExample
+    public class GetDealExample
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api-staging.loan-street.com:8443";
+            Configuration.Default.BasePath = "https://api.loan-street.com:8443";
             // Configure HTTP basic authorization: bearer-token
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -110,12 +110,12 @@ namespace Example
 
             try
             {
-                Deal result = apiInstance.FetchDeal(dealId);
+                Deal result = apiInstance.GetDeal(dealId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DealsApi.FetchDeal: " + e.Message );
+                Debug.Print("Exception when calling DealsApi.GetDeal: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -150,9 +150,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="fetchdeals"></a>
-# **FetchDeals**
-> List&lt;Deal&gt; FetchDeals ()
+<a name="listdeals"></a>
+# **ListDeals**
+> List&lt;Deal&gt; ListDeals ()
 
 
 
@@ -166,11 +166,11 @@ using LoanStreet.LoanServicing.Model;
 
 namespace Example
 {
-    public class FetchDealsExample
+    public class ListDealsExample
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api-staging.loan-street.com:8443";
+            Configuration.Default.BasePath = "https://api.loan-street.com:8443";
             // Configure HTTP basic authorization: bearer-token
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";
@@ -179,12 +179,12 @@ namespace Example
 
             try
             {
-                List<Deal> result = apiInstance.FetchDeals();
+                List<Deal> result = apiInstance.ListDeals();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DealsApi.FetchDeals: " + e.Message );
+                Debug.Print("Exception when calling DealsApi.ListDeals: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -236,7 +236,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api-staging.loan-street.com:8443";
+            Configuration.Default.BasePath = "https://api.loan-street.com:8443";
             // Configure HTTP basic authorization: bearer-token
             Configuration.Default.Username = "YOUR_USERNAME";
             Configuration.Default.Password = "YOUR_PASSWORD";

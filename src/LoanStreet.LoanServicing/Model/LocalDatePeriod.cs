@@ -43,26 +43,8 @@ namespace LoanStreet.LoanServicing.Model
         /// <param name="end">end (required).</param>
         public LocalDatePeriod(DateTime start = default(DateTime), DateTime end = default(DateTime))
         {
-            // to ensure "start" is required (not null)
-            if (start == null)
-            {
-                throw new InvalidDataException("start is a required property for LocalDatePeriod and cannot be null");
-            }
-            else
-            {
-                this.Start = start;
-            }
-
-            // to ensure "end" is required (not null)
-            if (end == null)
-            {
-                throw new InvalidDataException("end is a required property for LocalDatePeriod and cannot be null");
-            }
-            else
-            {
-                this.End = end;
-            }
-
+            this.Start = start;
+            this.End = end;
         }
         
         /// <summary>

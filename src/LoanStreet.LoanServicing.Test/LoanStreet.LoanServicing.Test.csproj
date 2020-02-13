@@ -13,7 +13,6 @@ The version of the OpenAPI document: v0
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LoanStreet.LoanServicing.Test</RootNamespace>
     <AssemblyName>LoanStreet.LoanServicing.Test</AssemblyName>
-    <!-- By Microsoft design, test project can only be netcoreapp2.0 (even if main project is .netstandard -->
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <FileAlignment>512</FileAlignment>
@@ -25,12 +24,12 @@ The version of the OpenAPI document: v0
       <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
       <PackageReference Include="xunit" Version="2.4.1" />
       <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
-      <PackageReference Include="RestSharp" Version="106.6.7" />
+      <PackageReference Include="RestSharp" Version="106.10.1" />
       <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>
       <ProjectReference Include="..\LoanStreet.LoanServicing\LoanStreet.LoanServicing.csproj">
-          <Project>{A015D30A-C481-43F8-ABB4-054F18CED733}</Project>
+          <Project>{2575E2BA-4939-4492-9A64-454CFFA9E534}</Project>
           <Name>LoanStreet.LoanServicing</Name>
       </ProjectReference>
   </ItemGroup>

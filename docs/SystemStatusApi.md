@@ -1,6 +1,6 @@
 # LoanStreet.LoanServicing.Api.SystemStatusApi
 
-All URIs are relative to *https://api-staging.loan-street.com:8443*
+All URIs are relative to *https://api.loan-street.com:8443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,8 +27,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api-staging.loan-street.com:8443";
-            var apiInstance = new SystemStatusApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.loan-street.com:8443";
+            var apiInstance = new SystemStatusApi(config);
 
             try
             {

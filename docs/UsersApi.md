@@ -1,17 +1,17 @@
 # LoanStreet.LoanServicing.Api.UsersApi
 
-All URIs are relative to *https://api-staging.loan-street.com:8443*
+All URIs are relative to *https://api.loan-street.com:8443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Create1**](UsersApi.md#create1) | **POST** /v1/private/users | 
-[**Fetch1**](UsersApi.md#fetch1) | **GET** /v1/private/users/{userId} | 
-[**List**](UsersApi.md#list) | **GET** /v1/private/users | 
+[**CreateUser**](UsersApi.md#createuser) | **POST** /v1/private/users | 
+[**GetUser**](UsersApi.md#getuser) | **GET** /v1/private/users/{userId} | 
+[**ListUsers**](UsersApi.md#listusers) | **GET** /v1/private/users | 
 
 
-<a name="create1"></a>
-# **Create1**
-> User Create1 (CreateUserRequest createUserRequest = null)
+<a name="createuser"></a>
+# **CreateUser**
+> User CreateUser (CreateUserRequest createUserRequest = null)
 
 
 
@@ -25,26 +25,27 @@ using LoanStreet.LoanServicing.Model;
 
 namespace Example
 {
-    public class Create1Example
+    public class CreateUserExample
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api-staging.loan-street.com:8443";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.loan-street.com:8443";
             // Configure HTTP basic authorization: bearer-token
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new UsersApi(Configuration.Default);
+            var apiInstance = new UsersApi(config);
             var createUserRequest = new CreateUserRequest(); // CreateUserRequest |  (optional) 
 
             try
             {
-                User result = apiInstance.Create1(createUserRequest);
+                User result = apiInstance.CreateUser(createUserRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.Create1: " + e.Message );
+                Debug.Print("Exception when calling UsersApi.CreateUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -79,9 +80,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="fetch1"></a>
-# **Fetch1**
-> User Fetch1 (string userId)
+<a name="getuser"></a>
+# **GetUser**
+> User GetUser (string userId)
 
 
 
@@ -95,26 +96,27 @@ using LoanStreet.LoanServicing.Model;
 
 namespace Example
 {
-    public class Fetch1Example
+    public class GetUserExample
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api-staging.loan-street.com:8443";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.loan-street.com:8443";
             // Configure HTTP basic authorization: bearer-token
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new UsersApi(Configuration.Default);
+            var apiInstance = new UsersApi(config);
             var userId = userId_example;  // string | 
 
             try
             {
-                User result = apiInstance.Fetch1(userId);
+                User result = apiInstance.GetUser(userId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.Fetch1: " + e.Message );
+                Debug.Print("Exception when calling UsersApi.GetUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -149,9 +151,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="list"></a>
-# **List**
-> List&lt;User&gt; List ()
+<a name="listusers"></a>
+# **ListUsers**
+> List&lt;User&gt; ListUsers ()
 
 
 
@@ -165,25 +167,26 @@ using LoanStreet.LoanServicing.Model;
 
 namespace Example
 {
-    public class ListExample
+    public class ListUsersExample
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api-staging.loan-street.com:8443";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.loan-street.com:8443";
             // Configure HTTP basic authorization: bearer-token
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new UsersApi(Configuration.Default);
+            var apiInstance = new UsersApi(config);
 
             try
             {
-                List<User> result = apiInstance.List();
+                List<User> result = apiInstance.ListUsers();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.List: " + e.Message );
+                Debug.Print("Exception when calling UsersApi.ListUsers: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

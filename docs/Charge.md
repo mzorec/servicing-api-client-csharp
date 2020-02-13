@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amount** | [**Money**](Money.md) |  | 
 **Period** | [**LocalDatePeriod**](LocalDatePeriod.md) |  | [optional] 
+**Amount** | [**Money**](Money.md) |  | 
 **ChargeId** | **string** |  | 
 **Type** | **string** |  | 
 

@@ -96,7 +96,7 @@ namespace LoanStreet.LoanServicing.Client
         public Configuration()
         {
             UserAgent = "OpenAPI-Generator/1.0.0/csharp";
-            BasePath = "https://api-staging.loan-street.com:8443";
+            BasePath = "https://api.loan-street.com:8443";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -113,7 +113,7 @@ namespace LoanStreet.LoanServicing.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://api-staging.loan-street.com:8443") : this()
+            string basePath = "https://api.loan-street.com:8443") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");

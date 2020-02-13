@@ -36,7 +36,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>BusinessDayResponse</returns>
-        BusinessDayResponse NextBusinessDayResponse (DateTime inputDate);
+        BusinessDayResponse GetNextBusinessDay (DateTime inputDate);
 
         /// <summary>
         /// 
@@ -47,7 +47,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>ApiResponse of BusinessDayResponse</returns>
-        ApiResponse<BusinessDayResponse> NextBusinessDayResponseWithHttpInfo (DateTime inputDate);
+        ApiResponse<BusinessDayResponse> GetNextBusinessDayWithHttpInfo (DateTime inputDate);
         /// <summary>
         /// 
         /// </summary>
@@ -57,7 +57,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>BusinessDayResponse</returns>
-        BusinessDayResponse PreviousBusinessDayResponse (DateTime inputDate);
+        BusinessDayResponse GetPreviousBusinessDay (DateTime inputDate);
 
         /// <summary>
         /// 
@@ -68,7 +68,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>ApiResponse of BusinessDayResponse</returns>
-        ApiResponse<BusinessDayResponse> PreviousBusinessDayResponseWithHttpInfo (DateTime inputDate);
+        ApiResponse<BusinessDayResponse> GetPreviousBusinessDayWithHttpInfo (DateTime inputDate);
         #endregion Synchronous Operations
     }
 
@@ -87,7 +87,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>Task of BusinessDayResponse</returns>
-        System.Threading.Tasks.Task<BusinessDayResponse> NextBusinessDayResponseAsync (DateTime inputDate);
+        System.Threading.Tasks.Task<BusinessDayResponse> GetNextBusinessDayAsync (DateTime inputDate);
 
         /// <summary>
         /// 
@@ -98,7 +98,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>Task of ApiResponse (BusinessDayResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BusinessDayResponse>> NextBusinessDayResponseAsyncWithHttpInfo (DateTime inputDate);
+        System.Threading.Tasks.Task<ApiResponse<BusinessDayResponse>> GetNextBusinessDayAsyncWithHttpInfo (DateTime inputDate);
         /// <summary>
         /// 
         /// </summary>
@@ -108,7 +108,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>Task of BusinessDayResponse</returns>
-        System.Threading.Tasks.Task<BusinessDayResponse> PreviousBusinessDayResponseAsync (DateTime inputDate);
+        System.Threading.Tasks.Task<BusinessDayResponse> GetPreviousBusinessDayAsync (DateTime inputDate);
 
         /// <summary>
         /// 
@@ -119,7 +119,7 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>Task of ApiResponse (BusinessDayResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BusinessDayResponse>> PreviousBusinessDayResponseAsyncWithHttpInfo (DateTime inputDate);
+        System.Threading.Tasks.Task<ApiResponse<BusinessDayResponse>> GetPreviousBusinessDayAsyncWithHttpInfo (DateTime inputDate);
         #endregion Asynchronous Operations
     }
 
@@ -246,9 +246,9 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>BusinessDayResponse</returns>
-        public BusinessDayResponse NextBusinessDayResponse (DateTime inputDate)
+        public BusinessDayResponse GetNextBusinessDay (DateTime inputDate)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse> localVarResponse = NextBusinessDayResponseWithHttpInfo(inputDate);
+             LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse> localVarResponse = GetNextBusinessDayWithHttpInfo(inputDate);
              return localVarResponse.Data;
         }
 
@@ -258,12 +258,8 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>ApiResponse of BusinessDayResponse</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< BusinessDayResponse > NextBusinessDayResponseWithHttpInfo (DateTime inputDate)
+        public LoanStreet.LoanServicing.Client.ApiResponse< BusinessDayResponse > GetNextBusinessDayWithHttpInfo (DateTime inputDate)
         {
-            // verify the required parameter 'inputDate' is set
-            if (inputDate == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'inputDate' when calling FinanceApi->NextBusinessDayResponse");
-
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
 
             String[] _contentTypes = new String[] {
@@ -280,8 +276,7 @@ namespace LoanStreet.LoanServicing.Api
             var localVarAccept = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (inputDate != null)
-                localVarRequestOptions.PathParameters.Add("inputDate", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(inputDate)); // path parameter
+            localVarRequestOptions.PathParameters.Add("inputDate", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(inputDate)); // path parameter
 
 
             // make the HTTP request
@@ -289,7 +284,7 @@ namespace LoanStreet.LoanServicing.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("NextBusinessDayResponse", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetNextBusinessDay", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -302,9 +297,9 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>Task of BusinessDayResponse</returns>
-        public async System.Threading.Tasks.Task<BusinessDayResponse> NextBusinessDayResponseAsync (DateTime inputDate)
+        public async System.Threading.Tasks.Task<BusinessDayResponse> GetNextBusinessDayAsync (DateTime inputDate)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse> localVarResponse = await NextBusinessDayResponseAsyncWithHttpInfo(inputDate);
+             LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse> localVarResponse = await GetNextBusinessDayAsyncWithHttpInfo(inputDate);
              return localVarResponse.Data;
 
         }
@@ -315,12 +310,8 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>Task of ApiResponse (BusinessDayResponse)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse>> NextBusinessDayResponseAsyncWithHttpInfo (DateTime inputDate)
+        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse>> GetNextBusinessDayAsyncWithHttpInfo (DateTime inputDate)
         {
-            // verify the required parameter 'inputDate' is set
-            if (inputDate == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'inputDate' when calling FinanceApi->NextBusinessDayResponse");
-
 
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
 
@@ -338,8 +329,7 @@ namespace LoanStreet.LoanServicing.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
-            if (inputDate != null)
-                localVarRequestOptions.PathParameters.Add("inputDate", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(inputDate)); // path parameter
+            localVarRequestOptions.PathParameters.Add("inputDate", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(inputDate)); // path parameter
 
 
             // make the HTTP request
@@ -348,7 +338,7 @@ namespace LoanStreet.LoanServicing.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("NextBusinessDayResponse", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetNextBusinessDay", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -361,9 +351,9 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>BusinessDayResponse</returns>
-        public BusinessDayResponse PreviousBusinessDayResponse (DateTime inputDate)
+        public BusinessDayResponse GetPreviousBusinessDay (DateTime inputDate)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse> localVarResponse = PreviousBusinessDayResponseWithHttpInfo(inputDate);
+             LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse> localVarResponse = GetPreviousBusinessDayWithHttpInfo(inputDate);
              return localVarResponse.Data;
         }
 
@@ -373,12 +363,8 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>ApiResponse of BusinessDayResponse</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< BusinessDayResponse > PreviousBusinessDayResponseWithHttpInfo (DateTime inputDate)
+        public LoanStreet.LoanServicing.Client.ApiResponse< BusinessDayResponse > GetPreviousBusinessDayWithHttpInfo (DateTime inputDate)
         {
-            // verify the required parameter 'inputDate' is set
-            if (inputDate == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'inputDate' when calling FinanceApi->PreviousBusinessDayResponse");
-
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
 
             String[] _contentTypes = new String[] {
@@ -395,8 +381,7 @@ namespace LoanStreet.LoanServicing.Api
             var localVarAccept = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (inputDate != null)
-                localVarRequestOptions.PathParameters.Add("inputDate", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(inputDate)); // path parameter
+            localVarRequestOptions.PathParameters.Add("inputDate", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(inputDate)); // path parameter
 
 
             // make the HTTP request
@@ -404,7 +389,7 @@ namespace LoanStreet.LoanServicing.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("PreviousBusinessDayResponse", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetPreviousBusinessDay", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -417,9 +402,9 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>Task of BusinessDayResponse</returns>
-        public async System.Threading.Tasks.Task<BusinessDayResponse> PreviousBusinessDayResponseAsync (DateTime inputDate)
+        public async System.Threading.Tasks.Task<BusinessDayResponse> GetPreviousBusinessDayAsync (DateTime inputDate)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse> localVarResponse = await PreviousBusinessDayResponseAsyncWithHttpInfo(inputDate);
+             LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse> localVarResponse = await GetPreviousBusinessDayAsyncWithHttpInfo(inputDate);
              return localVarResponse.Data;
 
         }
@@ -430,12 +415,8 @@ namespace LoanStreet.LoanServicing.Api
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputDate"></param>
         /// <returns>Task of ApiResponse (BusinessDayResponse)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse>> PreviousBusinessDayResponseAsyncWithHttpInfo (DateTime inputDate)
+        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<BusinessDayResponse>> GetPreviousBusinessDayAsyncWithHttpInfo (DateTime inputDate)
         {
-            // verify the required parameter 'inputDate' is set
-            if (inputDate == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'inputDate' when calling FinanceApi->PreviousBusinessDayResponse");
-
 
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
 
@@ -453,8 +434,7 @@ namespace LoanStreet.LoanServicing.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
-            if (inputDate != null)
-                localVarRequestOptions.PathParameters.Add("inputDate", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(inputDate)); // path parameter
+            localVarRequestOptions.PathParameters.Add("inputDate", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(inputDate)); // path parameter
 
 
             // make the HTTP request
@@ -463,7 +443,7 @@ namespace LoanStreet.LoanServicing.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("PreviousBusinessDayResponse", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetPreviousBusinessDay", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

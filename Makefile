@@ -1,25 +1,27 @@
 .PHONY: release_build debug_build clean test
 
 release_build:
-	@ dotnet build --configuration Release
+	@./.tools/flubu build.release
 
 debug_build:
-	@ dotnet build --configuration Debug
+	@./.tools/flubu build.debug
 
 clean:
-	@ dotnet clean
+	@./.tools/flubu clean
 
 test_generated:
-	@ dotnet test src/LoanStreet.LoanServicing.Test/LoanStreet.LoanServicing.Test.csproj  
+	@./.tools/flubu run.tests  
 
 test_examples:
-	@ dotnet test src/LoanStreet.LoanServicing.Examples/LoanStreet.LoanServicing.Examples.csproj
+	@./.tools/flubu run.generated
 
 generate:
+	@echo Updating Client from latest schema
 	@make clean
-	@./update_client.sh
-	@dotnet sln LoanStreet.LoanServicing.sln add src/LoanStreet.LoanServicing.Examples/LoanStreet.LoanServicing.Examples.csproj --in-root
-	@dotnet add src/LoanStreet.LoanServicing.Examples/LoanStreet.LoanServicing.Examples.csproj reference src/LoanStreet.LoanServicing/LoanStreet.LoanServicing.csproj 
+	@./update_client.sh $V
 	@make debug_build
 	@make test_generated
 	@make release_build	
+
+setup_flubu:
+	@dotnet tool install FlubuCore.GlobalTool --tool-path .tools

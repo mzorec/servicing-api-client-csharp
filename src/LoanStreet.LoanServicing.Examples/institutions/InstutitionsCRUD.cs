@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using LoanStreet.LoanServicing.Api;
-using LoanStreet.LoanServicing.Client;
 using LoanStreet.LoanServicing.Model;
 using Xunit;
 
@@ -9,19 +6,36 @@ namespace LoanStreet.LoanServicing.Examples.institutions
 {
     public class InstutitionsCRUD
     {
+        public static Institution GetTestInstitution()
+        {
+            var name = Guid.NewGuid().ToString();
+            var ticker = name.Substring(0, 5);
+            var address = new Address(
+                "West 30th Street",
+                "8th Floor",
+                "New York",
+                "NY",
+                "10025"
+            );
+            return new Institution(
+                name,
+                ticker,
+                address
+            );
+        }
+
         [Fact]
         public void CreateInstitution()
         {
-
             // 1) Set Credentials.  You will need to uncomment and set the following line
             // ClientFactory.SetCredentials("YourUser", "YourPassword");
-            
+
             // 2) Create an Institution Model Instance
             var institution = GetTestInstitution();
-            
+
             // 3) Get the Institutions Client
             var client = ClientFactory.GetInstitutionsController();
-            
+
             // 4) Send the Institution model to the Servicing API!
             var createdInstitution = client.Create(institution);
 
@@ -40,19 +54,18 @@ namespace LoanStreet.LoanServicing.Examples.institutions
         [Fact]
         public void GetInstitution()
         {
-            
             // 1) Set Credentials.  You will need to uncomment and set the following line
             // ClientFactory.SetCredentials("YourUser", "YourPassword");
-            
+
             // 2) Get the institutions client
             var client = ClientFactory.GetInstitutionsController();
-            
+
             // 3) Create an institution to use for this test
             var createdInstitution = client.Create(GetTestInstitution());
-            
+
             // 4) Load the created institution by ID
             var loadedById = client.Fetch(createdInstitution.InstitutionId);
-            
+
             // 5) Strictly for testing purposes, load the institution by id
             Assert.NotNull(loadedById);
         }
@@ -63,33 +76,15 @@ namespace LoanStreet.LoanServicing.Examples.institutions
         {
             // 1) Set Credentials.  You will need to uncomment and set the following line
             // ClientFactory.SetCredentials("YourUser", "YourPassword");
-            
+
             // 2) Get the Institutions client
             var client = ClientFactory.GetInstitutionsController();
 
             // 3) List institutions my user is permitted to view
-            List<Institution> allInstitutions = client.FetchAll(); 
-            
+            var allInstitutions = client.FetchAll();
+
             // 4) Strictly for testing purposes, assert that we received a response.
             Assert.NotNull(allInstitutions);
-        }
-        
-        public static Institution GetTestInstitution()
-        {
-            var name = Guid.NewGuid().ToString();
-            var ticker = name.Substring(0, 5);
-            var address = new Address(
-                "West 30th Street",
-                "8th Floor",
-                "New York",
-                "NY",
-                "10025"
-            );
-            return new Institution(
-                name,
-                ticker,
-                address
-            );
         }
     }
 }

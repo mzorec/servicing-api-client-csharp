@@ -1,3 +1,4 @@
 {
-  "packageName": "LoanStreet.LoanServicing"
+  "packageName": "LoanStreet.LoanServicing",
+  "targetFramework": "netstandard2.0"
 }

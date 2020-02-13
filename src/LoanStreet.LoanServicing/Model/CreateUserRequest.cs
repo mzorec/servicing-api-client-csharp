@@ -44,25 +44,9 @@ namespace LoanStreet.LoanServicing.Model
         public CreateUserRequest(string institutionId = default(string), string email = default(string))
         {
             // to ensure "institutionId" is required (not null)
-            if (institutionId == null)
-            {
-                throw new InvalidDataException("institutionId is a required property for CreateUserRequest and cannot be null");
-            }
-            else
-            {
-                this.InstitutionId = institutionId;
-            }
-
+            this.InstitutionId = institutionId ?? throw new ArgumentNullException("institutionId is a required property for CreateUserRequest and cannot be null");;
             // to ensure "email" is required (not null)
-            if (email == null)
-            {
-                throw new InvalidDataException("email is a required property for CreateUserRequest and cannot be null");
-            }
-            else
-            {
-                this.Email = email;
-            }
-
+            this.Email = email ?? throw new ArgumentNullException("email is a required property for CreateUserRequest and cannot be null");;
         }
         
         /// <summary>

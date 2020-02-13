@@ -43,15 +43,7 @@ namespace LoanStreet.LoanServicing.Model
         public PasswordAuthResponse(string token = default(string))
         {
             // to ensure "token" is required (not null)
-            if (token == null)
-            {
-                throw new InvalidDataException("token is a required property for PasswordAuthResponse and cannot be null");
-            }
-            else
-            {
-                this.Token = token;
-            }
-
+            this.Token = token ?? throw new ArgumentNullException("token is a required property for PasswordAuthResponse and cannot be null");;
         }
         
         /// <summary>

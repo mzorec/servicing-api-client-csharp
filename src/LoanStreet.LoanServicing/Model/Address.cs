@@ -47,55 +47,15 @@ namespace LoanStreet.LoanServicing.Model
         public Address(string streetOne = default(string), string streetTwo = default(string), string city = default(string), string state = default(string), string zip = default(string))
         {
             // to ensure "streetOne" is required (not null)
-            if (streetOne == null)
-            {
-                throw new InvalidDataException("streetOne is a required property for Address and cannot be null");
-            }
-            else
-            {
-                this.StreetOne = streetOne;
-            }
-
+            this.StreetOne = streetOne ?? throw new ArgumentNullException("streetOne is a required property for Address and cannot be null");;
             // to ensure "streetTwo" is required (not null)
-            if (streetTwo == null)
-            {
-                throw new InvalidDataException("streetTwo is a required property for Address and cannot be null");
-            }
-            else
-            {
-                this.StreetTwo = streetTwo;
-            }
-
+            this.StreetTwo = streetTwo ?? throw new ArgumentNullException("streetTwo is a required property for Address and cannot be null");;
             // to ensure "city" is required (not null)
-            if (city == null)
-            {
-                throw new InvalidDataException("city is a required property for Address and cannot be null");
-            }
-            else
-            {
-                this.City = city;
-            }
-
+            this.City = city ?? throw new ArgumentNullException("city is a required property for Address and cannot be null");;
             // to ensure "state" is required (not null)
-            if (state == null)
-            {
-                throw new InvalidDataException("state is a required property for Address and cannot be null");
-            }
-            else
-            {
-                this.State = state;
-            }
-
+            this.State = state ?? throw new ArgumentNullException("state is a required property for Address and cannot be null");;
             // to ensure "zip" is required (not null)
-            if (zip == null)
-            {
-                throw new InvalidDataException("zip is a required property for Address and cannot be null");
-            }
-            else
-            {
-                this.Zip = zip;
-            }
-
+            this.Zip = zip ?? throw new ArgumentNullException("zip is a required property for Address and cannot be null");;
         }
         
         /// <summary>

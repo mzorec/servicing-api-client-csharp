@@ -25,7 +25,7 @@ using OpenAPIDateConverter = LoanStreet.LoanServicing.Client.OpenAPIDateConverte
 
 namespace LoanStreet.LoanServicing.Model
 {
-    /// <summary>
+    /*/// <summary>
     /// FixedPaymentInterestTerms
     /// </summary>
     [DataContract]
@@ -41,16 +41,16 @@ namespace LoanStreet.LoanServicing.Model
         /// </summary>
         /// <param name="paymentAmount">paymentAmount (required).</param>
         /// <param name="effectiveDate">effectiveDate (required).</param>
-        /// <param name="annualRate">annualRate (required).</param>
-        /// <param name="dayCount">dayCount (required).</param>
-        /// <param name="compounding">compounding (required).</param>
         /// <param name="benchmark">benchmark.</param>
         /// <param name="interestType">interestType (required).</param>
         /// <param name="numAmortizationPeriods">numAmortizationPeriods (required).</param>
         /// <param name="numInterestOnlyPeriods">numInterestOnlyPeriods (required).</param>
         /// <param name="numPeriods">numPeriods (required).</param>
         /// <param name="paymentFrequency">paymentFrequency (required).</param>
-        public FixedPaymentInterestTerms(Money paymentAmount = default(Money), DateTime effectiveDate = default(DateTime), double annualRate = default(double), DayCountEnum dayCount = default(DayCountEnum), CompoundingEnum compounding = default(CompoundingEnum), BenchmarkEnum? benchmark = default(BenchmarkEnum?), InterestTypeEnum interestType = default(InterestTypeEnum), int numAmortizationPeriods = default(int), int numInterestOnlyPeriods = default(int), int numPeriods = default(int), PaymentFrequencyEnum paymentFrequency = default(PaymentFrequencyEnum)) : base(effectiveDate, annualRate, dayCount, compounding, benchmark, interestType, numAmortizationPeriods, numInterestOnlyPeriods, numPeriods, paymentFrequency)
+        /// <param name="annualRate">annualRate (required).</param>
+        /// <param name="dayCount">dayCount (required).</param>
+        /// <param name="compounding">compounding (required).</param>
+        public FixedPaymentInterestTerms(Money paymentAmount = default(Money), DateTime effectiveDate = default(DateTime), FloatingInterestTerms.BenchmarkEnum? benchmark = default(FloatingInterestTerms.BenchmarkEnum?), InterestTypeEnum interestType = default(InterestTypeEnum), int numAmortizationPeriods = default(int), int numInterestOnlyPeriods = default(int), int numPeriods = default(int), FixedPaymentInterestRules.PaymentFrequencyEnum paymentFrequency = default(FixedPaymentInterestRules.PaymentFrequencyEnum), double annualRate = default(double), FixedPaymentInterestRules.DayCountEnum dayCount = default(FixedPaymentInterestRules.DayCountEnum), FixedPaymentInterestRules.CompoundingEnum compounding = default(FixedPaymentInterestRules.CompoundingEnum)) : base(effectiveDate, benchmark, interestType, numAmortizationPeriods, numInterestOnlyPeriods, numPeriods, paymentFrequency, annualRate, dayCount, compounding)
         {
             // to ensure "paymentAmount" is required (not null)
             if (paymentAmount == null)
@@ -146,6 +146,6 @@ namespace LoanStreet.LoanServicing.Model
             foreach(var x in BaseValidate(validationContext)) yield return x;
             yield break;
         }
-    }
+    }*/
 
 }

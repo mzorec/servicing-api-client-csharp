@@ -7,10 +7,8 @@ using Xunit;
 
 namespace LoanStreet.LoanServicing.Examples
 {
-    public class LoansCRUD
+    /*public class LoansCRUD
     {
-
-
         protected T Execute<T>(Func<LoansControllerApi, T> todo)
         {
             var controller = ClientFactory.GetLoansController();
@@ -24,9 +22,9 @@ namespace LoanStreet.LoanServicing.Examples
             var client = ClientFactory.GetInstitutionsController();
 
             var created = client.Create(toCreate);
-            
+
             Assert.NotNull(created);
-            
+
             return created;
         }
 
@@ -45,10 +43,9 @@ namespace LoanStreet.LoanServicing.Examples
                 new LoanRole(lender.InstitutionId, LoanRole.RoleEnum.LENDER),
                 new LoanRole(borrower.InstitutionId, LoanRole.RoleEnum.BORROWER)
             };
-            
-            var terms = new FixedPaymentInterestTerms(
 
-                paymentAmount: paymentAmount,
+            var terms = new FixedPaymentInterestTerms(
+                paymentAmount,
                 benchmark: null,
                 interestType: InterestTerms.InterestTypeEnum.FIXEDPAYMENT,
                 numAmortizationPeriods: 360,
@@ -59,10 +56,10 @@ namespace LoanStreet.LoanServicing.Examples
                 compounding: InterestTerms.CompoundingEnum.SIMPLE,
                 effectiveDate: new DateTime(2019, 1, 1),
                 paymentFrequency: InterestTerms.PaymentFrequencyEnum.MONTHLY
-                );
-            
+            );
+
             var loan = new Loan(
-                firstPaymentDate:firstPaymentDate,
+                firstPaymentDate,
                 interestTerms: terms,
                 institutions: permissions,
                 principalAmount: principal,
@@ -70,7 +67,7 @@ namespace LoanStreet.LoanServicing.Examples
                 name: new Guid().ToString(),
                 timeZoneId: "America/New_York"
             );
-            
+
             return loan;
         }
 
@@ -93,5 +90,5 @@ namespace LoanStreet.LoanServicing.Examples
 
             Assert.NotNull(originated);
         }
-    }
+    }*/
 }

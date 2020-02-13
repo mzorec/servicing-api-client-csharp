@@ -13,25 +13,20 @@ The version of the OpenAPI document: v0
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A015D30A-C481-43F8-ABB4-054F18CED733}</ProjectGuid>
+    <ProjectGuid>{2575E2BA-4939-4492-9A64-454CFFA9E534}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LoanStreet.LoanServicing</RootNamespace>
     <AssemblyName>LoanStreet.LoanServicing</AssemblyName>
+    <Description>A library generated from a OpenAPI doc</Description>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFramework>netstandard2.0</TargetFramework>
     <FileAlignment>512</FileAlignment>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\LoanStreet.LoanServicing.xml</DocumentationFile>
-    <PackageVersion>0.0.5</PackageVersion>
-    <Title>LoanStreet Loan Servicing API Client</Title>
-    <Copyright>2020, LoanStreet</Copyright>
-    <PackageProjectUrl>https://github.com/loanstreet-usa/LoanServicingAPI-Client</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/loanstreet-usa/LoanServicingAPI-Client</PackageLicenseUrl>
-    <RepositoryUrl>https://github.com/loanstreet-usa/LoanServicingAPI-Client</RepositoryUrl>
-    <RepositoryType>C#</RepositoryType>
-    <AssemblyVersion>0.0.5</AssemblyVersion>
-    <FileVersion>0.0.5</FileVersion>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RepositoryUrl>https://github.com/GIT_USER_ID/GIT_REPO_ID.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/GIT_USER_ID/GIT_REPO_ID</PackageProjectUrl>
+    <PackageReleaseNotes>Minor update</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
@@ -41,7 +36,7 @@ The version of the OpenAPI document: v0
       <PackageReference Include="CompareNETObjects" Version="4.57.0" />
       <PackageReference Include="JsonSubTypes" Version="1.5.2" />
       <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-      <PackageReference Include="RestSharp" Version="106.6.7" />
+      <PackageReference Include="RestSharp" Version="106.10.1" />
       <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
   </ItemGroup>
 </Project>
