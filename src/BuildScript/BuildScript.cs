@@ -38,6 +38,10 @@ namespace BuildScript
         protected override void ConfigureTargets(ITaskContext context)
         {
 
+            var nuget = context.CreateTarget("nuget.restore")
+                .SetDescription("ReInstall Nuget Packages")
+                .AddCoreTask(x => x.Restore().Force());
+            
             var clean = context.CreateTarget("clean")
                 .SetDescription("Clean Solution")
                 .AddCoreTask(x => x.Clean());

@@ -2,6 +2,8 @@
 
 ![.NET Core](https://github.com/loanstreet-usa/LoanServicingAPI-Client/workflows/.NET%20Core/badge.svg)
 
+- SDK version: 0.0.6
+
 - [Servicing API Documentation](https://api.loan-street.com/docs/index.html)
 - [Swagger File](https://api.loan-street.com:8443/v1/api-docs)
 
@@ -64,7 +66,7 @@ namespace Example
         {
 
             // Optional: Change URL
-            // ClientFactory.BasePath = "https://api-staging.loan-street.com:8443";
+            // ClientFactory.BasePath = "https://api.loan-street.com:8443";
                         
             // Set Credentials, you only need to do this once
             ClientFactory.SetCredentials("YourUser", "YourPassword");

@@ -6,6 +6,7 @@ namespace LoanStreet.LoanServicing.Examples.institutions
 {
     public class InstutitionsCRUD
     {
+
         public static Institution GetTestInstitution()
         {
             var name = Guid.NewGuid().ToString();

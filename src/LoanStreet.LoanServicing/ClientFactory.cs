@@ -16,12 +16,15 @@ namespace LoanStreet.LoanServicing
         /// <summary>
         ///     Root URL of the Loan Servicing API Instance
         /// </summary>
-        public static string BasePath = "https://api-staging.loan-street.com:8443";
+        public static string BasePath = "https://api.loan-street.com:8443";
 
         private static string Username = "";
         private static string Password = "";
         private static string BearerToken;
-
+        private const string AuthScheme = "bearer-token";
+        private const string BearerPrefix = "Bearer";
+        private const string AuthorizationHeader = "Authorization";
+        
         private static bool AuthenticateUser()
         {
             BearerToken = null;
@@ -64,17 +67,17 @@ namespace LoanStreet.LoanServicing
 
             RequireBearerToken();
 
-            var defaultHeaders = new Dictionary<string, string>();
-
-            defaultHeaders["Authorization"] = $"Bearer {BearerToken}";
-
-            var config = new Configuration(
-                defaultHeaders,
-                new Dictionary<string, string>(),
-                new Dictionary<string, string>(),
-                BasePath
-            );
-
+            var config = new Configuration();
+            
+            /*
+             * The generated ApiClient still does not understand the use of the Bearer token,
+             * it's trying to use Basic Auth.  This workaround exists to explicitly set the Authorization
+             * header
+             */
+            config.AddApiKey(AuthScheme, BearerToken);
+            config.AddApiKeyPrefix(AuthScheme, BearerPrefix);
+            config.DefaultHeaders[AuthorizationHeader] = config.GetApiKeyWithPrefix(AuthScheme);
+            
             return config;
         }
 
