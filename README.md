@@ -1,5 +1,6 @@
 # LoanStreet Loan Servicing API Client 
 
+![Nuget](https://img.shields.io/nuget/v/LoanStreet.LoanServicing?color=419572&style=plastic)
 ![.NET Core](https://github.com/loanstreet-usa/LoanServicingAPI-Client/workflows/.NET%20Core/badge.svg)
 
 - SDK version: 0.0.6
