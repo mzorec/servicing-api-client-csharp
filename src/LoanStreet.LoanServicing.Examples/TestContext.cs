@@ -44,21 +44,28 @@ namespace LoanStreet.LoanServicing.Examples
         
         public static TestContext FromEnvVars()
         {
-            var envVars = Environment.GetEnvironmentVariables();
-
-            if (
-                envVars.Contains(nameof(username))
-                && envVars.Contains(nameof(password))
-                && envVars.Contains(nameof(institutionId))
-            )
+            try
             {
-                var context = new TestContext(
+                var envVars = Environment.GetEnvironmentVariables();
+
+                if (
+                    envVars.Contains(nameof(username))
+                    && envVars.Contains(nameof(password))
+                    && envVars.Contains(nameof(institutionId))
+                )
+                {
+                    var context = new TestContext(
                         username: envVars[nameof(username)].ToString(),
                         password: envVars[nameof(password)].ToString(),
                         institutionId: envVars[nameof(institutionId)].ToString()
                     );
-                
-                return context;
+
+                    return context;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
 
             return null;
@@ -66,14 +73,27 @@ namespace LoanStreet.LoanServicing.Examples
         }
         public static TestContext FromFile(string file)
         {
-            var workingDirectory = Directory.GetCurrentDirectory();
-            var projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-            var contextFile = Path.Combine(projectDirectory, file);
-            var rawContext = File.ReadAllText(contextFile);
+            try
+            {
+                var workingDirectory = Directory.GetCurrentDirectory();
+                var projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+                var contextFile = Path.Combine(projectDirectory, file);
 
-            var context = JsonConvert.DeserializeObject<TestContext>(rawContext);
+                if (File.Exists(contextFile))
+                {
+                    var rawContext = File.ReadAllText(contextFile);
 
-            return context;
+                    var context = JsonConvert.DeserializeObject<TestContext>(rawContext);
+
+                    return context;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            return null;
         }
         
         public static TestContext LoadContext()
@@ -86,7 +106,7 @@ namespace LoanStreet.LoanServicing.Examples
             context = FromFile("test_context.json");
             
             if (context == null || !context.IsValid())
-                throw new Exception("Failed to load a valid test context!");
+                Console.WriteLine("Failed to load a valid test context!");
 
             return context;
         }

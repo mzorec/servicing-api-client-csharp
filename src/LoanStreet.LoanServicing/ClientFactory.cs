@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Security.Authentication;
 using LoanStreet.LoanServicing.Api;
 using LoanStreet.LoanServicing.Client;
@@ -13,6 +12,10 @@ namespace LoanStreet.LoanServicing
     /// </summary>
     public class ClientFactory
     {
+        private const string AuthScheme = "bearer-token";
+        private const string BearerPrefix = "Bearer";
+        private const string AuthorizationHeader = "Authorization";
+
         /// <summary>
         ///     Root URL of the Loan Servicing API Instance
         /// </summary>
@@ -21,9 +24,6 @@ namespace LoanStreet.LoanServicing
         private static string Username = "";
         private static string Password = "";
         private static string BearerToken;
-        private const string AuthScheme = "bearer-token";
-        private const string BearerPrefix = "Bearer";
-        private const string AuthorizationHeader = "Authorization";
         
         private static bool AuthenticateUser()
         {
@@ -68,7 +68,7 @@ namespace LoanStreet.LoanServicing
             RequireBearerToken();
 
             var config = new Configuration();
-            
+
             /*
              * The generated ApiClient still does not understand the use of the Bearer token,
              * it's trying to use Basic Auth.  This workaround exists to explicitly set the Authorization
@@ -77,7 +77,7 @@ namespace LoanStreet.LoanServicing
             config.AddApiKey(AuthScheme, BearerToken);
             config.AddApiKeyPrefix(AuthScheme, BearerPrefix);
             config.DefaultHeaders[AuthorizationHeader] = config.GetApiKeyWithPrefix(AuthScheme);
-            
+
             return config;
         }
 
@@ -107,24 +107,39 @@ namespace LoanStreet.LoanServicing
             return AuthenticateUser();
         }
 
-
-        /// <summary>
-        ///     Get an instance of the Institutions Client
-        /// </summary>
-        /// <returns>InstitutionsApi</returns>
-        public static InstitutionsApi GetInstitutionsController()
+        private static T CreateClient<T>(Func<Configuration, T> ctor)
         {
             RequireBearerToken();
 
-            return new InstitutionsApi(GetConfig());
+            return ctor(GetConfig());
+        }
+        
+        public static FacilitiesApi GetFacilityiesController() => CreateClient(c => new FacilitiesApi(c));
+
+        public static FinanceApi GetFinanceController() => CreateClient(c => new FinanceApi(c));
+
+        public static TranchesApi GetTranchesController() => CreateClient(c => new TranchesApi(c));
+
+        public static UsersApi GetUsersController() => CreateClient(c => new UsersApi(c));
+        
+        public static BorrowingsApi GetBorrowingsApi()
+        {
+            return CreateClient(c => new BorrowingsApi(c));
         }
 
-        public static FacilitiesApi GetFacilitiesController()
+        public static InstitutionsApi GetInstitutionsController()
         {
-            RequireBearerToken();
-            
-            return new FacilitiesApi(GetConfig()); 
-                
+            return CreateClient(c => new InstitutionsApi(c));
+        }
+
+        public static InvoicesApi GetInvoicesController()
+        {
+            return CreateClient(c => new InvoicesApi(c));
+        }
+
+        public static PaymentsApi GetPaymentsController()
+        {
+            return CreateClient(c => new PaymentsApi(c));
         }
     }
 }

@@ -76,12 +76,12 @@ namespace LoanStreet.LoanServicing.Test
         }
 
         /// <summary>
-        /// Test the property 'ChargeId'
+        /// Test the property 'Period'
         /// </summary>
         [Fact]
-        public void ChargeIdTest()
+        public void PeriodTest()
         {
-            // TODO unit test for the property 'ChargeId'
+            // TODO unit test for the property 'Period'
         }
         /// <summary>
         /// Test the property 'Amount'
@@ -92,12 +92,12 @@ namespace LoanStreet.LoanServicing.Test
             // TODO unit test for the property 'Amount'
         }
         /// <summary>
-        /// Test the property 'Period'
+        /// Test the property 'ChargeId'
         /// </summary>
         [Fact]
-        public void PeriodTest()
+        public void ChargeIdTest()
         {
-            // TODO unit test for the property 'Period'
+            // TODO unit test for the property 'ChargeId'
         }
         /// <summary>
         /// Test the property 'Type'

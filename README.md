@@ -1,16 +1,17 @@
+
 # LoanStreet Loan Servicing API Client 
 
 ![Nuget](https://img.shields.io/nuget/v/LoanStreet.LoanServicing?color=419572&style=plastic)
 ![.NET Core](https://github.com/loanstreet-usa/LoanServicingAPI-Client/workflows/.NET%20Core/badge.svg)
 
-- SDK version: 0.0.7
+- SDK version: 0.0.8
 
 - [Servicing API Documentation](https://api.loan-street.com/docs/index.html)
 - [Swagger File](https://api.loan-street.com:8443/v1/api-docs)
 
 ## Examples
 
-- [Fixed Payment Facility Origination](src/LoanStreet.LoanServicing.Examples/Facilities/FixedPaymentFactility.cs)
+- [Fixed Payment Facility/Loan Origination](src/LoanStreet.LoanServicing.Examples/Facilities/FixedPaymentFactility.cs)
 - [Institutions Create and Read](src/LoanStreet.LoanServicing.Examples/institutions/InstutitionsCRUD.cs)
 
 <a name="frameworks-supported"></a>
@@ -186,4 +187,3 @@ Class | Method | HTTP request | Description
 ### bearer-token
 
 - **Type**: HTTP basic authentication
-
