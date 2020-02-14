@@ -106,14 +106,6 @@ namespace LoanStreet.LoanServicing.Test
             // TODO unit test for the property 'Subject'
         }
         /// <summary>
-        /// Test the property 'Audience'
-        /// </summary>
-        [Fact]
-        public void AudienceTest()
-        {
-            // TODO unit test for the property 'Audience'
-        }
-        /// <summary>
         /// Test the property 'NotBefore'
         /// </summary>
         [Fact]
@@ -128,6 +120,14 @@ namespace LoanStreet.LoanServicing.Test
         public void IssuerTest()
         {
             // TODO unit test for the property 'Issuer'
+        }
+        /// <summary>
+        /// Test the property 'Audience'
+        /// </summary>
+        [Fact]
+        public void AudienceTest()
+        {
+            // TODO unit test for the property 'Audience'
         }
         /// <summary>
         /// Test the property 'Id'

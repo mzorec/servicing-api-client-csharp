@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** | **DateTime** |  | 
+**EffectiveDate** | **DateTime** |  | [optional] 
 **Type** | **string** |  | 
 **Benchmark** | **string** |  | 
 

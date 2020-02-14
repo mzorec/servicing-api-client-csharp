@@ -198,9 +198,9 @@ namespace LoanStreet.LoanServicing.Model
         /// Initializes a new instance of the <see cref="FloatingInterestRules" /> class.
         /// </summary>
         /// <param name="benchmarks">benchmarks (required).</param>
-        /// <param name="date">date (required).</param>
+        /// <param name="effectiveDate">effectiveDate.</param>
         /// <param name="type">type (required).</param>
-        public FloatingInterestRules(List<BenchmarksEnum> benchmarks = default(List<BenchmarksEnum>), DateTime date = default(DateTime), string type = default(string)) : base(date, type)
+        public FloatingInterestRules(List<BenchmarksEnum> benchmarks = default(List<BenchmarksEnum>), DateTime effectiveDate = default(DateTime), string type = default(string)) : base(effectiveDate, type)
         {
             // to ensure "benchmarks" is required (not null)
             this.Benchmarks = benchmarks ?? throw new ArgumentNullException("benchmarks is a required property for FloatingInterestRules and cannot be null");;

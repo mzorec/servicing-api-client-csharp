@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** | **DateTime** |  | 
+**EffectiveDate** | **DateTime** |  | [optional] 
 **Type** | **string** |  | 
 **Commitment** | [**Money**](Money.md) |  | 
 

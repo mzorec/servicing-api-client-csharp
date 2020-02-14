@@ -40,17 +40,17 @@ namespace LoanStreet.LoanServicing.Model
         /// Initializes a new instance of the <see cref="MultipleDrawRules" /> class.
         /// </summary>
         /// <param name="commitment">commitment (required).</param>
-        /// <param name="maxNumDraws">maxNumDraws (required).</param>
+        /// <param name="maxNumDraws">maxNumDraws.</param>
         /// <param name="numDraws">numDraws (required).</param>
         /// <param name="minDrawAmount">minDrawAmount.</param>
-        /// <param name="date">date (required).</param>
+        /// <param name="effectiveDate">effectiveDate.</param>
         /// <param name="type">type (required).</param>
-        public MultipleDrawRules(Money commitment = default(Money), int maxNumDraws = default(int), int numDraws = default(int), Money minDrawAmount = default(Money), DateTime date = default(DateTime), string type = default(string)) : base(date, type)
+        public MultipleDrawRules(Money commitment = default(Money), int maxNumDraws = default(int), int numDraws = default(int), Money minDrawAmount = default(Money), DateTime effectiveDate = default(DateTime), string type = default(string)) : base(effectiveDate, type)
         {
             // to ensure "commitment" is required (not null)
             this.Commitment = commitment ?? throw new ArgumentNullException("commitment is a required property for MultipleDrawRules and cannot be null");;
-            this.MaxNumDraws = maxNumDraws;
             this.NumDraws = numDraws;
+            this.MaxNumDraws = maxNumDraws;
             this.MinDrawAmount = minDrawAmount;
         }
         

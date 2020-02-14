@@ -40,11 +40,11 @@ namespace LoanStreet.LoanServicing.Model
         /// <param name="headers">headers.</param>
         /// <param name="claims">claims.</param>
         /// <param name="subject">subject.</param>
-        /// <param name="audience">audience.</param>
         /// <param name="notBefore">notBefore.</param>
         /// <param name="issuer">issuer.</param>
+        /// <param name="audience">audience.</param>
         /// <param name="id">id.</param>
-        public Jwt(string tokenValue = default(string), long issuedAt = default(long), long expiresAt = default(long), Dictionary<string, Object> headers = default(Dictionary<string, Object>), Dictionary<string, Object> claims = default(Dictionary<string, Object>), string subject = default(string), List<string> audience = default(List<string>), long notBefore = default(long), string issuer = default(string), string id = default(string))
+        public Jwt(string tokenValue = default(string), long issuedAt = default(long), long expiresAt = default(long), Dictionary<string, Object> headers = default(Dictionary<string, Object>), Dictionary<string, Object> claims = default(Dictionary<string, Object>), string subject = default(string), long notBefore = default(long), string issuer = default(string), List<string> audience = default(List<string>), string id = default(string))
         {
             this.TokenValue = tokenValue;
             this.IssuedAt = issuedAt;
@@ -52,9 +52,9 @@ namespace LoanStreet.LoanServicing.Model
             this.Headers = headers;
             this.Claims = claims;
             this.Subject = subject;
-            this.Audience = audience;
             this.NotBefore = notBefore;
             this.Issuer = issuer;
+            this.Audience = audience;
             this.Id = id;
         }
         
@@ -95,12 +95,6 @@ namespace LoanStreet.LoanServicing.Model
         public string Subject { get; set; }
 
         /// <summary>
-        /// Gets or Sets Audience
-        /// </summary>
-        [DataMember(Name="audience", EmitDefaultValue=false)]
-        public List<string> Audience { get; set; }
-
-        /// <summary>
         /// Gets or Sets NotBefore
         /// </summary>
         [DataMember(Name="notBefore", EmitDefaultValue=false)]
@@ -111,6 +105,12 @@ namespace LoanStreet.LoanServicing.Model
         /// </summary>
         [DataMember(Name="issuer", EmitDefaultValue=false)]
         public string Issuer { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Audience
+        /// </summary>
+        [DataMember(Name="audience", EmitDefaultValue=false)]
+        public List<string> Audience { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -132,9 +132,9 @@ namespace LoanStreet.LoanServicing.Model
             sb.Append("  Headers: ").Append(Headers).Append("\n");
             sb.Append("  Claims: ").Append(Claims).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
-            sb.Append("  Audience: ").Append(Audience).Append("\n");
             sb.Append("  NotBefore: ").Append(NotBefore).Append("\n");
             sb.Append("  Issuer: ").Append(Issuer).Append("\n");
+            sb.Append("  Audience: ").Append(Audience).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -201,12 +201,6 @@ namespace LoanStreet.LoanServicing.Model
                     this.Subject.Equals(input.Subject))
                 ) && 
                 (
-                    this.Audience == input.Audience ||
-                    this.Audience != null &&
-                    input.Audience != null &&
-                    this.Audience.SequenceEqual(input.Audience)
-                ) && 
-                (
                     this.NotBefore == input.NotBefore ||
                     this.NotBefore.Equals(input.NotBefore)
                 ) && 
@@ -214,6 +208,12 @@ namespace LoanStreet.LoanServicing.Model
                     this.Issuer == input.Issuer ||
                     (this.Issuer != null &&
                     this.Issuer.Equals(input.Issuer))
+                ) && 
+                (
+                    this.Audience == input.Audience ||
+                    this.Audience != null &&
+                    input.Audience != null &&
+                    this.Audience.SequenceEqual(input.Audience)
                 ) && 
                 (
                     this.Id == input.Id ||
@@ -241,11 +241,11 @@ namespace LoanStreet.LoanServicing.Model
                     hashCode = hashCode * 59 + this.Claims.GetHashCode();
                 if (this.Subject != null)
                     hashCode = hashCode * 59 + this.Subject.GetHashCode();
-                if (this.Audience != null)
-                    hashCode = hashCode * 59 + this.Audience.GetHashCode();
                 hashCode = hashCode * 59 + this.NotBefore.GetHashCode();
                 if (this.Issuer != null)
                     hashCode = hashCode * 59 + this.Issuer.GetHashCode();
+                if (this.Audience != null)
+                    hashCode = hashCode * 59 + this.Audience.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 return hashCode;

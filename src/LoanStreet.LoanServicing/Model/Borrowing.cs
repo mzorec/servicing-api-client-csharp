@@ -39,17 +39,18 @@ namespace LoanStreet.LoanServicing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Borrowing" /> class.
         /// </summary>
-        /// <param name="tranche">tranche (required).</param>
+        /// <param name="tranche">tranche.</param>
         /// <param name="originationDate">originationDate (required).</param>
+        /// <param name="firstPaymentDate">firstPaymentDate (required).</param>
         /// <param name="principal">principal (required).</param>
         /// <param name="interest">interest.</param>
-        public Borrowing(string tranche = default(string), DateTime originationDate = default(DateTime), Money principal = default(Money), InterestTerms interest = default(InterestTerms))
+        public Borrowing(string tranche = default(string), DateTime originationDate = default(DateTime), DateTime firstPaymentDate = default(DateTime), Money principal = default(Money), InterestTerms interest = default(InterestTerms))
         {
-            // to ensure "tranche" is required (not null)
-            this.Tranche = tranche ?? throw new ArgumentNullException("tranche is a required property for Borrowing and cannot be null");;
             this.OriginationDate = originationDate;
+            this.FirstPaymentDate = firstPaymentDate;
             // to ensure "principal" is required (not null)
             this.Principal = principal ?? throw new ArgumentNullException("principal is a required property for Borrowing and cannot be null");;
+            this.Tranche = tranche;
             this.Interest = interest;
         }
         
@@ -58,6 +59,12 @@ namespace LoanStreet.LoanServicing.Model
         /// </summary>
         [DataMember(Name="borrowingId", EmitDefaultValue=false)]
         public string BorrowingId { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TrancheId
+        /// </summary>
+        [DataMember(Name="trancheId", EmitDefaultValue=false)]
+        public string TrancheId { get; private set; }
 
         /// <summary>
         /// Gets or Sets Tranche
@@ -71,6 +78,13 @@ namespace LoanStreet.LoanServicing.Model
         [DataMember(Name="originationDate", EmitDefaultValue=false)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTime OriginationDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FirstPaymentDate
+        /// </summary>
+        [DataMember(Name="firstPaymentDate", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime FirstPaymentDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Principal
@@ -93,8 +107,10 @@ namespace LoanStreet.LoanServicing.Model
             var sb = new StringBuilder();
             sb.Append("class Borrowing {\n");
             sb.Append("  BorrowingId: ").Append(BorrowingId).Append("\n");
+            sb.Append("  TrancheId: ").Append(TrancheId).Append("\n");
             sb.Append("  Tranche: ").Append(Tranche).Append("\n");
             sb.Append("  OriginationDate: ").Append(OriginationDate).Append("\n");
+            sb.Append("  FirstPaymentDate: ").Append(FirstPaymentDate).Append("\n");
             sb.Append("  Principal: ").Append(Principal).Append("\n");
             sb.Append("  Interest: ").Append(Interest).Append("\n");
             sb.Append("}\n");
@@ -137,6 +153,11 @@ namespace LoanStreet.LoanServicing.Model
                     this.BorrowingId.Equals(input.BorrowingId))
                 ) && 
                 (
+                    this.TrancheId == input.TrancheId ||
+                    (this.TrancheId != null &&
+                    this.TrancheId.Equals(input.TrancheId))
+                ) && 
+                (
                     this.Tranche == input.Tranche ||
                     (this.Tranche != null &&
                     this.Tranche.Equals(input.Tranche))
@@ -145,6 +166,11 @@ namespace LoanStreet.LoanServicing.Model
                     this.OriginationDate == input.OriginationDate ||
                     (this.OriginationDate != null &&
                     this.OriginationDate.Equals(input.OriginationDate))
+                ) && 
+                (
+                    this.FirstPaymentDate == input.FirstPaymentDate ||
+                    (this.FirstPaymentDate != null &&
+                    this.FirstPaymentDate.Equals(input.FirstPaymentDate))
                 ) && 
                 (
                     this.Principal == input.Principal ||
@@ -169,10 +195,14 @@ namespace LoanStreet.LoanServicing.Model
                 int hashCode = 41;
                 if (this.BorrowingId != null)
                     hashCode = hashCode * 59 + this.BorrowingId.GetHashCode();
+                if (this.TrancheId != null)
+                    hashCode = hashCode * 59 + this.TrancheId.GetHashCode();
                 if (this.Tranche != null)
                     hashCode = hashCode * 59 + this.Tranche.GetHashCode();
                 if (this.OriginationDate != null)
                     hashCode = hashCode * 59 + this.OriginationDate.GetHashCode();
+                if (this.FirstPaymentDate != null)
+                    hashCode = hashCode * 59 + this.FirstPaymentDate.GetHashCode();
                 if (this.Principal != null)
                     hashCode = hashCode * 59 + this.Principal.GetHashCode();
                 if (this.Interest != null)

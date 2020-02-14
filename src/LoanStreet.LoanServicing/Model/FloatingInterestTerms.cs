@@ -197,9 +197,9 @@ namespace LoanStreet.LoanServicing.Model
         /// Initializes a new instance of the <see cref="FloatingInterestTerms" /> class.
         /// </summary>
         /// <param name="benchmark">benchmark (required).</param>
-        /// <param name="date">date (required).</param>
+        /// <param name="effectiveDate">effectiveDate.</param>
         /// <param name="type">type (required).</param>
-        public FloatingInterestTerms(BenchmarkEnum benchmark = default(BenchmarkEnum), DateTime date = default(DateTime), string type = default(string)) : base(date, type)
+        public FloatingInterestTerms(BenchmarkEnum benchmark = default(BenchmarkEnum), DateTime effectiveDate = default(DateTime), string type = default(string)) : base(effectiveDate, type)
         {
             this.Benchmark = benchmark;
         }

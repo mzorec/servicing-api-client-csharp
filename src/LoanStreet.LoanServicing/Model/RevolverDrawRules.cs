@@ -40,9 +40,9 @@ namespace LoanStreet.LoanServicing.Model
         /// Initializes a new instance of the <see cref="RevolverDrawRules" /> class.
         /// </summary>
         /// <param name="commitment">commitment (required).</param>
-        /// <param name="date">date (required).</param>
+        /// <param name="effectiveDate">effectiveDate.</param>
         /// <param name="type">type (required).</param>
-        public RevolverDrawRules(Money commitment = default(Money), DateTime date = default(DateTime), string type = default(string)) : base(date, type)
+        public RevolverDrawRules(Money commitment = default(Money), DateTime effectiveDate = default(DateTime), string type = default(string)) : base(effectiveDate, type)
         {
             // to ensure "commitment" is required (not null)
             this.Commitment = commitment ?? throw new ArgumentNullException("commitment is a required property for RevolverDrawRules and cannot be null");;

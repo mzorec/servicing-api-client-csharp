@@ -8,23 +8,24 @@ namespace LoanStreet.LoanServicing.Examples.Facilities
 {
     public class FixedPaymentFactility
     {
-
-
         public static Facility GetFacilityInstance()
         {
             var tranche = new Tranche(
                 name: "Tranche A",
                 draw: new SingleDrawRules(
-                    commitment: new Money("10400000"),
-                    date: new DateTime(2019, 1, 1)
+                    commitment: new Money(amount: "10400000", currency: "USD"),
+                    effectiveDate: new DateTime(2019, 1, 1),
+                    type: "SINGLE_DRAW"
                 ),
                 interest: new FixedPaymentInterestRules(
                     annualRate: 0.0475d,
                     compounding: FixedPaymentInterestRules.CompoundingEnum.SIMPLE,
                     dayCount: FixedPaymentInterestRules.DayCountEnum.ACTUAL360,
-                    numPayments: 360,
+                    numPeriods: 360,
                     paymentFrequency: FixedPaymentInterestRules.PaymentFrequencyEnum.MONTHLY,
-                    date: new DateTime(2019, 1, 1)
+                    paymentAmount: new Money(amount: "54251.32", currency: "USD"),
+                    effectiveDate: new DateTime(2019, 1, 1),
+                    type: "FIXED_PAYMENT"
                 ));
             
             var res = new Facility(

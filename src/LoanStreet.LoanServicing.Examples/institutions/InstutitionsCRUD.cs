@@ -5,8 +5,6 @@ using Xunit;
 namespace LoanStreet.LoanServicing.Examples.institutions
 {
     
-    
-    
     public class InstutitionsCRUD
     {
 

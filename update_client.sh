@@ -30,3 +30,7 @@ dotnet add src/LoanStreet.LoanServicing.Examples/LoanStreet.LoanServicing.Exampl
 
 # Add Build Project to the solution
 dotnet sln LoanStreet.LoanServicing.sln add src/BuildScript/BuildScript.csproj --in-root
+
+# Generation Process wipes out .gitignore, re-add lines
+echo ".tools" >> ./.gitignore
+echo ".idea" >> ./.gitignore

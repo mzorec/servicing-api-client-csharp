@@ -102,8 +102,11 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ACLsApi* | [**List**](docs/ACLsApi.md#list) | **GET** /v1/private/acls/{oid} | 
 *AuthorizationApi* | [**Auth**](docs/AuthorizationApi.md#auth) | **GET** /v1/public/auth | 
+*AuthorizationApi* | [**AuthInstitution**](docs/AuthorizationApi.md#authinstitution) | **GET** /v1/public/auth/inst | 
 *AuthorizationApi* | [**Principal**](docs/AuthorizationApi.md#principal) | **GET** /v1/public/principal | 
 *AuthorizationApi* | [**Token**](docs/AuthorizationApi.md#token) | **POST** /v1/public/token | 
+*BorrowingsApi* | [**GetBorrowing**](docs/BorrowingsApi.md#getborrowing) | **GET** /v1/private/facilities/{facilityId}/borrowings/{borrowingId} | 
+*BorrowingsApi* | [**ListBorrowings**](docs/BorrowingsApi.md#listborrowings) | **GET** /v1/private/facilities/{facilityId}/borrowings | 
 *FacilitiesApi* | [**CreateFacility**](docs/FacilitiesApi.md#createfacility) | **POST** /v1/private/facilities | 
 *FacilitiesApi* | [**GetFacility**](docs/FacilitiesApi.md#getfacility) | **GET** /v1/private/facilities/{facilityId} | 
 *FacilitiesApi* | [**ListFacilities**](docs/FacilitiesApi.md#listfacilities) | **GET** /v1/private/facilities | 
@@ -118,6 +121,7 @@ Class | Method | HTTP request | Description
 *PaymentsApi* | [**GetPayment**](docs/PaymentsApi.md#getpayment) | **GET** /v1/private/facilities/{facilityId}/payments/{paymentId} | 
 *PaymentsApi* | [**ListPayments**](docs/PaymentsApi.md#listpayments) | **GET** /v1/private/facilities/{facilityId}/payments | 
 *SystemStatusApi* | [**Index**](docs/SystemStatusApi.md#index) | **GET** /v1/public/status | 
+*TranchesApi* | [**CreateDraw**](docs/TranchesApi.md#createdraw) | **POST** /v1/private/facilities/{facilityId}/tranches/{trancheId}/draw | 
 *TranchesApi* | [**CreateInvoice**](docs/TranchesApi.md#createinvoice) | **POST** /v1/private/facilities/{facilityId}/tranches/{trancheId}/invoices | 
 *TranchesApi* | [**CreatePayment**](docs/TranchesApi.md#createpayment) | **POST** /v1/private/facilities/{facilityId}/tranches/{trancheId}/payments | 
 *TranchesApi* | [**GetTranche**](docs/TranchesApi.md#gettranche) | **GET** /v1/private/facilities/{facilityId}/tranches/{trancheId} | 
@@ -138,6 +142,7 @@ Class | Method | HTTP request | Description
  - [Model.BusinessDayResponse](docs/BusinessDayResponse.md)
  - [Model.Charge](docs/Charge.md)
  - [Model.CreateUserRequest](docs/CreateUserRequest.md)
+ - [Model.Draw](docs/Draw.md)
  - [Model.DrawRules](docs/DrawRules.md)
  - [Model.Facility](docs/Facility.md)
  - [Model.FacilityInstitutionDto](docs/FacilityInstitutionDto.md)
@@ -150,6 +155,7 @@ Class | Method | HTTP request | Description
  - [Model.FloatingInterestTermsAllOf](docs/FloatingInterestTermsAllOf.md)
  - [Model.GrantedAuthority](docs/GrantedAuthority.md)
  - [Model.Identity](docs/Identity.md)
+ - [Model.InlineObject](docs/InlineObject.md)
  - [Model.Institution](docs/Institution.md)
  - [Model.InterestCharge](docs/InterestCharge.md)
  - [Model.InterestRules](docs/InterestRules.md)
@@ -182,4 +188,3 @@ Class | Method | HTTP request | Description
 ### bearer-token
 
 - **Type**: HTTP basic authentication
-

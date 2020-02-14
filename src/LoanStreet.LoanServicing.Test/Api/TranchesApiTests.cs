@@ -56,6 +56,20 @@ namespace LoanStreet.LoanServicing.Test
 
         
         /// <summary>
+        /// Test CreateDraw
+        /// </summary>
+        [Fact]
+        public void CreateDrawTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string facilityId = null;
+            //string trancheId = null;
+            //Draw draw = null;
+            //var response = instance.CreateDraw(facilityId, trancheId, draw);
+            //Assert.IsType<Borrowing> (response, "response is Borrowing");
+        }
+        
+        /// <summary>
         /// Test CreateInvoice
         /// </summary>
         [Fact]

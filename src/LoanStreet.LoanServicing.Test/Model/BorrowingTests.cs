@@ -66,6 +66,14 @@ namespace LoanStreet.LoanServicing.Test
             // TODO unit test for the property 'BorrowingId'
         }
         /// <summary>
+        /// Test the property 'TrancheId'
+        /// </summary>
+        [Fact]
+        public void TrancheIdTest()
+        {
+            // TODO unit test for the property 'TrancheId'
+        }
+        /// <summary>
         /// Test the property 'Tranche'
         /// </summary>
         [Fact]
@@ -80,6 +88,14 @@ namespace LoanStreet.LoanServicing.Test
         public void OriginationDateTest()
         {
             // TODO unit test for the property 'OriginationDate'
+        }
+        /// <summary>
+        /// Test the property 'FirstPaymentDate'
+        /// </summary>
+        [Fact]
+        public void FirstPaymentDateTest()
+        {
+            // TODO unit test for the property 'FirstPaymentDate'
         }
         /// <summary>
         /// Test the property 'Principal'

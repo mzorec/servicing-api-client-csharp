@@ -4,8 +4,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BorrowingId** | **string** |  | [readonly] 
-**Tranche** | **string** |  | 
+**TrancheId** | **string** |  | [readonly] 
+**Tranche** | **string** |  | [optional] 
 **OriginationDate** | **DateTime** |  | 
+**FirstPaymentDate** | **DateTime** |  | 
 **Principal** | [**Money**](Money.md) |  | 
 **Interest** | [**InterestTerms**](InterestTerms.md) |  | [optional] 
 

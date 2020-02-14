@@ -76,12 +76,12 @@ namespace LoanStreet.LoanServicing.Test
         }
 
         /// <summary>
-        /// Test the property 'Date'
+        /// Test the property 'EffectiveDate'
         /// </summary>
         [Fact]
-        public void DateTest()
+        public void EffectiveDateTest()
         {
-            // TODO unit test for the property 'Date'
+            // TODO unit test for the property 'EffectiveDate'
         }
         /// <summary>
         /// Test the property 'Type'

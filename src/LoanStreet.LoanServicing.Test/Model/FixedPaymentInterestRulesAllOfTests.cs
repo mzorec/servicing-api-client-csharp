@@ -82,12 +82,20 @@ namespace LoanStreet.LoanServicing.Test
             // TODO unit test for the property 'DayCount'
         }
         /// <summary>
-        /// Test the property 'NumPayments'
+        /// Test the property 'NumPeriods'
         /// </summary>
         [Fact]
-        public void NumPaymentsTest()
+        public void NumPeriodsTest()
         {
-            // TODO unit test for the property 'NumPayments'
+            // TODO unit test for the property 'NumPeriods'
+        }
+        /// <summary>
+        /// Test the property 'PaymentAmount'
+        /// </summary>
+        [Fact]
+        public void PaymentAmountTest()
+        {
+            // TODO unit test for the property 'PaymentAmount'
         }
         /// <summary>
         /// Test the property 'PaymentFrequency'

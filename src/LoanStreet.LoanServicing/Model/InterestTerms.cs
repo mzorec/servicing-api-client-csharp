@@ -45,21 +45,21 @@ namespace LoanStreet.LoanServicing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InterestTerms" /> class.
         /// </summary>
-        /// <param name="date">date (required).</param>
+        /// <param name="effectiveDate">effectiveDate.</param>
         /// <param name="type">type (required).</param>
-        public InterestTerms(DateTime date = default(DateTime), string type = default(string))
+        public InterestTerms(DateTime effectiveDate = default(DateTime), string type = default(string))
         {
-            this.Date = date;
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for InterestTerms and cannot be null");;
+            this.EffectiveDate = effectiveDate;
         }
         
         /// <summary>
-        /// Gets or Sets Date
+        /// Gets or Sets EffectiveDate
         /// </summary>
-        [DataMember(Name="date", EmitDefaultValue=false)]
+        [DataMember(Name="effectiveDate", EmitDefaultValue=false)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime EffectiveDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
@@ -75,7 +75,7 @@ namespace LoanStreet.LoanServicing.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InterestTerms {\n");
-            sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -112,9 +112,9 @@ namespace LoanStreet.LoanServicing.Model
 
             return 
                 (
-                    this.Date == input.Date ||
-                    (this.Date != null &&
-                    this.Date.Equals(input.Date))
+                    this.EffectiveDate == input.EffectiveDate ||
+                    (this.EffectiveDate != null &&
+                    this.EffectiveDate.Equals(input.EffectiveDate))
                 ) && 
                 (
                     this.Type == input.Type ||
@@ -132,8 +132,8 @@ namespace LoanStreet.LoanServicing.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                if (this.EffectiveDate != null)
+                    hashCode = hashCode * 59 + this.EffectiveDate.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;

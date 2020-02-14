@@ -76,20 +76,20 @@ namespace LoanStreet.LoanServicing.Test
         }
 
         /// <summary>
-        /// Test the property 'Amount'
-        /// </summary>
-        [Fact]
-        public void AmountTest()
-        {
-            // TODO unit test for the property 'Amount'
-        }
-        /// <summary>
         /// Test the property 'ChargeId'
         /// </summary>
         [Fact]
         public void ChargeIdTest()
         {
             // TODO unit test for the property 'ChargeId'
+        }
+        /// <summary>
+        /// Test the property 'Amount'
+        /// </summary>
+        [Fact]
+        public void AmountTest()
+        {
+            // TODO unit test for the property 'Amount'
         }
         /// <summary>
         /// Test the property 'Period'

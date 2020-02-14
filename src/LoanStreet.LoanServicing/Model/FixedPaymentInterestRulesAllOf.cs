@@ -202,14 +202,16 @@ namespace LoanStreet.LoanServicing.Model
         /// <param name="annualRate">annualRate.</param>
         /// <param name="compounding">compounding.</param>
         /// <param name="dayCount">dayCount.</param>
-        /// <param name="numPayments">numPayments.</param>
+        /// <param name="numPeriods">numPeriods.</param>
+        /// <param name="paymentAmount">paymentAmount.</param>
         /// <param name="paymentFrequency">paymentFrequency.</param>
-        public FixedPaymentInterestRulesAllOf(double annualRate = default(double), CompoundingEnum? compounding = default(CompoundingEnum?), DayCountEnum? dayCount = default(DayCountEnum?), int numPayments = default(int), PaymentFrequencyEnum? paymentFrequency = default(PaymentFrequencyEnum?))
+        public FixedPaymentInterestRulesAllOf(double annualRate = default(double), CompoundingEnum? compounding = default(CompoundingEnum?), DayCountEnum? dayCount = default(DayCountEnum?), int numPeriods = default(int), Money paymentAmount = default(Money), PaymentFrequencyEnum? paymentFrequency = default(PaymentFrequencyEnum?))
         {
             this.AnnualRate = annualRate;
             this.Compounding = compounding;
             this.DayCount = dayCount;
-            this.NumPayments = numPayments;
+            this.NumPeriods = numPeriods;
+            this.PaymentAmount = paymentAmount;
             this.PaymentFrequency = paymentFrequency;
         }
         
@@ -220,10 +222,16 @@ namespace LoanStreet.LoanServicing.Model
         public double AnnualRate { get; set; }
 
         /// <summary>
-        /// Gets or Sets NumPayments
+        /// Gets or Sets NumPeriods
         /// </summary>
-        [DataMember(Name="numPayments", EmitDefaultValue=false)]
-        public int NumPayments { get; set; }
+        [DataMember(Name="numPeriods", EmitDefaultValue=false)]
+        public int NumPeriods { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentAmount
+        /// </summary>
+        [DataMember(Name="paymentAmount", EmitDefaultValue=false)]
+        public Money PaymentAmount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -236,7 +244,8 @@ namespace LoanStreet.LoanServicing.Model
             sb.Append("  AnnualRate: ").Append(AnnualRate).Append("\n");
             sb.Append("  Compounding: ").Append(Compounding).Append("\n");
             sb.Append("  DayCount: ").Append(DayCount).Append("\n");
-            sb.Append("  NumPayments: ").Append(NumPayments).Append("\n");
+            sb.Append("  NumPeriods: ").Append(NumPeriods).Append("\n");
+            sb.Append("  PaymentAmount: ").Append(PaymentAmount).Append("\n");
             sb.Append("  PaymentFrequency: ").Append(PaymentFrequency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -285,8 +294,13 @@ namespace LoanStreet.LoanServicing.Model
                     this.DayCount.Equals(input.DayCount)
                 ) && 
                 (
-                    this.NumPayments == input.NumPayments ||
-                    this.NumPayments.Equals(input.NumPayments)
+                    this.NumPeriods == input.NumPeriods ||
+                    this.NumPeriods.Equals(input.NumPeriods)
+                ) && 
+                (
+                    this.PaymentAmount == input.PaymentAmount ||
+                    (this.PaymentAmount != null &&
+                    this.PaymentAmount.Equals(input.PaymentAmount))
                 ) && 
                 (
                     this.PaymentFrequency == input.PaymentFrequency ||
@@ -306,7 +320,9 @@ namespace LoanStreet.LoanServicing.Model
                 hashCode = hashCode * 59 + this.AnnualRate.GetHashCode();
                 hashCode = hashCode * 59 + this.Compounding.GetHashCode();
                 hashCode = hashCode * 59 + this.DayCount.GetHashCode();
-                hashCode = hashCode * 59 + this.NumPayments.GetHashCode();
+                hashCode = hashCode * 59 + this.NumPeriods.GetHashCode();
+                if (this.PaymentAmount != null)
+                    hashCode = hashCode * 59 + this.PaymentAmount.GetHashCode();
                 hashCode = hashCode * 59 + this.PaymentFrequency.GetHashCode();
                 return hashCode;
             }

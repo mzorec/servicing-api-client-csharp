@@ -67,6 +67,17 @@ namespace LoanStreet.LoanServicing.Test
         }
         
         /// <summary>
+        /// Test AuthInstitution
+        /// </summary>
+        [Fact]
+        public void AuthInstitutionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.AuthInstitution();
+            //Assert.IsType<string> (response, "response is string");
+        }
+        
+        /// <summary>
         /// Test Principal
         /// </summary>
         [Fact]

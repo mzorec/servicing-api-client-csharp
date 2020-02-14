@@ -207,16 +207,19 @@ namespace LoanStreet.LoanServicing.Model
         /// <param name="annualRate">annualRate (required).</param>
         /// <param name="compounding">compounding (required).</param>
         /// <param name="dayCount">dayCount (required).</param>
-        /// <param name="numPayments">numPayments (required).</param>
+        /// <param name="numPeriods">numPeriods (required).</param>
+        /// <param name="paymentAmount">paymentAmount (required).</param>
         /// <param name="paymentFrequency">paymentFrequency (required).</param>
-        /// <param name="date">date (required).</param>
+        /// <param name="effectiveDate">effectiveDate.</param>
         /// <param name="type">type (required).</param>
-        public FixedPaymentInterestTerms(double annualRate = default(double), CompoundingEnum compounding = default(CompoundingEnum), DayCountEnum dayCount = default(DayCountEnum), int numPayments = default(int), PaymentFrequencyEnum paymentFrequency = default(PaymentFrequencyEnum), DateTime date = default(DateTime), string type = default(string)) : base(date, type)
+        public FixedPaymentInterestTerms(double annualRate = default(double), CompoundingEnum compounding = default(CompoundingEnum), DayCountEnum dayCount = default(DayCountEnum), int numPeriods = default(int), Money paymentAmount = default(Money), PaymentFrequencyEnum paymentFrequency = default(PaymentFrequencyEnum), DateTime effectiveDate = default(DateTime), string type = default(string)) : base(effectiveDate, type)
         {
             this.AnnualRate = annualRate;
             this.Compounding = compounding;
             this.DayCount = dayCount;
-            this.NumPayments = numPayments;
+            this.NumPeriods = numPeriods;
+            // to ensure "paymentAmount" is required (not null)
+            this.PaymentAmount = paymentAmount ?? throw new ArgumentNullException("paymentAmount is a required property for FixedPaymentInterestTerms and cannot be null");;
             this.PaymentFrequency = paymentFrequency;
         }
         
@@ -227,10 +230,16 @@ namespace LoanStreet.LoanServicing.Model
         public double AnnualRate { get; set; }
 
         /// <summary>
-        /// Gets or Sets NumPayments
+        /// Gets or Sets NumPeriods
         /// </summary>
-        [DataMember(Name="numPayments", EmitDefaultValue=false)]
-        public int NumPayments { get; set; }
+        [DataMember(Name="numPeriods", EmitDefaultValue=false)]
+        public int NumPeriods { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentAmount
+        /// </summary>
+        [DataMember(Name="paymentAmount", EmitDefaultValue=false)]
+        public Money PaymentAmount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -244,7 +253,8 @@ namespace LoanStreet.LoanServicing.Model
             sb.Append("  AnnualRate: ").Append(AnnualRate).Append("\n");
             sb.Append("  Compounding: ").Append(Compounding).Append("\n");
             sb.Append("  DayCount: ").Append(DayCount).Append("\n");
-            sb.Append("  NumPayments: ").Append(NumPayments).Append("\n");
+            sb.Append("  NumPeriods: ").Append(NumPeriods).Append("\n");
+            sb.Append("  PaymentAmount: ").Append(PaymentAmount).Append("\n");
             sb.Append("  PaymentFrequency: ").Append(PaymentFrequency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -293,8 +303,13 @@ namespace LoanStreet.LoanServicing.Model
                     this.DayCount.Equals(input.DayCount)
                 ) && base.Equals(input) && 
                 (
-                    this.NumPayments == input.NumPayments ||
-                    this.NumPayments.Equals(input.NumPayments)
+                    this.NumPeriods == input.NumPeriods ||
+                    this.NumPeriods.Equals(input.NumPeriods)
+                ) && base.Equals(input) && 
+                (
+                    this.PaymentAmount == input.PaymentAmount ||
+                    (this.PaymentAmount != null &&
+                    this.PaymentAmount.Equals(input.PaymentAmount))
                 ) && base.Equals(input) && 
                 (
                     this.PaymentFrequency == input.PaymentFrequency ||
@@ -314,7 +329,9 @@ namespace LoanStreet.LoanServicing.Model
                 hashCode = hashCode * 59 + this.AnnualRate.GetHashCode();
                 hashCode = hashCode * 59 + this.Compounding.GetHashCode();
                 hashCode = hashCode * 59 + this.DayCount.GetHashCode();
-                hashCode = hashCode * 59 + this.NumPayments.GetHashCode();
+                hashCode = hashCode * 59 + this.NumPeriods.GetHashCode();
+                if (this.PaymentAmount != null)
+                    hashCode = hashCode * 59 + this.PaymentAmount.GetHashCode();
                 hashCode = hashCode * 59 + this.PaymentFrequency.GetHashCode();
                 return hashCode;
             }
