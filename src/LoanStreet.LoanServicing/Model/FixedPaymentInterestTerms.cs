@@ -25,12 +25,177 @@ using OpenAPIDateConverter = LoanStreet.LoanServicing.Client.OpenAPIDateConverte
 
 namespace LoanStreet.LoanServicing.Model
 {
-    /*/// <summary>
+    /// <summary>
     /// FixedPaymentInterestTerms
     /// </summary>
     [DataContract]
     public partial class FixedPaymentInterestTerms : InterestTerms,  IEquatable<FixedPaymentInterestTerms>, IValidatableObject
     {
+        /// <summary>
+        /// Defines Compounding
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CompoundingEnum
+        {
+            /// <summary>
+            /// Enum SIMPLE for value: SIMPLE
+            /// </summary>
+            [EnumMember(Value = "SIMPLE")]
+            SIMPLE = 1,
+
+            /// <summary>
+            /// Enum COMPOUNDED for value: COMPOUNDED
+            /// </summary>
+            [EnumMember(Value = "COMPOUNDED")]
+            COMPOUNDED = 2,
+
+            /// <summary>
+            /// Enum CONTINUOUS for value: CONTINUOUS
+            /// </summary>
+            [EnumMember(Value = "CONTINUOUS")]
+            CONTINUOUS = 3,
+
+            /// <summary>
+            /// Enum SIMPLETHENCOMPOUNDED for value: SIMPLE_THEN_COMPOUNDED
+            /// </summary>
+            [EnumMember(Value = "SIMPLE_THEN_COMPOUNDED")]
+            SIMPLETHENCOMPOUNDED = 4
+
+        }
+
+        /// <summary>
+        /// Gets or Sets Compounding
+        /// </summary>
+        [DataMember(Name="compounding", EmitDefaultValue=false)]
+        public CompoundingEnum Compounding { get; set; }
+        /// <summary>
+        /// Defines DayCount
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum DayCountEnum
+        {
+            /// <summary>
+            /// Enum ACTUAL360 for value: ACTUAL_360
+            /// </summary>
+            [EnumMember(Value = "ACTUAL_360")]
+            ACTUAL360 = 1,
+
+            /// <summary>
+            /// Enum ACTUAL365 for value: ACTUAL_365
+            /// </summary>
+            [EnumMember(Value = "ACTUAL_365")]
+            ACTUAL365 = 2,
+
+            /// <summary>
+            /// Enum ACTUAL360ADJUSTED for value: ACTUAL_360_ADJUSTED
+            /// </summary>
+            [EnumMember(Value = "ACTUAL_360_ADJUSTED")]
+            ACTUAL360ADJUSTED = 3,
+
+            /// <summary>
+            /// Enum ACTUALACTUALICMA for value: ACTUAL_ACTUAL_ICMA
+            /// </summary>
+            [EnumMember(Value = "ACTUAL_ACTUAL_ICMA")]
+            ACTUALACTUALICMA = 4,
+
+            /// <summary>
+            /// Enum ACTUALACTUALISDA for value: ACTUAL_ACTUAL_ISDA
+            /// </summary>
+            [EnumMember(Value = "ACTUAL_ACTUAL_ISDA")]
+            ACTUALACTUALISDA = 5,
+
+            /// <summary>
+            /// Enum THIRTY360 for value: THIRTY_360
+            /// </summary>
+            [EnumMember(Value = "THIRTY_360")]
+            THIRTY360 = 6
+
+        }
+
+        /// <summary>
+        /// Gets or Sets DayCount
+        /// </summary>
+        [DataMember(Name="dayCount", EmitDefaultValue=false)]
+        public DayCountEnum DayCount { get; set; }
+        /// <summary>
+        /// Defines PaymentFrequency
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum PaymentFrequencyEnum
+        {
+            /// <summary>
+            /// Enum ONCE for value: ONCE
+            /// </summary>
+            [EnumMember(Value = "ONCE")]
+            ONCE = 1,
+
+            /// <summary>
+            /// Enum ANNUALLY for value: ANNUALLY
+            /// </summary>
+            [EnumMember(Value = "ANNUALLY")]
+            ANNUALLY = 2,
+
+            /// <summary>
+            /// Enum SEMIANNUALLY for value: SEMIANNUALLY
+            /// </summary>
+            [EnumMember(Value = "SEMIANNUALLY")]
+            SEMIANNUALLY = 3,
+
+            /// <summary>
+            /// Enum EVERYFOURTHMONTH for value: EVERY_FOURTH_MONTH
+            /// </summary>
+            [EnumMember(Value = "EVERY_FOURTH_MONTH")]
+            EVERYFOURTHMONTH = 4,
+
+            /// <summary>
+            /// Enum QUARTERLY for value: QUARTERLY
+            /// </summary>
+            [EnumMember(Value = "QUARTERLY")]
+            QUARTERLY = 5,
+
+            /// <summary>
+            /// Enum BIMONTHLY for value: BIMONTHLY
+            /// </summary>
+            [EnumMember(Value = "BIMONTHLY")]
+            BIMONTHLY = 6,
+
+            /// <summary>
+            /// Enum MONTHLY for value: MONTHLY
+            /// </summary>
+            [EnumMember(Value = "MONTHLY")]
+            MONTHLY = 7,
+
+            /// <summary>
+            /// Enum EVERYFOURTHWEEK for value: EVERY_FOURTH_WEEK
+            /// </summary>
+            [EnumMember(Value = "EVERY_FOURTH_WEEK")]
+            EVERYFOURTHWEEK = 8,
+
+            /// <summary>
+            /// Enum BIWEEKLY for value: BIWEEKLY
+            /// </summary>
+            [EnumMember(Value = "BIWEEKLY")]
+            BIWEEKLY = 9,
+
+            /// <summary>
+            /// Enum WEEKLY for value: WEEKLY
+            /// </summary>
+            [EnumMember(Value = "WEEKLY")]
+            WEEKLY = 10,
+
+            /// <summary>
+            /// Enum DAILY for value: DAILY
+            /// </summary>
+            [EnumMember(Value = "DAILY")]
+            DAILY = 11
+
+        }
+
+        /// <summary>
+        /// Gets or Sets PaymentFrequency
+        /// </summary>
+        [DataMember(Name="paymentFrequency", EmitDefaultValue=false)]
+        public PaymentFrequencyEnum PaymentFrequency { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedPaymentInterestTerms" /> class.
         /// </summary>
@@ -39,36 +204,33 @@ namespace LoanStreet.LoanServicing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedPaymentInterestTerms" /> class.
         /// </summary>
-        /// <param name="paymentAmount">paymentAmount (required).</param>
-        /// <param name="effectiveDate">effectiveDate (required).</param>
-        /// <param name="benchmark">benchmark.</param>
-        /// <param name="interestType">interestType (required).</param>
-        /// <param name="numAmortizationPeriods">numAmortizationPeriods (required).</param>
-        /// <param name="numInterestOnlyPeriods">numInterestOnlyPeriods (required).</param>
-        /// <param name="numPeriods">numPeriods (required).</param>
-        /// <param name="paymentFrequency">paymentFrequency (required).</param>
         /// <param name="annualRate">annualRate (required).</param>
-        /// <param name="dayCount">dayCount (required).</param>
         /// <param name="compounding">compounding (required).</param>
-        public FixedPaymentInterestTerms(Money paymentAmount = default(Money), DateTime effectiveDate = default(DateTime), FloatingInterestTerms.BenchmarkEnum? benchmark = default(FloatingInterestTerms.BenchmarkEnum?), InterestTypeEnum interestType = default(InterestTypeEnum), int numAmortizationPeriods = default(int), int numInterestOnlyPeriods = default(int), int numPeriods = default(int), FixedPaymentInterestRules.PaymentFrequencyEnum paymentFrequency = default(FixedPaymentInterestRules.PaymentFrequencyEnum), double annualRate = default(double), FixedPaymentInterestRules.DayCountEnum dayCount = default(FixedPaymentInterestRules.DayCountEnum), FixedPaymentInterestRules.CompoundingEnum compounding = default(FixedPaymentInterestRules.CompoundingEnum)) : base(effectiveDate, benchmark, interestType, numAmortizationPeriods, numInterestOnlyPeriods, numPeriods, paymentFrequency, annualRate, dayCount, compounding)
+        /// <param name="dayCount">dayCount (required).</param>
+        /// <param name="numPayments">numPayments (required).</param>
+        /// <param name="paymentFrequency">paymentFrequency (required).</param>
+        /// <param name="date">date (required).</param>
+        /// <param name="type">type (required).</param>
+        public FixedPaymentInterestTerms(double annualRate = default(double), CompoundingEnum compounding = default(CompoundingEnum), DayCountEnum dayCount = default(DayCountEnum), int numPayments = default(int), PaymentFrequencyEnum paymentFrequency = default(PaymentFrequencyEnum), DateTime date = default(DateTime), string type = default(string)) : base(date, type)
         {
-            // to ensure "paymentAmount" is required (not null)
-            if (paymentAmount == null)
-            {
-                throw new InvalidDataException("paymentAmount is a required property for FixedPaymentInterestTerms and cannot be null");
-            }
-            else
-            {
-                this.PaymentAmount = paymentAmount;
-            }
-
+            this.AnnualRate = annualRate;
+            this.Compounding = compounding;
+            this.DayCount = dayCount;
+            this.NumPayments = numPayments;
+            this.PaymentFrequency = paymentFrequency;
         }
         
         /// <summary>
-        /// Gets or Sets PaymentAmount
+        /// Gets or Sets AnnualRate
         /// </summary>
-        [DataMember(Name="paymentAmount", EmitDefaultValue=false)]
-        public Money PaymentAmount { get; set; }
+        [DataMember(Name="annualRate", EmitDefaultValue=false)]
+        public double AnnualRate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NumPayments
+        /// </summary>
+        [DataMember(Name="numPayments", EmitDefaultValue=false)]
+        public int NumPayments { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -79,7 +241,11 @@ namespace LoanStreet.LoanServicing.Model
             var sb = new StringBuilder();
             sb.Append("class FixedPaymentInterestTerms {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  PaymentAmount: ").Append(PaymentAmount).Append("\n");
+            sb.Append("  AnnualRate: ").Append(AnnualRate).Append("\n");
+            sb.Append("  Compounding: ").Append(Compounding).Append("\n");
+            sb.Append("  DayCount: ").Append(DayCount).Append("\n");
+            sb.Append("  NumPayments: ").Append(NumPayments).Append("\n");
+            sb.Append("  PaymentFrequency: ").Append(PaymentFrequency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,9 +281,24 @@ namespace LoanStreet.LoanServicing.Model
 
             return base.Equals(input) && 
                 (
-                    this.PaymentAmount == input.PaymentAmount ||
-                    (this.PaymentAmount != null &&
-                    this.PaymentAmount.Equals(input.PaymentAmount))
+                    this.AnnualRate == input.AnnualRate ||
+                    this.AnnualRate.Equals(input.AnnualRate)
+                ) && base.Equals(input) && 
+                (
+                    this.Compounding == input.Compounding ||
+                    this.Compounding.Equals(input.Compounding)
+                ) && base.Equals(input) && 
+                (
+                    this.DayCount == input.DayCount ||
+                    this.DayCount.Equals(input.DayCount)
+                ) && base.Equals(input) && 
+                (
+                    this.NumPayments == input.NumPayments ||
+                    this.NumPayments.Equals(input.NumPayments)
+                ) && base.Equals(input) && 
+                (
+                    this.PaymentFrequency == input.PaymentFrequency ||
+                    this.PaymentFrequency.Equals(input.PaymentFrequency)
                 );
         }
 
@@ -130,8 +311,11 @@ namespace LoanStreet.LoanServicing.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                if (this.PaymentAmount != null)
-                    hashCode = hashCode * 59 + this.PaymentAmount.GetHashCode();
+                hashCode = hashCode * 59 + this.AnnualRate.GetHashCode();
+                hashCode = hashCode * 59 + this.Compounding.GetHashCode();
+                hashCode = hashCode * 59 + this.DayCount.GetHashCode();
+                hashCode = hashCode * 59 + this.NumPayments.GetHashCode();
+                hashCode = hashCode * 59 + this.PaymentFrequency.GetHashCode();
                 return hashCode;
             }
         }
@@ -146,6 +330,6 @@ namespace LoanStreet.LoanServicing.Model
             foreach(var x in BaseValidate(validationContext)) yield return x;
             yield break;
         }
-    }*/
+    }
 
 }

@@ -4,6 +4,9 @@ using Xunit;
 
 namespace LoanStreet.LoanServicing.Examples.institutions
 {
+    
+    
+    
     public class InstutitionsCRUD
     {
 
@@ -29,7 +32,7 @@ namespace LoanStreet.LoanServicing.Examples.institutions
         public void CreateInstitution()
         {
             // 1) Set Credentials.  You will need to uncomment and set the following line
-            // ClientFactory.SetCredentials("YourUser", "YourPassword");
+            // ClientFactory.SetCredentials("YourUser", "YourPassword")
 
             // 2) Create an Institution Model Instance
             var institution = GetTestInstitution();
@@ -38,7 +41,8 @@ namespace LoanStreet.LoanServicing.Examples.institutions
             var client = ClientFactory.GetInstitutionsController();
 
             // 4) Send the Institution model to the Servicing API!
-            var createdInstitution = client.Create(institution);
+            
+            var createdInstitution = client.CreateInstitution(institution);
 
             // 5) The API will respond with an instance of the institution it created.  This instance will have
             //     a populated `institutionId` property, this is the unique identifier the Servicing system has
@@ -62,10 +66,10 @@ namespace LoanStreet.LoanServicing.Examples.institutions
             var client = ClientFactory.GetInstitutionsController();
 
             // 3) Create an institution to use for this test
-            var createdInstitution = client.Create(GetTestInstitution());
+            var createdInstitution = client.CreateInstitution(GetTestInstitution());
 
             // 4) Load the created institution by ID
-            var loadedById = client.Fetch(createdInstitution.InstitutionId);
+            var loadedById = client.GetInstitution(createdInstitution.InstitutionId);
 
             // 5) Strictly for testing purposes, load the institution by id
             Assert.NotNull(loadedById);
@@ -82,7 +86,7 @@ namespace LoanStreet.LoanServicing.Examples.institutions
             var client = ClientFactory.GetInstitutionsController();
 
             // 3) List institutions my user is permitted to view
-            var allInstitutions = client.FetchAll();
+            var allInstitutions = client.ListInstitutions();
 
             // 4) Strictly for testing purposes, assert that we received a response.
             Assert.NotNull(allInstitutions);

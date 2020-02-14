@@ -56,26 +56,26 @@ namespace LoanStreet.LoanServicing.Test
 
         
         /// <summary>
-        /// Test NextBusinessDayResponse
+        /// Test GetNextBusinessDay
         /// </summary>
         [Fact]
-        public void NextBusinessDayResponseTest()
+        public void GetNextBusinessDayTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //DateTime inputDate = null;
-            //var response = instance.NextBusinessDayResponse(inputDate);
+            //var response = instance.GetNextBusinessDay(inputDate);
             //Assert.IsType<BusinessDayResponse> (response, "response is BusinessDayResponse");
         }
         
         /// <summary>
-        /// Test PreviousBusinessDayResponse
+        /// Test GetPreviousBusinessDay
         /// </summary>
         [Fact]
-        public void PreviousBusinessDayResponseTest()
+        public void GetPreviousBusinessDayTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //DateTime inputDate = null;
-            //var response = instance.PreviousBusinessDayResponse(inputDate);
+            //var response = instance.GetPreviousBusinessDay(inputDate);
             //Assert.IsType<BusinessDayResponse> (response, "response is BusinessDayResponse");
         }
         

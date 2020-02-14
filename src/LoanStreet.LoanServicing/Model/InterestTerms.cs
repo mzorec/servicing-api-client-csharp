@@ -31,10 +31,10 @@ namespace LoanStreet.LoanServicing.Model
     /// </summary>
     [DataContract]
     [JsonConverter(typeof(JsonSubtypes), "Type")]
+    [JsonSubtypes.KnownSubType(typeof(FixedPaymentInterestTerms), "FixedPaymentInterestTerms")]
     [JsonSubtypes.KnownSubType(typeof(FloatingInterestTerms), "FloatingInterestTerms")]
-    [JsonSubtypes.KnownSubType(typeof(FixedPaymentInterestRules), "FixedPaymentInterestRules")]
-    [JsonSubtypes.KnownSubType(typeof(FixedPaymentInterestRules), "FixedPaymentInterestRules")]
-    [JsonSubtypes.KnownSubType(typeof(FloatingInterestTerms), "FloatingInterestTerms")]
+    [JsonSubtypes.KnownSubType(typeof(FixedPaymentInterestTerms), "FIXED_PAYMENT")]
+    [JsonSubtypes.KnownSubType(typeof(FloatingInterestTerms), "FLOATING")]
     public partial class InterestTerms :  IEquatable<InterestTerms>, IValidatableObject
     {
         /// <summary>

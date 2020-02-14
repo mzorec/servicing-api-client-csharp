@@ -111,35 +111,20 @@ namespace LoanStreet.LoanServicing
         /// <summary>
         ///     Get an instance of the Institutions Client
         /// </summary>
-        /// <returns>InstitutionsControllerApi</returns>
-        public static InstitutionsControllerApi GetInstitutionsController()
+        /// <returns>InstitutionsApi</returns>
+        public static InstitutionsApi GetInstitutionsController()
         {
             RequireBearerToken();
 
-            return new InstitutionsControllerApi(GetConfig());
+            return new InstitutionsApi(GetConfig());
         }
 
-        /// <summary>
-        ///     Get an instance of the Loans Client
-        /// </summary>
-        /// <returns>LoansControllerApi</returns>
-        public static LoansControllerApi GetLoansController()
+        public static FacilitiesApi GetFacilitiesController()
         {
             RequireBearerToken();
-
-            return new LoansControllerApi(GetConfig());
-        }
-
-
-        /// <summary>
-        ///     Get an instance of the Deals Client
-        /// </summary>
-        /// <returns>DealsControllerApi</returns>
-        public static DealsControllerApi GetDealsController()
-        {
-            RequireBearerToken();
-
-            return new DealsControllerApi(GetConfig());
+            
+            return new FacilitiesApi(GetConfig()); 
+                
         }
     }
 }

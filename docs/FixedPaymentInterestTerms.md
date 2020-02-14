@@ -3,17 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EffectiveDate** | **DateTime** |  | 
-**Benchmark** | **string** |  | [optional] 
-**InterestType** | **string** |  | 
-**NumAmortizationPeriods** | **int** |  | 
-**NumInterestOnlyPeriods** | **int** |  | 
-**NumPeriods** | **int** |  | 
-**PaymentFrequency** | **string** |  | 
+**Date** | **DateTime** |  | 
+**Type** | **string** |  | 
 **AnnualRate** | **double** |  | 
-**DayCount** | **string** |  | 
 **Compounding** | **string** |  | 
-**PaymentAmount** | [**Money**](Money.md) |  | 
+**DayCount** | **string** |  | 
+**NumPayments** | **int** |  | 
+**PaymentFrequency** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

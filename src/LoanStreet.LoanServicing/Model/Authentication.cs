@@ -34,22 +34,28 @@ namespace LoanStreet.LoanServicing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Authentication" /> class.
         /// </summary>
-        /// <param name="credentials">credentials.</param>
         /// <param name="principal">principal.</param>
+        /// <param name="credentials">credentials.</param>
+        /// <param name="authorities">authorities.</param>
         /// <param name="authenticated">authenticated.</param>
         /// <param name="details">details.</param>
-        /// <param name="authorities">authorities.</param>
         /// <param name="name">name.</param>
-        public Authentication(Object credentials = default(Object), Object principal = default(Object), bool authenticated = default(bool), Object details = default(Object), List<GrantedAuthority> authorities = default(List<GrantedAuthority>), string name = default(string))
+        public Authentication(Object principal = default(Object), Object credentials = default(Object), List<GrantedAuthority> authorities = default(List<GrantedAuthority>), bool authenticated = default(bool), Object details = default(Object), string name = default(string))
         {
-            this.Credentials = credentials;
             this.Principal = principal;
+            this.Credentials = credentials;
+            this.Authorities = authorities;
             this.Authenticated = authenticated;
             this.Details = details;
-            this.Authorities = authorities;
             this.Name = name;
         }
         
+        /// <summary>
+        /// Gets or Sets Principal
+        /// </summary>
+        [DataMember(Name="principal", EmitDefaultValue=false)]
+        public Object Principal { get; set; }
+
         /// <summary>
         /// Gets or Sets Credentials
         /// </summary>
@@ -57,10 +63,10 @@ namespace LoanStreet.LoanServicing.Model
         public Object Credentials { get; set; }
 
         /// <summary>
-        /// Gets or Sets Principal
+        /// Gets or Sets Authorities
         /// </summary>
-        [DataMember(Name="principal", EmitDefaultValue=false)]
-        public Object Principal { get; set; }
+        [DataMember(Name="authorities", EmitDefaultValue=false)]
+        public List<GrantedAuthority> Authorities { get; set; }
 
         /// <summary>
         /// Gets or Sets Authenticated
@@ -73,12 +79,6 @@ namespace LoanStreet.LoanServicing.Model
         /// </summary>
         [DataMember(Name="details", EmitDefaultValue=false)]
         public Object Details { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Authorities
-        /// </summary>
-        [DataMember(Name="authorities", EmitDefaultValue=false)]
-        public List<GrantedAuthority> Authorities { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -94,11 +94,11 @@ namespace LoanStreet.LoanServicing.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Authentication {\n");
-            sb.Append("  Credentials: ").Append(Credentials).Append("\n");
             sb.Append("  Principal: ").Append(Principal).Append("\n");
+            sb.Append("  Credentials: ").Append(Credentials).Append("\n");
+            sb.Append("  Authorities: ").Append(Authorities).Append("\n");
             sb.Append("  Authenticated: ").Append(Authenticated).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
-            sb.Append("  Authorities: ").Append(Authorities).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -135,14 +135,20 @@ namespace LoanStreet.LoanServicing.Model
 
             return 
                 (
+                    this.Principal == input.Principal ||
+                    (this.Principal != null &&
+                    this.Principal.Equals(input.Principal))
+                ) && 
+                (
                     this.Credentials == input.Credentials ||
                     (this.Credentials != null &&
                     this.Credentials.Equals(input.Credentials))
                 ) && 
                 (
-                    this.Principal == input.Principal ||
-                    (this.Principal != null &&
-                    this.Principal.Equals(input.Principal))
+                    this.Authorities == input.Authorities ||
+                    this.Authorities != null &&
+                    input.Authorities != null &&
+                    this.Authorities.SequenceEqual(input.Authorities)
                 ) && 
                 (
                     this.Authenticated == input.Authenticated ||
@@ -152,12 +158,6 @@ namespace LoanStreet.LoanServicing.Model
                     this.Details == input.Details ||
                     (this.Details != null &&
                     this.Details.Equals(input.Details))
-                ) && 
-                (
-                    this.Authorities == input.Authorities ||
-                    this.Authorities != null &&
-                    input.Authorities != null &&
-                    this.Authorities.SequenceEqual(input.Authorities)
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -175,15 +175,15 @@ namespace LoanStreet.LoanServicing.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Credentials != null)
-                    hashCode = hashCode * 59 + this.Credentials.GetHashCode();
                 if (this.Principal != null)
                     hashCode = hashCode * 59 + this.Principal.GetHashCode();
+                if (this.Credentials != null)
+                    hashCode = hashCode * 59 + this.Credentials.GetHashCode();
+                if (this.Authorities != null)
+                    hashCode = hashCode * 59 + this.Authorities.GetHashCode();
                 hashCode = hashCode * 59 + this.Authenticated.GetHashCode();
                 if (this.Details != null)
                     hashCode = hashCode * 59 + this.Details.GetHashCode();
-                if (this.Authorities != null)
-                    hashCode = hashCode * 59 + this.Authorities.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 return hashCode;

@@ -56,37 +56,37 @@ namespace LoanStreet.LoanServicing.Test
 
         
         /// <summary>
-        /// Test Create1
+        /// Test CreateUser
         /// </summary>
         [Fact]
-        public void Create1Test()
+        public void CreateUserTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //CreateUserRequest createUserRequest = null;
-            //var response = instance.Create1(createUserRequest);
+            //var response = instance.CreateUser(createUserRequest);
             //Assert.IsType<User> (response, "response is User");
         }
         
         /// <summary>
-        /// Test Fetch1
+        /// Test GetUser
         /// </summary>
         [Fact]
-        public void Fetch1Test()
+        public void GetUserTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string userId = null;
-            //var response = instance.Fetch1(userId);
+            //var response = instance.GetUser(userId);
             //Assert.IsType<User> (response, "response is User");
         }
         
         /// <summary>
-        /// Test List
+        /// Test ListUsers
         /// </summary>
         [Fact]
-        public void ListTest()
+        public void ListUsersTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.List();
+            //var response = instance.ListUsers();
             //Assert.IsType<List<User>> (response, "response is List<User>");
         }
         

@@ -29,7 +29,7 @@ namespace LoanStreet.LoanServicing.Model
     /// FixedPaymentInterestRules
     /// </summary>
     [DataContract]
-    public partial class FixedPaymentInterestRules : InterestTerms,  IEquatable<FixedPaymentInterestRules>, IValidatableObject
+    public partial class FixedPaymentInterestRules : InterestRules,  IEquatable<FixedPaymentInterestRules>, IValidatableObject
     {
         /// <summary>
         /// Defines Compounding

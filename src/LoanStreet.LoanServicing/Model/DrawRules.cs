@@ -34,9 +34,9 @@ namespace LoanStreet.LoanServicing.Model
     [JsonSubtypes.KnownSubType(typeof(RevolverDrawRules), "RevolverDrawRules")]
     [JsonSubtypes.KnownSubType(typeof(SingleDrawRules), "SingleDrawRules")]
     [JsonSubtypes.KnownSubType(typeof(MultipleDrawRules), "MultipleDrawRules")]
-    [JsonSubtypes.KnownSubType(typeof(MultipleDrawRules), "MultipleDrawRules")]
-    [JsonSubtypes.KnownSubType(typeof(RevolverDrawRules), "RevolverDrawRules")]
-    [JsonSubtypes.KnownSubType(typeof(SingleDrawRules), "SingleDrawRules")]
+    [JsonSubtypes.KnownSubType(typeof(SingleDrawRules), "SINGLE_DRAW")]
+    [JsonSubtypes.KnownSubType(typeof(MultipleDrawRules), "MULTIPLE_DRAW")]
+    [JsonSubtypes.KnownSubType(typeof(RevolverDrawRules), "REVOLVER")]
     public partial class DrawRules :  IEquatable<DrawRules>, IValidatableObject
     {
         /// <summary>

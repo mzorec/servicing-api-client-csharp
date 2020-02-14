@@ -8,7 +8,6 @@
 - [Servicing API Documentation](https://api.loan-street.com/docs/index.html)
 - [Swagger File](https://api.loan-street.com:8443/v1/api-docs)
 
-
 ## Examples
 
 - [Institutions Create and Read](src/LoanStreet.LoanServicing.Examples/institutions/InstutitionsCRUD.cs)
@@ -144,6 +143,7 @@ Class | Method | HTTP request | Description
  - [Model.FacilityInstitutionDto](docs/FacilityInstitutionDto.md)
  - [Model.FixedPaymentInterestRules](docs/FixedPaymentInterestRules.md)
  - [Model.FixedPaymentInterestRulesAllOf](docs/FixedPaymentInterestRulesAllOf.md)
+ - [Model.FixedPaymentInterestTerms](docs/FixedPaymentInterestTerms.md)
  - [Model.FloatingInterestRules](docs/FloatingInterestRules.md)
  - [Model.FloatingInterestRulesAllOf](docs/FloatingInterestRulesAllOf.md)
  - [Model.FloatingInterestTerms](docs/FloatingInterestTerms.md)

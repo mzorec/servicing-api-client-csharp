@@ -58,6 +58,22 @@ namespace LoanStreet.LoanServicing.Test
 
 
         /// <summary>
+        /// Test the property 'Principal'
+        /// </summary>
+        [Fact]
+        public void PrincipalTest()
+        {
+            // TODO unit test for the property 'Principal'
+        }
+        /// <summary>
+        /// Test the property 'Credentials'
+        /// </summary>
+        [Fact]
+        public void CredentialsTest()
+        {
+            // TODO unit test for the property 'Credentials'
+        }
+        /// <summary>
         /// Test the property 'Authorities'
         /// </summary>
         [Fact]
@@ -80,22 +96,6 @@ namespace LoanStreet.LoanServicing.Test
         public void DetailsTest()
         {
             // TODO unit test for the property 'Details'
-        }
-        /// <summary>
-        /// Test the property 'Credentials'
-        /// </summary>
-        [Fact]
-        public void CredentialsTest()
-        {
-            // TODO unit test for the property 'Credentials'
-        }
-        /// <summary>
-        /// Test the property 'Principal'
-        /// </summary>
-        [Fact]
-        public void PrincipalTest()
-        {
-            // TODO unit test for the property 'Principal'
         }
         /// <summary>
         /// Test the property 'Name'

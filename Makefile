@@ -38,7 +38,7 @@ test_examples:
 generate:
 	@echo Updating Client from latest schema
 	@make clean
-	@./update_client.sh $V
+	@./update_client.sh
 	@make debug_build
 	@make test_generated
 	@make release_build	

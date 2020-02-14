@@ -56,50 +56,50 @@ namespace LoanStreet.LoanServicing.Test
 
         
         /// <summary>
-        /// Test Create
+        /// Test CreateInstitution
         /// </summary>
         [Fact]
-        public void CreateTest()
+        public void CreateInstitutionTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Institution institution = null;
-            //var response = instance.Create(institution);
+            //var response = instance.CreateInstitution(institution);
             //Assert.IsType<Institution> (response, "response is Institution");
         }
         
         /// <summary>
-        /// Test Fetch
+        /// Test GetInstitution
         /// </summary>
         [Fact]
-        public void FetchTest()
+        public void GetInstitutionTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string institutionId = null;
-            //var response = instance.Fetch(institutionId);
+            //var response = instance.GetInstitution(institutionId);
             //Assert.IsType<Institution> (response, "response is Institution");
         }
         
         /// <summary>
-        /// Test FetchAll
+        /// Test ListInstitutions
         /// </summary>
         [Fact]
-        public void FetchAllTest()
+        public void ListInstitutionsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.FetchAll();
+            //var response = instance.ListInstitutions();
             //Assert.IsType<List<Institution>> (response, "response is List<Institution>");
         }
         
         /// <summary>
-        /// Test Update
+        /// Test UpdateInstitution
         /// </summary>
         [Fact]
-        public void UpdateTest()
+        public void UpdateInstitutionTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string institutionId = null;
             //Object body = null;
-            //var response = instance.Update(institutionId, body);
+            //var response = instance.UpdateInstitution(institutionId, body);
             //Assert.IsType<Object> (response, "response is Object");
         }
         
