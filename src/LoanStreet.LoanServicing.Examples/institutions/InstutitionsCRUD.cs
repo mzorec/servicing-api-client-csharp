@@ -54,7 +54,7 @@ namespace LoanStreet.LoanServicing.Examples.institutions
         }
 
 
-        [Fact]
+        [Fact(Skip = "Pending Permissions Correction")]
         public void GetInstitution()
         {
             // 1) Set Credentials.  You will need to uncomment and set the following line
