@@ -13,7 +13,7 @@ The version of the OpenAPI document: v0
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0A763226-7DBF-403F-B766-C9AC5E9F70F3}</ProjectGuid>
+    <ProjectGuid>{3C474590-D129-4120-A1A8-0E774E07FFC4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LoanStreet.LoanServicing</RootNamespace>

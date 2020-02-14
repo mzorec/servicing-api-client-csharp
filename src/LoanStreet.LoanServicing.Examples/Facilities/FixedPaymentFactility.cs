@@ -6,7 +6,7 @@ using Xunit;
 
 namespace LoanStreet.LoanServicing.Examples.Facilities
 {
-    public class FixedPaymentFactility
+    public class FixedPaymentFactility : TestBase
     {
         public static Facility GetFacilityInstance()
         {

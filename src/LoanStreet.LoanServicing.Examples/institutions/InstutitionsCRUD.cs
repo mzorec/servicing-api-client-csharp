@@ -5,7 +5,7 @@ using Xunit;
 namespace LoanStreet.LoanServicing.Examples.institutions
 {
     
-    public class InstutitionsCRUD
+    public class InstutitionsCRUD : TestBase
     {
 
         public static Institution GetTestInstitution()
@@ -62,12 +62,9 @@ namespace LoanStreet.LoanServicing.Examples.institutions
 
             // 2) Get the institutions client
             var client = ClientFactory.GetInstitutionsController();
-
-            // 3) Create an institution to use for this test
-            var createdInstitution = client.CreateInstitution(GetTestInstitution());
-
-            // 4) Load the created institution by ID
-            var loadedById = client.GetInstitution(createdInstitution.InstitutionId);
+            
+            // 3) Load Your User's Institution
+            var loadedById = client.GetInstitution(Context.institutionId);
 
             // 5) Strictly for testing purposes, load the institution by id
             Assert.NotNull(loadedById);

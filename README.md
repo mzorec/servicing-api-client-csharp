@@ -3,7 +3,7 @@
 ![Nuget](https://img.shields.io/nuget/v/LoanStreet.LoanServicing?color=419572&style=plastic)
 ![.NET Core](https://github.com/loanstreet-usa/LoanServicingAPI-Client/workflows/.NET%20Core/badge.svg)
 
-- SDK version: 0.0.6
+- SDK version: 0.0.7
 
 - [Servicing API Documentation](https://api.loan-street.com/docs/index.html)
 - [Swagger File](https://api.loan-street.com:8443/v1/api-docs)
@@ -65,25 +65,23 @@ namespace Example
         public static void Main()
         {
 
-            // Optional: Change URL
-            // ClientFactory.BasePath = "https://api.loan-street.com:8443";
-                        
-            // Set Credentials, you only need to do this once
-            ClientFactory.SetCredentials("YourUser", "YourPassword");
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.loan-street.com:8443";
+            // Configure HTTP basic authorization: bearer-token
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+
+            var apiInstance = new ACLsApi(config);
+            var oid = oid_example;  // string | 
 
             try
             {
-                // Get the Institution Client
-                var institutionClient = ClientFactory.GetInstitutionsController();
-                                
-                // Create an Institution       
-                var created = institutionClient.Create(new Institution());
-                
-                Debug.WriteLine(created);
+                AclDto result = apiInstance.List(oid);
+                Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling Institutions controller: " + e.Message );
+                Debug.Print("Exception when calling ACLsApi.List: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -155,7 +153,6 @@ Class | Method | HTTP request | Description
  - [Model.FloatingInterestTermsAllOf](docs/FloatingInterestTermsAllOf.md)
  - [Model.GrantedAuthority](docs/GrantedAuthority.md)
  - [Model.Identity](docs/Identity.md)
- - [Model.InlineObject](docs/InlineObject.md)
  - [Model.Institution](docs/Institution.md)
  - [Model.InterestCharge](docs/InterestCharge.md)
  - [Model.InterestRules](docs/InterestRules.md)
@@ -188,3 +185,4 @@ Class | Method | HTTP request | Description
 ### bearer-token
 
 - **Type**: HTTP basic authentication
+

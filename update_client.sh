@@ -34,3 +34,4 @@ dotnet sln LoanStreet.LoanServicing.sln add src/BuildScript/BuildScript.csproj -
 # Generation Process wipes out .gitignore, re-add lines
 echo ".tools" >> ./.gitignore
 echo ".idea" >> ./.gitignore
+echo "src/LoanStreet.LoanServicing.Examples/test_context.json" >> ./.gitignore

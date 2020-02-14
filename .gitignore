@@ -186,3 +186,4 @@ $RECYCLE.BIN/
 **/*.sln.ide
 .tools
 .idea
+src/LoanStreet.LoanServicing.Examples/test_context.json
