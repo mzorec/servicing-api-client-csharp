@@ -8,18 +8,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.100
-    - name: Setup Builld Tools
-      run: dotnet tool install FlubuCore.GlobalTool --tool-path .tools
-    - name: Dev Build
-      run: ./.tools/flubu build.debug      
-    - name: Generated Tests      
-      run: ./.tools/flubu run.tests
-    - name: Release Build
-      run: ./.tools/flubu build.release
-    - name: Create NuGet Package
-      run: ./.tools/flubu create.package
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.100
+      - name: Setup Builld Tools
+        run: dotnet tool install FlubuCore.GlobalTool --tool-path .tools
+      - name: Dev Build
+        run: ./.tools/flubu build.debug
+      - name: Generated Tests
+        run: ./.tools/flubu run.tests
+      - name: Integration Tests
+        env:
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+          institutionId: ${{ secrets.institutionId }}
+        run: ./.tools/flubu run.examples
+      - name: Release Build
+        run: ./.tools/flubu build.release
+      - name: Create NuGet Package
+        run: ./.tools/flubu create.package
