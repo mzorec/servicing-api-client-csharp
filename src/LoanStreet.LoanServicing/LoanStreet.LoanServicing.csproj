@@ -18,15 +18,21 @@ The version of the OpenAPI document: v0
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LoanStreet.LoanServicing</RootNamespace>
     <AssemblyName>LoanStreet.LoanServicing</AssemblyName>
-    <Description>A library generated from a OpenAPI doc</Description>
+    <Description>A RESTful client for the LoanStreet Loan Servicing System</Description>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFramework>netstandard2.0</TargetFramework>
     <FileAlignment>512</FileAlignment>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\LoanStreet.LoanServicing.xml</DocumentationFile>
-    <RepositoryUrl>https://github.com/GIT_USER_ID/GIT_REPO_ID.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/loanstreet-usa/LoanServicingAPI-Client</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageProjectUrl>https://github.com/GIT_USER_ID/GIT_REPO_ID</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/loanstreet-usa/LoanServicingAPI-Client</PackageProjectUrl>
     <PackageReleaseNotes>Minor update</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageVersion>0.0.7</PackageVersion>
+    <Title>LoanStreet Loan Servicing API Client</Title>
+    <Authors>LoanStreet, Inc</Authors>
+    <Copyright>2020</Copyright>
+    <PackageLicenseUrl>https://github.com/loanstreet-usa/LoanServicingAPI-Client</PackageLicenseUrl>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->

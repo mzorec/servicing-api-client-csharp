@@ -10,6 +10,7 @@
 
 ## Examples
 
+- [Fixed Payment Facility Origination](src/LoanStreet.LoanServicing.Examples/Facilities/FixedPaymentFactility.cs)
 - [Institutions Create and Read](src/LoanStreet.LoanServicing.Examples/institutions/InstutitionsCRUD.cs)
 
 <a name="frameworks-supported"></a>
