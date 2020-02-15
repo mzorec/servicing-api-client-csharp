@@ -1,5 +1,9 @@
 {
   "packageName": "LoanStreet.LoanServicing",
   "targetFramework": "netstandard2.0",
-  "sortParamsByRequiredFlag": false
+  "sortParamsByRequiredFlag": false,
+  "netCoreProjectFile": true,
+  "optionalProjectFile": false,
+  "optionalAssemblyInfo": false,
+  "optionalEmitDefaultValues": false
 }

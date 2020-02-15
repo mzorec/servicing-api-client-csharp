@@ -39,11 +39,11 @@ namespace LoanStreet.LoanServicing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InterestCharge" /> class.
         /// </summary>
-        /// <param name="period">period.</param>
         /// <param name="amount">amount (required).</param>
         /// <param name="chargeId">chargeId (required).</param>
+        /// <param name="period">period.</param>
         /// <param name="type">type (required).</param>
-        public InterestCharge(LocalDatePeriod period = default(LocalDatePeriod), Money amount = default(Money), string chargeId = default(string), string type = default(string)) : base(period, amount, chargeId, type)
+        public InterestCharge(Money amount = default(Money), string chargeId = default(string), LocalDatePeriod period = default(LocalDatePeriod), string type = default(string)) : base(amount, chargeId, period, type)
         {
         }
         

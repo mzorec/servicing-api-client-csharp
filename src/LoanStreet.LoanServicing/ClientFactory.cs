@@ -10,7 +10,7 @@ namespace LoanStreet.LoanServicing
     ///     Loan Servicing API Client Factory.  This class encapsulates Authentication and access
     ///     to the Loan Servicing API
     /// </summary>
-    public class ClientFactory
+    public static class ClientFactory
     {
         private const string AuthScheme = "bearer-token";
         private const string BearerPrefix = "Bearer";
@@ -24,7 +24,7 @@ namespace LoanStreet.LoanServicing
         private static string Username = "";
         private static string Password = "";
         private static string BearerToken;
-        
+
         private static bool AuthenticateUser()
         {
             BearerToken = null;
@@ -55,17 +55,17 @@ namespace LoanStreet.LoanServicing
             return true;
         }
 
-        private static void RequireBearerToken()
+        private static void VerifyAuthentication()
         {
-            if (string.IsNullOrEmpty(BearerToken))
-                throw new AuthenticationException("Failed to Authenticate the client!");
+            if (!string.IsNullOrEmpty(BearerToken))
+                return;
+
+            AuthenticateUser();
         }
 
         private static Configuration GetConfig()
         {
-            if (string.IsNullOrEmpty(BearerToken)) AuthenticateUser();
-
-            RequireBearerToken();
+            VerifyAuthentication();
 
             var config = new Configuration();
 
@@ -109,19 +109,31 @@ namespace LoanStreet.LoanServicing
 
         private static T CreateClient<T>(Func<Configuration, T> ctor)
         {
-            RequireBearerToken();
+            VerifyAuthentication();
 
             return ctor(GetConfig());
         }
-        
-        public static FacilitiesApi GetFacilityiesController() => CreateClient(c => new FacilitiesApi(c));
 
-        public static FinanceApi GetFinanceController() => CreateClient(c => new FinanceApi(c));
+        public static FacilitiesApi GetFacilityiesController()
+        {
+            return CreateClient(c => new FacilitiesApi(c));
+        }
 
-        public static TranchesApi GetTranchesController() => CreateClient(c => new TranchesApi(c));
+        public static FinanceApi GetFinanceController()
+        {
+            return CreateClient(c => new FinanceApi(c));
+        }
 
-        public static UsersApi GetUsersController() => CreateClient(c => new UsersApi(c));
-        
+        public static TranchesApi GetTranchesController()
+        {
+            return CreateClient(c => new TranchesApi(c));
+        }
+
+        public static UsersApi GetUsersController()
+        {
+            return CreateClient(c => new UsersApi(c));
+        }
+
         public static BorrowingsApi GetBorrowingsApi()
         {
             return CreateClient(c => new BorrowingsApi(c));

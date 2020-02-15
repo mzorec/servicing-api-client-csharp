@@ -11,8 +11,8 @@ namespace BuildScript
         
         private const string ProjectNamespace = "LoanStreet.LoanServicing";
         private const string SourceFolder = "src";
-        
-        
+        private const string PackagesFolder = "packages";
+                
         private const string SolutionFile = "LoanStreet.LoanServicing.sln";
 
         private static string ClientProject =
@@ -38,13 +38,18 @@ namespace BuildScript
         protected override void ConfigureTargets(ITaskContext context)
         {
 
+            var buildVersion = context.CreateTarget("build.version")
+                .SetAsHidden()
+                .AddTask(x => x.FetchBuildVersionFromFileTask());
+            
             var nuget = context.CreateTarget("nuget.restore")
                 .SetDescription("ReInstall Nuget Packages")
                 .AddCoreTask(x => x.Restore().Force());
-            
+
             var clean = context.CreateTarget("clean")
                 .SetDescription("Clean Solution")
-                .AddCoreTask(x => x.Clean());
+                .AddCoreTask(x => x.Clean())
+                .AddTask(x => x.DeleteDirectoryTask(PackagesFolder, false));
             
             var debugBuild = context.CreateTarget("build.debug")
                 .SetDescription("Initiate a Debug Build")
@@ -52,8 +57,18 @@ namespace BuildScript
 
             var releaseBuild = context.CreateTarget("build.release")
                 .SetDescription("Initiate a Release Build")
-                .AddCoreTask(x => x.Build(SolutionFile).Configuration("Release"));
+                .AddCoreTask(x => x.UpdateNetCoreVersionTask("src/LoanStreet.LoanServicing/LoanStreet.LoanServicing.csproj")) //// Task get's version from context.Properties.Get<Version>(BuildProps.BuildVersion) and updates version in csproj
+                .AddCoreTask(x => x.Restore())
+                .AddCoreTask(x => x.Build(SolutionFile).Configuration("Release"))
+                .DependsOn(buildVersion);
 
+            var pack = context.CreateTarget("pack")
+                .SetDescription("Prepare nuget package.")
+                .AddCoreTask(x => x.Pack()
+                    .NoBuild()
+                    .OutputDirectory(PackagesFolder))
+                .DependsOn(releaseBuild);
+            
             var generatedTests = context.CreateTarget("run.tests")
                 .SetDescription("Execute Generated Unit Tests")
                 .DependsOn(debugBuild)

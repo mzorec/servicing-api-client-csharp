@@ -7,6 +7,7 @@ help:
 	@echo "clean                    Clean Build Output"
 	@echo "release_build            Trigger a Release Build"
 	@echo "debug_build              Trigger a Debug Build"
+	@echo "package                  Create NuGet Package"
 	@echo ""
 	@echo "test_generated           Execute the Generated Unit Tests"
 	@echo "test_examples            Execute the Example Usage Tests"
@@ -35,6 +36,9 @@ test_generated:
 test_examples:
 	@./.tools/flubu run.examples
 
+package:
+	@./.tools/flubu pack
+
 generate:
 	@echo Updating Client from latest schema
 	@make clean
@@ -42,7 +46,7 @@ generate:
 	@make debug_build
 	@make test_generated
 	@make release_build	
+	@make package
 
 setup_flubu:
-	@dotnet tool uninstall FlubuCore.GlobalTool --tool-path .tools
 	@dotnet tool install FlubuCore.GlobalTool --tool-path .tools

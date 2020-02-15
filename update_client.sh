@@ -2,8 +2,10 @@
 
 echo Cleaning
 
+# Remove existing Package Builds
 rm schema.json
-touch schema.json
+
+# Purge existing generated code
 rm -rf src/LoanStreet.LoanServicing/Api
 rm -rf src/LoanStreet.LoanServicing/Client
 rm -rf src/LoanStreet.LoanServicing/Model
@@ -12,8 +14,8 @@ rm -rf src/LoanStreet.LoanServicing.Test/Model
 
 echo Downloading
 
-curl https://api.loan-street.com:8443/v1/api-docs >> schema.json
-# curl --insecure https://api.loan-street.com:8443/v1/api-docs >> schema.json
+curl -f https://api.loan-street.com:8443/v1/api-docs | jq . > schema.json
+# curl --insecure https://localhost:8443/v1/api-docs | jq . > schema.json
 
 echo Generating
 
@@ -35,3 +37,4 @@ dotnet sln LoanStreet.LoanServicing.sln add src/BuildScript/BuildScript.csproj -
 echo ".tools" >> ./.gitignore
 echo ".idea" >> ./.gitignore
 echo "src/LoanStreet.LoanServicing.Examples/test_context.json" >> ./.gitignore
+echo "packages" >> ./.gitignore
