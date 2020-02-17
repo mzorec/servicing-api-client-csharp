@@ -40,13 +40,8 @@ package:
 	@./.tools/flubu pack
 
 generate:
-	@echo Updating Client from latest schema
-	@make clean
 	@./update_client.sh
-	@make debug_build
-	@make test_generated
-	@make release_build	
-	@make package
 
 setup_flubu:
+	@rm -rf .tools
 	@dotnet tool install FlubuCore.GlobalTool --tool-path .tools
