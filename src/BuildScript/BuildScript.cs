@@ -15,13 +15,23 @@ namespace BuildScript
                 
         private const string SolutionFile = "LoanStreet.LoanServicing.sln";
 
-        private static string ClientProject =
+        private readonly static string ClientProject =
             Path.Combine(SourceFolder, "LoanStreet.LoanServicing", "LoanStreet.LoanServicing.csproj");
-        private static string TestProject = Path.Combine(SourceFolder, "LoanStreet.LoanServicing.Test", "LoanStreet.LoanServicing.Test.csproj");
-        private static string ExamplesProject = Path.Combine(SourceFolder, "LoanStreet.LoanServicing.Examples", "LoanStreet.LoanServicing.Examples.csproj");
+        private readonly static string TestProject = Path.Combine(SourceFolder, "LoanStreet.LoanServicing.Test", "LoanStreet.LoanServicing.Test.csproj");
+        private readonly static string ExamplesProject = Path.Combine(SourceFolder, "LoanStreet.LoanServicing.Examples", "LoanStreet.LoanServicing.Examples.csproj");
 
         private const string Company = "LoanStreet, Inc.";
-            
+
+        private readonly static string NuGetKeyPrefix = "NuGetAPIKey";
+        
+        [FromArg("NuGetAPIKey")]
+        public string NuGetAPIKey { get; set; }
+
+        private string NugetPackageName(IBuildPropertiesContext context)
+        {
+           return $"{ProjectNamespace}.{context.Properties.Get(propertyName: BuildProps.BuildVersion, defaultValue: string.Empty)}.nupkg";
+        }
+        
         protected override void ConfigureBuildProperties(IBuildPropertiesContext context)
         {
             context.Properties.Set(BuildProps.CompanyName, Company);
@@ -62,12 +72,22 @@ namespace BuildScript
                 .AddCoreTask(x => x.Build(SolutionFile).Configuration("Release"))
                 .DependsOn(buildVersion);
 
-            var pack = context.CreateTarget("pack")
-                .SetDescription("Prepare nuget package.")
-                .AddCoreTask(x => x.Pack()
-                    .NoBuild()
-                    .OutputDirectory(PackagesFolder))
-                .DependsOn(releaseBuild);
+            var package = context.CreateTarget("nuget.package")
+                .SetDescription("Assemble Nuget Package")
+                .AddCoreTask(x => x
+                    .Pack()
+                    .Project(ClientProject)
+                    .Configuration("Release")
+                    .OutputDirectory(PackagesFolder)
+                );
+
+            var nugetPush = context.CreateTarget("nuget.publish")
+                .SetDescription("Publishes nuget package.")
+                .DependsOn(package)
+                .AddCoreTask(x => x.NugetPush(
+                        Path.Combine(PackagesFolder, NugetPackageName(context)))
+                    .ApiKey(NuGetAPIKey)
+                );
             
             var generatedTests = context.CreateTarget("run.tests")
                 .SetDescription("Execute Generated Unit Tests")
@@ -79,9 +99,6 @@ namespace BuildScript
                 .DependsOn(debugBuild)
                 .AddCoreTask(x => x.Test().Project(ExamplesProject));
 
-            var package = context.CreateTarget("create.package")
-                .SetDescription("Assemble Nuget Package")
-                .AddCoreTask(x => x.Pack().Project(ClientProject).Configuration("Release"));
 
         }
     }

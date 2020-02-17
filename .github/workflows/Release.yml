@@ -1,0 +1,26 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Release:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.100
+      - name: Setup Builld Tools
+        run: dotnet tool install FlubuCore.GlobalTool --tool-path .tools
+      - name: Release Build
+        run: ./.tools/flubu build.release
+      - name: NuGet Pack
+        run: ./.tools/flubu nuget.package
+      - name: NuGet Publish
+        run: ./.tools/flubu nuget.publish --api-key=${{ secrets.NuGetAPIKey }}

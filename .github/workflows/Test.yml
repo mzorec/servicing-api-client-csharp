@@ -3,7 +3,7 @@ name: .NET Core
 on: [push]
 
 jobs:
-  build:
+  Test:
 
     runs-on: ubuntu-latest
 
@@ -27,5 +27,4 @@ jobs:
         run: ./.tools/flubu run.examples
       - name: Release Build
         run: ./.tools/flubu build.release
-      - name: Create NuGet Package
-        run: ./.tools/flubu create.package
+

@@ -27,7 +27,7 @@ The version of the OpenAPI document: v0
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/loanstreet-usa/servicing-api-client-csharp</PackageProjectUrl>
     <PackageReleaseNotes>Minor update</PackageReleaseNotes>
-  <Version>0.0.9</Version><AssemblyVersion>0.0.9</AssemblyVersion><FileVersion>0.0.9</FileVersion><Title>Loan Servicing API Client</Title><Authors>LoanStreet, Inc</Authors><Copyright>2020</Copyright><PackageLicenseUrl>https://github.com/loanstreet-usa/servicing-api-client-csharp</PackageLicenseUrl><PackageIconUrl>https://github.com/loanstreet-usa/servicing-api-client-csharp/blob/master/src/LoanStreet.LoanServicing/icon.png?raw=true</PackageIconUrl></PropertyGroup>
+  <Version>0.0.11</Version><AssemblyVersion>0.0.11</AssemblyVersion><FileVersion>0.0.11</FileVersion><Title>Loan Servicing API Client</Title><Authors>LoanStreet, Inc</Authors><Copyright>2020</Copyright><PackageLicenseUrl>https://github.com/loanstreet-usa/servicing-api-client-csharp</PackageLicenseUrl><PackageIconUrl>https://github.com/loanstreet-usa/servicing-api-client-csharp/blob/master/src/LoanStreet.LoanServicing/icon.png?raw=true</PackageIconUrl></PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
     <None Include="project.json" />

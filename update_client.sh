@@ -16,7 +16,6 @@ RED='\033[0;31m'
 print_divider() {
     str=$(printf "%80s")
     echo -e "${1}${BOLD}${str// /=}${RESET}"
-    # echo -e "${1}${BOLD}========================================================${RESET}"
 }
 
 print_header() {

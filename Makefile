@@ -37,7 +37,7 @@ test_examples:
 	@./.tools/flubu run.examples
 
 package:
-	@./.tools/flubu pack
+	@./.tools/flubu nuget.package
 
 generate:
 	@./update_client.sh
