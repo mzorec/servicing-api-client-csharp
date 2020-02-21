@@ -31,6 +31,10 @@
 
 * **Payment**: An amount that is credited to the tranche balance owed by the Borrower.
 
+## Models and Endpoints
+
+[Models And Endpoints List](ENDPOINTS.md)
+
 <a name="getting-started"></a>
 ## Getting Started
 ```csharp
