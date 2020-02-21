@@ -34,11 +34,6 @@ namespace LoanStreet.LoanServicing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tranche" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Tranche() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Tranche" /> class.
-        /// </summary>
         /// <param name="name">name.</param>
         /// <param name="draw">draw.</param>
         /// <param name="interest">interest.</param>

@@ -26,72 +26,37 @@ using OpenAPIDateConverter = LoanStreet.LoanServicing.Client.OpenAPIDateConverte
 namespace LoanStreet.LoanServicing.Model
 {
     /// <summary>
-    /// FacilityInstitutionDto
+    /// Fund
     /// </summary>
     [DataContract]
-    public partial class FacilityInstitutionDto :  IEquatable<FacilityInstitutionDto>, IValidatableObject
+    public partial class Fund :  IEquatable<Fund>, IValidatableObject
     {
         /// <summary>
-        /// Defines Role
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum RoleEnum
-        {
-            /// <summary>
-            /// Enum BORROWER for value: BORROWER
-            /// </summary>
-            [EnumMember(Value = "BORROWER")]
-            BORROWER = 1,
-
-            /// <summary>
-            /// Enum AGENT for value: AGENT
-            /// </summary>
-            [EnumMember(Value = "AGENT")]
-            AGENT = 2,
-
-            /// <summary>
-            /// Enum LENDER for value: LENDER
-            /// </summary>
-            [EnumMember(Value = "LENDER")]
-            LENDER = 3
-
-        }
-
-        /// <summary>
-        /// Gets or Sets Role
-        /// </summary>
-        [DataMember(Name="role", EmitDefaultValue=false)]
-        public RoleEnum Role { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FacilityInstitutionDto" /> class.
+        /// Initializes a new instance of the <see cref="Fund" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FacilityInstitutionDto() { }
+        protected Fund() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FacilityInstitutionDto" /> class.
+        /// Initializes a new instance of the <see cref="Fund" /> class.
         /// </summary>
-        /// <param name="institutionId">institutionId (required).</param>
-        /// <param name="role">role (required).</param>
-        /// <param name="fundId">fundId.</param>
-        public FacilityInstitutionDto(string institutionId = default(string), RoleEnum role = default(RoleEnum), string fundId = default(string))
+        /// <param name="name">name (required).</param>
+        public Fund(string name = default(string))
         {
-            // to ensure "institutionId" is required (not null)
-            this.InstitutionId = institutionId ?? throw new ArgumentNullException("institutionId is a required property for FacilityInstitutionDto and cannot be null");;
-            this.Role = role;
-            this.FundId = fundId;
+            // to ensure "name" is required (not null)
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for Fund and cannot be null");;
         }
         
-        /// <summary>
-        /// Gets or Sets InstitutionId
-        /// </summary>
-        [DataMember(Name="institutionId", EmitDefaultValue=false)]
-        public string InstitutionId { get; set; }
-
         /// <summary>
         /// Gets or Sets FundId
         /// </summary>
         [DataMember(Name="fundId", EmitDefaultValue=false)]
-        public string FundId { get; set; }
+        public string FundId { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Name
+        /// </summary>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -100,10 +65,9 @@ namespace LoanStreet.LoanServicing.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FacilityInstitutionDto {\n");
-            sb.Append("  InstitutionId: ").Append(InstitutionId).Append("\n");
-            sb.Append("  Role: ").Append(Role).Append("\n");
+            sb.Append("class Fund {\n");
             sb.Append("  FundId: ").Append(FundId).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -124,33 +88,29 @@ namespace LoanStreet.LoanServicing.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FacilityInstitutionDto);
+            return this.Equals(input as Fund);
         }
 
         /// <summary>
-        /// Returns true if FacilityInstitutionDto instances are equal
+        /// Returns true if Fund instances are equal
         /// </summary>
-        /// <param name="input">Instance of FacilityInstitutionDto to be compared</param>
+        /// <param name="input">Instance of Fund to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FacilityInstitutionDto input)
+        public bool Equals(Fund input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.InstitutionId == input.InstitutionId ||
-                    (this.InstitutionId != null &&
-                    this.InstitutionId.Equals(input.InstitutionId))
-                ) && 
-                (
-                    this.Role == input.Role ||
-                    this.Role.Equals(input.Role)
-                ) && 
-                (
                     this.FundId == input.FundId ||
                     (this.FundId != null &&
                     this.FundId.Equals(input.FundId))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -163,11 +123,10 @@ namespace LoanStreet.LoanServicing.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.InstitutionId != null)
-                    hashCode = hashCode * 59 + this.InstitutionId.GetHashCode();
-                hashCode = hashCode * 59 + this.Role.GetHashCode();
                 if (this.FundId != null)
                     hashCode = hashCode * 59 + this.FundId.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 return hashCode;
             }
         }

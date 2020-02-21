@@ -15,6 +15,7 @@ namespace LoanStreet.LoanServicing
         private const string AuthScheme = "bearer-token";
         private const string BearerPrefix = "Bearer";
         private const string AuthorizationHeader = "Authorization";
+        private static readonly object _sync = new object();
 
         /// <summary>
         ///     Root URL of the Loan Servicing API Instance
@@ -23,33 +24,55 @@ namespace LoanStreet.LoanServicing
 
         private static string Username = "";
         private static string Password = "";
-        private static string BearerToken;
+
+        private static string _BearerToken;
+
+        private static string BearerToken
+        {
+            get
+            {
+                lock (_sync)
+                {
+                    return _BearerToken;
+                }
+            }
+            set
+            {
+                lock (_sync)
+                {
+                    _BearerToken = value;
+                }
+            }
+        }
 
         private static bool AuthenticateUser()
         {
-            BearerToken = null;
-
-            if (string.IsNullOrEmpty(Username)) throw new AuthenticationException("Username must be provided!");
-
-            if (string.IsNullOrEmpty(Password)) throw new AuthenticationException("Password must be provided!");
-
-            try
+            lock (_sync)
             {
-                var controller = new AuthorizationApi();
+                BearerToken = null;
 
-                var request = new PasswordAuthRequest(Username, Password);
+                if (string.IsNullOrEmpty(Username)) throw new AuthenticationException("Username must be provided!");
 
-                var response = controller.Token(request);
+                if (string.IsNullOrEmpty(Password)) throw new AuthenticationException("Password must be provided!");
 
-                BearerToken = response.Token;
+                try
+                {
+                    var controller = new AuthorizationApi();
 
-                Console.WriteLine("Authenticated!");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Failed to authenticate!");
-                Console.WriteLine(e);
-                throw e;
+                    var request = new PasswordAuthRequest(Username, Password);
+
+                    var response = controller.Token(request);
+
+                    BearerToken = response.Token;
+
+                    Console.WriteLine("Authenticated!");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Failed to authenticate!");
+                    Console.WriteLine(e);
+                    throw e;
+                }
             }
 
             return true;
@@ -134,7 +157,7 @@ namespace LoanStreet.LoanServicing
             return CreateClient(c => new UsersApi(c));
         }
 
-        public static BorrowingsApi GetBorrowingsApi()
+        public static BorrowingsApi GetBorrowingsController()
         {
             return CreateClient(c => new BorrowingsApi(c));
         }
@@ -152,6 +175,11 @@ namespace LoanStreet.LoanServicing
         public static PaymentsApi GetPaymentsController()
         {
             return CreateClient(c => new PaymentsApi(c));
+        }
+
+        public static LoansApi GetLoansController()
+        {
+            return CreateClient(c => new LoansApi(c));
         }
     }
 }

@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FacilityId** | **string** |  | [readonly] 
+**FacilityId** | **string** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
-**TimeZoneId** | **string** |  | 
+**TimeZoneId** | **string** |  | [optional] 
 **Institutions** | [**List&lt;FacilityInstitutionDto&gt;**](FacilityInstitutionDto.md) |  | 
 **Tranches** | [**List&lt;Tranche&gt;**](Tranche.md) |  | 
 **Borrowings** | [**List&lt;Borrowing&gt;**](Borrowing.md) |  | 

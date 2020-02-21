@@ -1,13 +1,12 @@
 using System;
+using System.Collections.Generic;
 using LoanStreet.LoanServicing.Model;
 using Xunit;
 
-namespace LoanStreet.LoanServicing.Examples.institutions
+namespace LoanStreet.LoanServicing.Examples.Institutions
 {
-    
-    public class InstutitionsCRUD : TestBase
+    public class CreateInstitution : TestBase
     {
-
         public static Institution GetTestInstitution()
         {
             var name = Guid.NewGuid().ToString();
@@ -22,12 +21,40 @@ namespace LoanStreet.LoanServicing.Examples.institutions
             return new Institution(
                 name,
                 ticker,
-                address
+                address,
+                new List<Fund>()
             );
         }
 
+
+        public static Institution CreateAnInstitution()
+        {
+            // 1) Instantiate an Institution
+            var name = Guid.NewGuid().ToString();
+            var ticker = name.Substring(0, 5);
+            var address = new Address(
+                "West 30th Street",
+                "8th Floor",
+                "New York",
+                "NY",
+                "10025"
+            );
+            var pending = new Institution(
+                name,
+                ticker,
+                address,
+                new List<Fund>()
+            );
+
+            var client = ClientFactory.GetInstitutionsController();
+
+            var institution = client.CreateInstitution(pending);
+
+            return institution;
+        }
+
         [Fact]
-        public void CreateInstitution()
+        public void CreateInstitutionExample()
         {
             // 1) Set Credentials.  You will need to uncomment and set the following line
             // ClientFactory.SetCredentials("YourUser", "YourPassword")
@@ -39,7 +66,7 @@ namespace LoanStreet.LoanServicing.Examples.institutions
             var client = ClientFactory.GetInstitutionsController();
 
             // 4) Send the Institution model to the Servicing API!
-            
+
             var createdInstitution = client.CreateInstitution(institution);
 
             // 5) The API will respond with an instance of the institution it created.  This instance will have
@@ -53,7 +80,6 @@ namespace LoanStreet.LoanServicing.Examples.institutions
             Assert.NotNull(createdInstitution);
         }
 
-
         [Fact(Skip = "Pending Permissions Correction")]
         public void GetInstitution()
         {
@@ -62,7 +88,7 @@ namespace LoanStreet.LoanServicing.Examples.institutions
 
             // 2) Get the institutions client
             var client = ClientFactory.GetInstitutionsController();
-            
+
             // 3) Load Your User's Institution
             var loadedById = client.GetInstitution(Context.institutionId);
 

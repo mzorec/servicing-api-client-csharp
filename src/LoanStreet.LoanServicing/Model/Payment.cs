@@ -39,11 +39,11 @@ namespace LoanStreet.LoanServicing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Payment" /> class.
         /// </summary>
-        /// <param name="date">date (required).</param>
+        /// <param name="dated">dated (required).</param>
         /// <param name="amount">amount (required).</param>
-        public Payment(DateTime date = default(DateTime), Money amount = default(Money))
+        public Payment(DateTime dated = default(DateTime), Money amount = default(Money))
         {
-            this.Date = date;
+            this.Dated = dated;
             // to ensure "amount" is required (not null)
             this.Amount = amount ?? throw new ArgumentNullException("amount is a required property for Payment and cannot be null");;
         }
@@ -55,11 +55,11 @@ namespace LoanStreet.LoanServicing.Model
         public string PaymentId { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Date
+        /// Gets or Sets Dated
         /// </summary>
-        [DataMember(Name="date", EmitDefaultValue=false)]
+        [DataMember(Name="dated", EmitDefaultValue=false)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime Dated { get; set; }
 
         /// <summary>
         /// Gets or Sets Amount
@@ -76,7 +76,7 @@ namespace LoanStreet.LoanServicing.Model
             var sb = new StringBuilder();
             sb.Append("class Payment {\n");
             sb.Append("  PaymentId: ").Append(PaymentId).Append("\n");
-            sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("  Dated: ").Append(Dated).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -118,9 +118,9 @@ namespace LoanStreet.LoanServicing.Model
                     this.PaymentId.Equals(input.PaymentId))
                 ) && 
                 (
-                    this.Date == input.Date ||
-                    (this.Date != null &&
-                    this.Date.Equals(input.Date))
+                    this.Dated == input.Dated ||
+                    (this.Dated != null &&
+                    this.Dated.Equals(input.Dated))
                 ) && 
                 (
                     this.Amount == input.Amount ||
@@ -140,8 +140,8 @@ namespace LoanStreet.LoanServicing.Model
                 int hashCode = 41;
                 if (this.PaymentId != null)
                     hashCode = hashCode * 59 + this.PaymentId.GetHashCode();
-                if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                if (this.Dated != null)
+                    hashCode = hashCode * 59 + this.Dated.GetHashCode();
                 if (this.Amount != null)
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 return hashCode;

@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DrawId** | **string** |  | [readonly] 
+**DrawId** | **string** |  | [optional] [readonly] 
 **Dated** | **DateTime** |  | [optional] 
 **FirstPaymentDate** | **DateTime** |  | 
 **Amount** | [**Money**](Money.md) |  | 

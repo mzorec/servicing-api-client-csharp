@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TrancheId** | **string** |  | [readonly] 
+**TrancheId** | **string** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
 **Draw** | [**DrawRules**](DrawRules.md) |  | [optional] 
 **Interest** | [**InterestRules**](InterestRules.md) |  | [optional] 

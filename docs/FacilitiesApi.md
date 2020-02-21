@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 <a name="listfacilities"></a>
 # **ListFacilities**
-> List&lt;Facility&gt; ListFacilities ()
+> List&lt;Facility&gt; ListFacilities (string borrower = null, string fund = null)
 
 
 
@@ -178,10 +178,12 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new FacilitiesApi(config);
+            var borrower = borrower_example;  // string |  (optional) 
+            var fund = fund_example;  // string |  (optional) 
 
             try
             {
-                List<Facility> result = apiInstance.ListFacilities();
+                List<Facility> result = apiInstance.ListFacilities(borrower, fund);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -196,7 +198,11 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **borrower** | **string**|  | [optional] 
+ **fund** | **string**|  | [optional] 
 
 ### Return type
 

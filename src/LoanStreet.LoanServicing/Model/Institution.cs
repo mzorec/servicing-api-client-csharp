@@ -42,10 +42,13 @@ namespace LoanStreet.LoanServicing.Model
         /// <param name="name">name (required).</param>
         /// <param name="ticker">ticker.</param>
         /// <param name="address">address.</param>
-        public Institution(string name = default(string), string ticker = default(string), Address address = default(Address))
+        /// <param name="funds">funds (required).</param>
+        public Institution(string name = default(string), string ticker = default(string), Address address = default(Address), List<Fund> funds = default(List<Fund>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for Institution and cannot be null");;
+            // to ensure "funds" is required (not null)
+            this.Funds = funds ?? throw new ArgumentNullException("funds is a required property for Institution and cannot be null");;
             this.Ticker = ticker;
             this.Address = address;
         }
@@ -75,6 +78,12 @@ namespace LoanStreet.LoanServicing.Model
         public Address Address { get; set; }
 
         /// <summary>
+        /// Gets or Sets Funds
+        /// </summary>
+        [DataMember(Name="funds", EmitDefaultValue=false)]
+        public List<Fund> Funds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -86,6 +95,7 @@ namespace LoanStreet.LoanServicing.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Ticker: ").Append(Ticker).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
+            sb.Append("  Funds: ").Append(Funds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +149,12 @@ namespace LoanStreet.LoanServicing.Model
                     this.Address == input.Address ||
                     (this.Address != null &&
                     this.Address.Equals(input.Address))
+                ) && 
+                (
+                    this.Funds == input.Funds ||
+                    this.Funds != null &&
+                    input.Funds != null &&
+                    this.Funds.SequenceEqual(input.Funds)
                 );
         }
 
@@ -159,6 +175,8 @@ namespace LoanStreet.LoanServicing.Model
                     hashCode = hashCode * 59 + this.Ticker.GetHashCode();
                 if (this.Address != null)
                     hashCode = hashCode * 59 + this.Address.GetHashCode();
+                if (this.Funds != null)
+                    hashCode = hashCode * 59 + this.Funds.GetHashCode();
                 return hashCode;
             }
         }

@@ -73,6 +73,14 @@ namespace LoanStreet.LoanServicing.Test
         {
             // TODO unit test for the property 'Role'
         }
+        /// <summary>
+        /// Test the property 'FundId'
+        /// </summary>
+        [Fact]
+        public void FundIdTest()
+        {
+            // TODO unit test for the property 'FundId'
+        }
 
     }
 

@@ -24,7 +24,7 @@ namespace LoanStreet.LoanServicing.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IFacilitiesApiSync : IApiAccessor
+    public interface IChargesApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
@@ -34,30 +34,10 @@ namespace LoanStreet.LoanServicing.Api
         /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="facility"> (optional)</param>
-        /// <returns>Facility</returns>
-        Facility CreateFacility (Facility facility = default(Facility));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="facility"> (optional)</param>
-        /// <returns>ApiResponse of Facility</returns>
-        ApiResponse<Facility> CreateFacilityWithHttpInfo (Facility facility = default(Facility));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="facilityId"></param>
-        /// <returns>Facility</returns>
-        Facility GetFacility (string facilityId);
+        /// <param name="chargeId"></param>
+        /// <returns>Charge</returns>
+        Charge GetCharge (string facilityId, string chargeId);
 
         /// <summary>
         /// 
@@ -67,8 +47,9 @@ namespace LoanStreet.LoanServicing.Api
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="facilityId"></param>
-        /// <returns>ApiResponse of Facility</returns>
-        ApiResponse<Facility> GetFacilityWithHttpInfo (string facilityId);
+        /// <param name="chargeId"></param>
+        /// <returns>ApiResponse of Charge</returns>
+        ApiResponse<Charge> GetChargeWithHttpInfo (string facilityId, string chargeId);
         /// <summary>
         /// 
         /// </summary>
@@ -76,10 +57,9 @@ namespace LoanStreet.LoanServicing.Api
         /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="borrower"> (optional)</param>
-        /// <param name="fund"> (optional)</param>
-        /// <returns>List&lt;Facility&gt;</returns>
-        List<Facility> ListFacilities (string borrower = default(string), string fund = default(string));
+        /// <param name="facilityId"></param>
+        /// <returns>List&lt;Charge&gt;</returns>
+        List<Charge> ListCharges (string facilityId);
 
         /// <summary>
         /// 
@@ -88,17 +68,16 @@ namespace LoanStreet.LoanServicing.Api
         /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="borrower"> (optional)</param>
-        /// <param name="fund"> (optional)</param>
-        /// <returns>ApiResponse of List&lt;Facility&gt;</returns>
-        ApiResponse<List<Facility>> ListFacilitiesWithHttpInfo (string borrower = default(string), string fund = default(string));
+        /// <param name="facilityId"></param>
+        /// <returns>ApiResponse of List&lt;Charge&gt;</returns>
+        ApiResponse<List<Charge>> ListChargesWithHttpInfo (string facilityId);
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IFacilitiesApiAsync : IApiAccessor
+    public interface IChargesApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
@@ -108,30 +87,10 @@ namespace LoanStreet.LoanServicing.Api
         /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="facility"> (optional)</param>
-        /// <returns>Task of Facility</returns>
-        System.Threading.Tasks.Task<Facility> CreateFacilityAsync (Facility facility = default(Facility));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="facility"> (optional)</param>
-        /// <returns>Task of ApiResponse (Facility)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Facility>> CreateFacilityAsyncWithHttpInfo (Facility facility = default(Facility));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="facilityId"></param>
-        /// <returns>Task of Facility</returns>
-        System.Threading.Tasks.Task<Facility> GetFacilityAsync (string facilityId);
+        /// <param name="chargeId"></param>
+        /// <returns>Task of Charge</returns>
+        System.Threading.Tasks.Task<Charge> GetChargeAsync (string facilityId, string chargeId);
 
         /// <summary>
         /// 
@@ -141,8 +100,9 @@ namespace LoanStreet.LoanServicing.Api
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="facilityId"></param>
-        /// <returns>Task of ApiResponse (Facility)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Facility>> GetFacilityAsyncWithHttpInfo (string facilityId);
+        /// <param name="chargeId"></param>
+        /// <returns>Task of ApiResponse (Charge)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Charge>> GetChargeAsyncWithHttpInfo (string facilityId, string chargeId);
         /// <summary>
         /// 
         /// </summary>
@@ -150,10 +110,9 @@ namespace LoanStreet.LoanServicing.Api
         /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="borrower"> (optional)</param>
-        /// <param name="fund"> (optional)</param>
-        /// <returns>Task of List&lt;Facility&gt;</returns>
-        System.Threading.Tasks.Task<List<Facility>> ListFacilitiesAsync (string borrower = default(string), string fund = default(string));
+        /// <param name="facilityId"></param>
+        /// <returns>Task of List&lt;Charge&gt;</returns>
+        System.Threading.Tasks.Task<List<Charge>> ListChargesAsync (string facilityId);
 
         /// <summary>
         /// 
@@ -162,17 +121,16 @@ namespace LoanStreet.LoanServicing.Api
         /// 
         /// </remarks>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="borrower"> (optional)</param>
-        /// <param name="fund"> (optional)</param>
-        /// <returns>Task of ApiResponse (List&lt;Facility&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Facility>>> ListFacilitiesAsyncWithHttpInfo (string borrower = default(string), string fund = default(string));
+        /// <param name="facilityId"></param>
+        /// <returns>Task of ApiResponse (List&lt;Charge&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Charge>>> ListChargesAsyncWithHttpInfo (string facilityId);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IFacilitiesApi : IFacilitiesApiSync, IFacilitiesApiAsync
+    public interface IChargesApi : IChargesApiSync, IChargesApiAsync
     {
 
     }
@@ -180,23 +138,23 @@ namespace LoanStreet.LoanServicing.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class FacilitiesApi : IFacilitiesApi
+    public partial class ChargesApi : IChargesApi
     {
         private LoanStreet.LoanServicing.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FacilitiesApi"/> class.
+        /// Initializes a new instance of the <see cref="ChargesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public FacilitiesApi() : this((string) null)
+        public ChargesApi() : this((string) null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FacilitiesApi"/> class.
+        /// Initializes a new instance of the <see cref="ChargesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public FacilitiesApi(String basePath)
+        public ChargesApi(String basePath)
         {
             this.Configuration = LoanStreet.LoanServicing.Client.Configuration.MergeConfigurations(
                 LoanStreet.LoanServicing.Client.GlobalConfiguration.Instance,
@@ -208,12 +166,12 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FacilitiesApi"/> class
+        /// Initializes a new instance of the <see cref="ChargesApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public FacilitiesApi(LoanStreet.LoanServicing.Client.Configuration configuration)
+        public ChargesApi(LoanStreet.LoanServicing.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -227,13 +185,13 @@ namespace LoanStreet.LoanServicing.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FacilitiesApi"/> class
+        /// Initializes a new instance of the <see cref="ChargesApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public FacilitiesApi(LoanStreet.LoanServicing.Client.ISynchronousClient client,LoanStreet.LoanServicing.Client.IAsynchronousClient asyncClient, LoanStreet.LoanServicing.Client.IReadableConfiguration configuration)
+        public ChargesApi(LoanStreet.LoanServicing.Client.ISynchronousClient client,LoanStreet.LoanServicing.Client.IAsynchronousClient asyncClient, LoanStreet.LoanServicing.Client.IReadableConfiguration configuration)
         {
             if(client == null) throw new ArgumentNullException("client");
             if(asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -290,11 +248,12 @@ namespace LoanStreet.LoanServicing.Api
         ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="facility"> (optional)</param>
-        /// <returns>Facility</returns>
-        public Facility CreateFacility (Facility facility = default(Facility))
+        /// <param name="facilityId"></param>
+        /// <param name="chargeId"></param>
+        /// <returns>Charge</returns>
+        public Charge GetCharge (string facilityId, string chargeId)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<Facility> localVarResponse = CreateFacilityWithHttpInfo(facility);
+             LoanStreet.LoanServicing.Client.ApiResponse<Charge> localVarResponse = GetChargeWithHttpInfo(facilityId, chargeId);
              return localVarResponse.Data;
         }
 
@@ -302,14 +261,22 @@ namespace LoanStreet.LoanServicing.Api
         ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="facility"> (optional)</param>
-        /// <returns>ApiResponse of Facility</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< Facility > CreateFacilityWithHttpInfo (Facility facility = default(Facility))
+        /// <param name="facilityId"></param>
+        /// <param name="chargeId"></param>
+        /// <returns>ApiResponse of Charge</returns>
+        public LoanStreet.LoanServicing.Client.ApiResponse< Charge > GetChargeWithHttpInfo (string facilityId, string chargeId)
         {
+            // verify the required parameter 'facilityId' is set
+            if (facilityId == null)
+                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'facilityId' when calling ChargesApi->GetCharge");
+
+            // verify the required parameter 'chargeId' is set
+            if (chargeId == null)
+                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'chargeId' when calling ChargesApi->GetCharge");
+
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
 
             String[] _contentTypes = new String[] {
-                "application/json"
             };
 
             // to determine the Accept header
@@ -323,7 +290,10 @@ namespace LoanStreet.LoanServicing.Api
             var localVarAccept = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = facility;
+            if (facilityId != null)
+                localVarRequestOptions.PathParameters.Add("facilityId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(facilityId)); // path parameter
+            if (chargeId != null)
+                localVarRequestOptions.PathParameters.Add("chargeId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(chargeId)); // path parameter
 
             // authentication (bearer-token) required
             // http basic authentication required
@@ -333,11 +303,11 @@ namespace LoanStreet.LoanServicing.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post< Facility >("/v1/private/facilities", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< Charge >("/v1/private/facilities/{facilityId}/charges/{chargeId}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateFacility", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetCharge", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -348,11 +318,12 @@ namespace LoanStreet.LoanServicing.Api
         ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="facility"> (optional)</param>
-        /// <returns>Task of Facility</returns>
-        public async System.Threading.Tasks.Task<Facility> CreateFacilityAsync (Facility facility = default(Facility))
+        /// <param name="facilityId"></param>
+        /// <param name="chargeId"></param>
+        /// <returns>Task of Charge</returns>
+        public async System.Threading.Tasks.Task<Charge> GetChargeAsync (string facilityId, string chargeId)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<Facility> localVarResponse = await CreateFacilityAsyncWithHttpInfo(facility);
+             LoanStreet.LoanServicing.Client.ApiResponse<Charge> localVarResponse = await GetChargeAsyncWithHttpInfo(facilityId, chargeId);
              return localVarResponse.Data;
 
         }
@@ -361,15 +332,23 @@ namespace LoanStreet.LoanServicing.Api
         ///  
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="facility"> (optional)</param>
-        /// <returns>Task of ApiResponse (Facility)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<Facility>> CreateFacilityAsyncWithHttpInfo (Facility facility = default(Facility))
+        /// <param name="facilityId"></param>
+        /// <param name="chargeId"></param>
+        /// <returns>Task of ApiResponse (Charge)</returns>
+        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<Charge>> GetChargeAsyncWithHttpInfo (string facilityId, string chargeId)
         {
+            // verify the required parameter 'facilityId' is set
+            if (facilityId == null)
+                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'facilityId' when calling ChargesApi->GetCharge");
+
+            // verify the required parameter 'chargeId' is set
+            if (chargeId == null)
+                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'chargeId' when calling ChargesApi->GetCharge");
+
 
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
 
             String[] _contentTypes = new String[] {
-                "application/json"
             };
 
             // to determine the Accept header
@@ -383,7 +362,10 @@ namespace LoanStreet.LoanServicing.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
-            localVarRequestOptions.Data = facility;
+            if (facilityId != null)
+                localVarRequestOptions.PathParameters.Add("facilityId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(facilityId)); // path parameter
+            if (chargeId != null)
+                localVarRequestOptions.PathParameters.Add("chargeId", LoanStreet.LoanServicing.Client.ClientUtils.ParameterToString(chargeId)); // path parameter
 
             // authentication (bearer-token) required
             // http basic authentication required
@@ -394,11 +376,11 @@ namespace LoanStreet.LoanServicing.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Facility>("/v1/private/facilities", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Charge>("/v1/private/facilities/{facilityId}/charges/{chargeId}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateFacility", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetCharge", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -410,10 +392,10 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="facilityId"></param>
-        /// <returns>Facility</returns>
-        public Facility GetFacility (string facilityId)
+        /// <returns>List&lt;Charge&gt;</returns>
+        public List<Charge> ListCharges (string facilityId)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<Facility> localVarResponse = GetFacilityWithHttpInfo(facilityId);
+             LoanStreet.LoanServicing.Client.ApiResponse<List<Charge>> localVarResponse = ListChargesWithHttpInfo(facilityId);
              return localVarResponse.Data;
         }
 
@@ -422,12 +404,12 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="facilityId"></param>
-        /// <returns>ApiResponse of Facility</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< Facility > GetFacilityWithHttpInfo (string facilityId)
+        /// <returns>ApiResponse of List&lt;Charge&gt;</returns>
+        public LoanStreet.LoanServicing.Client.ApiResponse< List<Charge> > ListChargesWithHttpInfo (string facilityId)
         {
             // verify the required parameter 'facilityId' is set
             if (facilityId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'facilityId' when calling FacilitiesApi->GetFacility");
+                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'facilityId' when calling ChargesApi->ListCharges");
 
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
 
@@ -456,11 +438,11 @@ namespace LoanStreet.LoanServicing.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< Facility >("/v1/private/facilities/{facilityId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< List<Charge> >("/v1/private/facilities/{facilityId}/charges", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetFacility", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListCharges", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -472,10 +454,10 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="facilityId"></param>
-        /// <returns>Task of Facility</returns>
-        public async System.Threading.Tasks.Task<Facility> GetFacilityAsync (string facilityId)
+        /// <returns>Task of List&lt;Charge&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Charge>> ListChargesAsync (string facilityId)
         {
-             LoanStreet.LoanServicing.Client.ApiResponse<Facility> localVarResponse = await GetFacilityAsyncWithHttpInfo(facilityId);
+             LoanStreet.LoanServicing.Client.ApiResponse<List<Charge>> localVarResponse = await ListChargesAsyncWithHttpInfo(facilityId);
              return localVarResponse.Data;
 
         }
@@ -485,12 +467,12 @@ namespace LoanStreet.LoanServicing.Api
         /// </summary>
         /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="facilityId"></param>
-        /// <returns>Task of ApiResponse (Facility)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<Facility>> GetFacilityAsyncWithHttpInfo (string facilityId)
+        /// <returns>Task of ApiResponse (List&lt;Charge&gt;)</returns>
+        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<List<Charge>>> ListChargesAsyncWithHttpInfo (string facilityId)
         {
             // verify the required parameter 'facilityId' is set
             if (facilityId == null)
-                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'facilityId' when calling FacilitiesApi->GetFacility");
+                throw new LoanStreet.LoanServicing.Client.ApiException(400, "Missing required parameter 'facilityId' when calling ChargesApi->ListCharges");
 
 
             LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
@@ -521,170 +503,11 @@ namespace LoanStreet.LoanServicing.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Facility>("/v1/private/facilities/{facilityId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Charge>>("/v1/private/facilities/{facilityId}/charges", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetFacility", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="borrower"> (optional)</param>
-        /// <param name="fund"> (optional)</param>
-        /// <returns>List&lt;Facility&gt;</returns>
-        public List<Facility> ListFacilities (string borrower = default(string), string fund = default(string))
-        {
-             LoanStreet.LoanServicing.Client.ApiResponse<List<Facility>> localVarResponse = ListFacilitiesWithHttpInfo(borrower, fund);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="borrower"> (optional)</param>
-        /// <param name="fund"> (optional)</param>
-        /// <returns>ApiResponse of List&lt;Facility&gt;</returns>
-        public LoanStreet.LoanServicing.Client.ApiResponse< List<Facility> > ListFacilitiesWithHttpInfo (string borrower = default(string), string fund = default(string))
-        {
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            var localVarContentType = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = LoanStreet.LoanServicing.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (borrower != null)
-            {
-                foreach (var _kvp in LoanStreet.LoanServicing.Client.ClientUtils.ParameterToMultiMap("", "borrower", borrower))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
-            if (fund != null)
-            {
-                foreach (var _kvp in LoanStreet.LoanServicing.Client.ClientUtils.ParameterToMultiMap("", "fund", fund))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
-
-            // authentication (bearer-token) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get< List<Facility> >("/v1/private/facilities", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListFacilities", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="borrower"> (optional)</param>
-        /// <param name="fund"> (optional)</param>
-        /// <returns>Task of List&lt;Facility&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Facility>> ListFacilitiesAsync (string borrower = default(string), string fund = default(string))
-        {
-             LoanStreet.LoanServicing.Client.ApiResponse<List<Facility>> localVarResponse = await ListFacilitiesAsyncWithHttpInfo(borrower, fund);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="LoanStreet.LoanServicing.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="borrower"> (optional)</param>
-        /// <param name="fund"> (optional)</param>
-        /// <returns>Task of ApiResponse (List&lt;Facility&gt;)</returns>
-        public async System.Threading.Tasks.Task<LoanStreet.LoanServicing.Client.ApiResponse<List<Facility>>> ListFacilitiesAsyncWithHttpInfo (string borrower = default(string), string fund = default(string))
-        {
-
-            LoanStreet.LoanServicing.Client.RequestOptions localVarRequestOptions = new LoanStreet.LoanServicing.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
-            if (borrower != null)
-            {
-                foreach (var _kvp in LoanStreet.LoanServicing.Client.ClientUtils.ParameterToMultiMap("", "borrower", borrower))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
-            if (fund != null)
-            {
-                foreach (var _kvp in LoanStreet.LoanServicing.Client.ClientUtils.ParameterToMultiMap("", "fund", fund))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
-
-            // authentication (bearer-token) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + LoanStreet.LoanServicing.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Facility>>("/v1/private/facilities", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListFacilities", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListCharges", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

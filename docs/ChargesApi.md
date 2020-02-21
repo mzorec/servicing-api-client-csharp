@@ -1,16 +1,16 @@
-# LoanStreet.LoanServicing.Api.LoansApi
+# LoanStreet.LoanServicing.Api.ChargesApi
 
 All URIs are relative to *https://api.loan-street.com:8443*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateLoan**](LoansApi.md#createloan) | **POST** /v1/private/loans | 
-[**GetLoan**](LoansApi.md#getloan) | **GET** /v1/private/loans/{facilityId} | 
+[**GetCharge**](ChargesApi.md#getcharge) | **GET** /v1/private/facilities/{facilityId}/charges/{chargeId} | 
+[**ListCharges**](ChargesApi.md#listcharges) | **GET** /v1/private/facilities/{facilityId}/charges | 
 
 
-<a name="createloan"></a>
-# **CreateLoan**
-> Object CreateLoan (Loan loan = null)
+<a name="getcharge"></a>
+# **GetCharge**
+> Charge GetCharge (string facilityId, string chargeId)
 
 
 
@@ -24,7 +24,7 @@ using LoanStreet.LoanServicing.Model;
 
 namespace Example
 {
-    public class CreateLoanExample
+    public class GetChargeExample
     {
         public static void Main()
         {
@@ -34,17 +34,18 @@ namespace Example
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new LoansApi(config);
-            var loan = new Loan(); // Loan |  (optional) 
+            var apiInstance = new ChargesApi(config);
+            var facilityId = facilityId_example;  // string | 
+            var chargeId = chargeId_example;  // string | 
 
             try
             {
-                Object result = apiInstance.CreateLoan(loan);
+                Charge result = apiInstance.GetCharge(facilityId, chargeId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling LoansApi.CreateLoan: " + e.Message );
+                Debug.Print("Exception when calling ChargesApi.GetCharge: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -57,11 +58,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loan** | [**Loan**](Loan.md)|  | [optional] 
+ **facilityId** | **string**|  | 
+ **chargeId** | **string**|  | 
 
 ### Return type
 
-**Object**
+[**Charge**](Charge.md)
 
 ### Authorization
 
@@ -69,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -79,9 +81,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getloan"></a>
-# **GetLoan**
-> Loan GetLoan (string facilityId)
+<a name="listcharges"></a>
+# **ListCharges**
+> List&lt;Charge&gt; ListCharges (string facilityId)
 
 
 
@@ -95,7 +97,7 @@ using LoanStreet.LoanServicing.Model;
 
 namespace Example
 {
-    public class GetLoanExample
+    public class ListChargesExample
     {
         public static void Main()
         {
@@ -105,17 +107,17 @@ namespace Example
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new LoansApi(config);
+            var apiInstance = new ChargesApi(config);
             var facilityId = facilityId_example;  // string | 
 
             try
             {
-                Loan result = apiInstance.GetLoan(facilityId);
+                List<Charge> result = apiInstance.ListCharges(facilityId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling LoansApi.GetLoan: " + e.Message );
+                Debug.Print("Exception when calling ChargesApi.ListCharges: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -132,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Loan**](Loan.md)
+[**List&lt;Charge&gt;**](Charge.md)
 
 ### Authorization
 

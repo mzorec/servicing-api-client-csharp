@@ -31,6 +31,35 @@
         }
       }
     },
+    "/v1/public/token": {
+      "post": {
+        "tags": [
+          "Authorization"
+        ],
+        "operationId": "token",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasswordAuthRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PasswordAuthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/public/principal": {
       "get": {
         "tags": [
@@ -74,35 +103,6 @@
               "application/json": {
                 "schema": {
                   "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/public/token": {
-      "post": {
-        "tags": [
-          "Authorization"
-        ],
-        "operationId": "token",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PasswordAuthRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PasswordAuthResponse"
                 }
               }
             }
@@ -192,6 +192,44 @@
         }
       }
     },
+    "/v1/private/facilities/{facilityId}/invoices": {
+      "get": {
+        "tags": [
+          "Invoices"
+        ],
+        "operationId": "listInvoices",
+        "parameters": [
+          {
+            "name": "facilityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Invoice"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer-token": []
+          }
+        ]
+      }
+    },
     "/v1/private/facilities/{facilityId}/invoices/{invoiceId}": {
       "get": {
         "tags": [
@@ -235,12 +273,12 @@
         ]
       }
     },
-    "/v1/private/facilities/{facilityId}/invoices": {
+    "/v1/private/facilities/{facilityId}/charges": {
       "get": {
         "tags": [
-          "Invoices"
+          "Charges"
         ],
-        "operationId": "listInvoices",
+        "operationId": "listCharges",
         "parameters": [
           {
             "name": "facilityId",
@@ -259,8 +297,120 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Invoice"
+                    "$ref": "#/components/schemas/Charge"
                   }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer-token": []
+          }
+        ]
+      }
+    },
+    "/v1/private/facilities/{facilityId}/charges/{chargeId}": {
+      "get": {
+        "tags": [
+          "Charges"
+        ],
+        "operationId": "getCharge",
+        "parameters": [
+          {
+            "name": "facilityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "chargeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Charge"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer-token": []
+          }
+        ]
+      }
+    },
+    "/v1/private/loans/{facilityId}": {
+      "get": {
+        "tags": [
+          "Loans"
+        ],
+        "operationId": "getLoan",
+        "parameters": [
+          {
+            "name": "facilityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Loan"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer-token": []
+          }
+        ]
+      }
+    },
+    "/v1/private/loans": {
+      "post": {
+        "tags": [
+          "Loans"
+        ],
+        "operationId": "createLoan",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Loan"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
                 }
               }
             }
@@ -279,6 +429,24 @@
           "Facilities"
         ],
         "operationId": "listFacilities",
+        "parameters": [
+          {
+            "name": "borrower",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fund",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "default response",
@@ -368,58 +536,6 @@
         ]
       }
     },
-    "/v1/private/facilities/{facilityId}/tranches/{trancheId}/draw": {
-      "post": {
-        "tags": [
-          "Tranches"
-        ],
-        "operationId": "createDraw",
-        "parameters": [
-          {
-            "name": "facilityId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "trancheId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Draw"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Borrowing"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer-token": []
-          }
-        ]
-      }
-    },
     "/v1/private/facilities/{facilityId}/tranches": {
       "get": {
         "tags": [
@@ -489,6 +605,58 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Tranche"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer-token": []
+          }
+        ]
+      }
+    },
+    "/v1/private/facilities/{facilityId}/tranches/{trancheId}/draw": {
+      "post": {
+        "tags": [
+          "Tranches"
+        ],
+        "operationId": "createDraw",
+        "parameters": [
+          {
+            "name": "facilityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trancheId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Draw"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Borrowing"
                 }
               }
             }
@@ -686,6 +854,44 @@
         ]
       }
     },
+    "/v1/private/facilities/{facilityId}/borrowings": {
+      "get": {
+        "tags": [
+          "Borrowings"
+        ],
+        "operationId": "listBorrowings",
+        "parameters": [
+          {
+            "name": "facilityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Borrowing"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer-token": []
+          }
+        ]
+      }
+    },
     "/v1/private/facilities/{facilityId}/borrowings/{borrowingId}": {
       "get": {
         "tags": [
@@ -729,15 +935,15 @@
         ]
       }
     },
-    "/v1/private/facilities/{facilityId}/borrowings": {
+    "/v1/private/institutions/{institutionId}/funds": {
       "get": {
         "tags": [
-          "Borrowings"
+          "Institutions"
         ],
-        "operationId": "listBorrowings",
+        "operationId": "listFunds",
         "parameters": [
           {
-            "name": "facilityId",
+            "name": "institutionId",
             "in": "path",
             "required": true,
             "schema": {
@@ -753,8 +959,110 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Borrowing"
+                    "$ref": "#/components/schemas/Fund"
                   }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer-token": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Institutions"
+        ],
+        "operationId": "postFund",
+        "parameters": [
+          {
+            "name": "institutionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Fund"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Fund"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer-token": []
+          }
+        ]
+      }
+    },
+    "/v1/private/institutions": {
+      "get": {
+        "tags": [
+          "Institutions"
+        ],
+        "operationId": "listInstitutions",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Institution"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer-token": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Institutions"
+        ],
+        "operationId": "createInstitution",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Institution"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Institution"
                 }
               }
             }
@@ -844,66 +1152,6 @@
         ]
       }
     },
-    "/v1/private/institutions": {
-      "get": {
-        "tags": [
-          "Institutions"
-        ],
-        "operationId": "listInstitutions",
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Institution"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer-token": []
-          }
-        ]
-      },
-      "post": {
-        "tags": [
-          "Institutions"
-        ],
-        "operationId": "createInstitution",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Institution"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Institution"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer-token": []
-          }
-        ]
-      }
-    },
     "/v1/private/acls/{oid}": {
       "get": {
         "tags": [
@@ -927,41 +1175,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AclDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer-token": []
-          }
-        ]
-      }
-    },
-    "/v1/private/users/{userId}": {
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "operationId": "getUser",
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "default response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
                 }
               }
             }
@@ -1033,6 +1246,41 @@
           }
         ]
       }
+    },
+    "/v1/private/users/{userId}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "operationId": "getUser",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer-token": []
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -1043,8 +1291,8 @@
           "principal": {
             "type": "object"
           },
-          "details": {
-            "type": "object"
+          "authenticated": {
+            "type": "boolean"
           },
           "authorities": {
             "type": "array",
@@ -1052,8 +1300,8 @@
               "$ref": "#/components/schemas/GrantedAuthority"
             }
           },
-          "authenticated": {
-            "type": "boolean"
+          "details": {
+            "type": "object"
           },
           "credentials": {
             "type": "object"
@@ -1067,6 +1315,32 @@
         "type": "object",
         "properties": {
           "authority": {
+            "type": "string"
+          }
+        }
+      },
+      "PasswordAuthRequest": {
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "PasswordAuthResponse": {
+        "required": [
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
             "type": "string"
           }
         }
@@ -1154,32 +1428,6 @@
           }
         }
       },
-      "PasswordAuthRequest": {
-        "required": [
-          "email",
-          "password"
-        ],
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string"
-          },
-          "password": {
-            "type": "string"
-          }
-        }
-      },
-      "PasswordAuthResponse": {
-        "required": [
-          "token"
-        ],
-        "type": "object",
-        "properties": {
-          "token": {
-            "type": "string"
-          }
-        }
-      },
       "SystemStatusResponse": {
         "required": [
           "status"
@@ -1209,19 +1457,19 @@
       "Charge": {
         "required": [
           "amount",
-          "chargeId",
           "type"
         ],
         "type": "object",
         "properties": {
-          "amount": {
-            "$ref": "#/components/schemas/Money"
-          },
           "chargeId": {
-            "type": "string"
+            "type": "string",
+            "readOnly": true
           },
           "period": {
             "$ref": "#/components/schemas/LocalDatePeriod"
+          },
+          "amount": {
+            "$ref": "#/components/schemas/Money"
           },
           "type": {
             "type": "string"
@@ -1238,8 +1486,7 @@
       },
       "InterestCharge": {
         "required": [
-          "amount",
-          "chargeId"
+          "amount"
         ],
         "type": "object",
         "allOf": [
@@ -1249,10 +1496,6 @@
         ]
       },
       "Invoice": {
-        "required": [
-          "charges",
-          "invoiceId"
-        ],
         "type": "object",
         "properties": {
           "invoiceId": {
@@ -1309,8 +1552,7 @@
       },
       "PrincipalCharge": {
         "required": [
-          "amount",
-          "chargeId"
+          "amount"
         ],
         "type": "object",
         "allOf": [
@@ -1354,7 +1596,8 @@
           "interest": {
             "$ref": "#/components/schemas/InterestTerms"
           }
-        }
+        },
+        "readOnly": true
       },
       "DrawRules": {
         "required": [
@@ -1379,46 +1622,6 @@
           }
         }
       },
-      "Facility": {
-        "required": [
-          "borrowings",
-          "facilityId",
-          "institutions",
-          "timeZoneId",
-          "tranches"
-        ],
-        "type": "object",
-        "properties": {
-          "facilityId": {
-            "type": "string",
-            "readOnly": true
-          },
-          "name": {
-            "type": "string"
-          },
-          "timeZoneId": {
-            "type": "string"
-          },
-          "institutions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FacilityInstitutionDto"
-            }
-          },
-          "tranches": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Tranche"
-            }
-          },
-          "borrowings": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Borrowing"
-            }
-          }
-        }
-      },
       "FacilityInstitutionDto": {
         "required": [
           "institutionId",
@@ -1436,6 +1639,9 @@
               "AGENT",
               "LENDER"
             ]
+          },
+          "fundId": {
+            "type": "string"
           }
         }
       },
@@ -1712,6 +1918,43 @@
           }
         }
       },
+      "Loan": {
+        "required": [
+          "institutions"
+        ],
+        "type": "object",
+        "properties": {
+          "loanId": {
+            "type": "string",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "timeZoneId": {
+            "type": "string"
+          },
+          "institutions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacilityInstitutionDto"
+            }
+          },
+          "draw": {
+            "$ref": "#/components/schemas/DrawRules"
+          },
+          "interest": {
+            "$ref": "#/components/schemas/InterestRules"
+          },
+          "borrowings": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/Borrowing"
+            }
+          }
+        }
+      },
       "MultipleDrawRules": {
         "required": [
           "commitment",
@@ -1781,10 +2024,45 @@
           }
         ]
       },
-      "Tranche": {
+      "Facility": {
         "required": [
-          "trancheId"
+          "borrowings",
+          "institutions",
+          "tranches"
         ],
+        "type": "object",
+        "properties": {
+          "facilityId": {
+            "type": "string",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "timeZoneId": {
+            "type": "string"
+          },
+          "institutions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FacilityInstitutionDto"
+            }
+          },
+          "tranches": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tranche"
+            }
+          },
+          "borrowings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Borrowing"
+            }
+          }
+        }
+      },
+      "Tranche": {
         "type": "object",
         "properties": {
           "trancheId": {
@@ -1805,7 +2083,6 @@
       "Draw": {
         "required": [
           "amount",
-          "drawId",
           "firstPaymentDate"
         ],
         "type": "object",
@@ -1830,8 +2107,7 @@
       "Payment": {
         "required": [
           "amount",
-          "date",
-          "paymentId"
+          "dated"
         ],
         "type": "object",
         "properties": {
@@ -1839,12 +2115,27 @@
             "type": "string",
             "readOnly": true
           },
-          "date": {
+          "dated": {
             "type": "string",
             "format": "date"
           },
           "amount": {
             "$ref": "#/components/schemas/Money"
+          }
+        }
+      },
+      "Fund": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "fundId": {
+            "type": "string",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string"
           }
         }
       },
@@ -1877,7 +2168,7 @@
       },
       "Institution": {
         "required": [
-          "institutionId",
+          "funds",
           "name"
         ],
         "type": "object",
@@ -1894,6 +2185,12 @@
           },
           "address": {
             "$ref": "#/components/schemas/Address"
+          },
+          "funds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Fund"
+            }
           }
         }
       },
@@ -1951,6 +2248,21 @@
             "format": "int32"
           },
           "pattern": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateUserRequest": {
+        "required": [
+          "email",
+          "institutionId"
+        ],
+        "type": "object",
+        "properties": {
+          "institutionId": {
+            "type": "string"
+          },
+          "email": {
             "type": "string"
           }
         }
@@ -2106,21 +2418,6 @@
           },
           "blocked": {
             "type": "boolean"
-          }
-        }
-      },
-      "CreateUserRequest": {
-        "required": [
-          "email",
-          "institutionId"
-        ],
-        "type": "object",
-        "properties": {
-          "institutionId": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
           }
         }
       }

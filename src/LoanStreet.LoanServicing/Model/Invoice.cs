@@ -34,11 +34,6 @@ namespace LoanStreet.LoanServicing.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Invoice" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Invoice() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Invoice" /> class.
-        /// </summary>
         /// <param name="date">date.</param>
         /// <param name="period">period.</param>
         public Invoice(DateTime date = default(DateTime), LocalDatePeriod period = default(LocalDatePeriod))

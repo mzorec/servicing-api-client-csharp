@@ -1,12 +1,10 @@
-# LoanStreet.LoanServicing.Model.InterestCharge
+# LoanStreet.LoanServicing.Model.Fund
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ChargeId** | **string** |  | [optional] [readonly] 
-**Period** | [**LocalDatePeriod**](LocalDatePeriod.md) |  | [optional] 
-**Amount** | [**Money**](Money.md) |  | 
-**Type** | **string** |  | 
+**FundId** | **string** |  | [optional] [readonly] 
+**Name** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

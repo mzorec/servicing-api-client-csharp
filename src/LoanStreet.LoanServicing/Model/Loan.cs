@@ -25,39 +25,40 @@ using OpenAPIDateConverter = LoanStreet.LoanServicing.Client.OpenAPIDateConverte
 
 namespace LoanStreet.LoanServicing.Model
 {
+    /// <summary>
+    /// Loan
+    /// </summary>
     [DataContract]
-    public partial class Facility :  IEquatable<Facility>, IValidatableObject
+    public partial class Loan :  IEquatable<Loan>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Facility" /> class.
+        /// Initializes a new instance of the <see cref="Loan" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected Facility() { }
+        protected Loan() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Facility" /> class.
+        /// Initializes a new instance of the <see cref="Loan" /> class.
         /// </summary>
         /// <param name="name">name.</param>
         /// <param name="timeZoneId">timeZoneId.</param>
         /// <param name="institutions">institutions (required).</param>
-        /// <param name="tranches">tranches (required).</param>
-        /// <param name="borrowings">borrowings (required).</param>
-        public Facility(string name = default(string), string timeZoneId = default(string), List<FacilityInstitutionDto> institutions = default(List<FacilityInstitutionDto>), List<Tranche> tranches = default(List<Tranche>), List<Borrowing> borrowings = default(List<Borrowing>))
+        /// <param name="draw">draw.</param>
+        /// <param name="interest">interest.</param>
+        public Loan(string name = default(string), string timeZoneId = default(string), List<FacilityInstitutionDto> institutions = default(List<FacilityInstitutionDto>), DrawRules draw = default(DrawRules), InterestRules interest = default(InterestRules))
         {
             // to ensure "institutions" is required (not null)
-            this.Institutions = institutions ?? throw new ArgumentNullException("institutions is a required property for Facility and cannot be null");;
-            // to ensure "tranches" is required (not null)
-            this.Tranches = tranches ?? throw new ArgumentNullException("tranches is a required property for Facility and cannot be null");;
-            // to ensure "borrowings" is required (not null)
-            this.Borrowings = borrowings ?? throw new ArgumentNullException("borrowings is a required property for Facility and cannot be null");;
+            this.Institutions = institutions ?? throw new ArgumentNullException("institutions is a required property for Loan and cannot be null");;
             this.Name = name;
             this.TimeZoneId = timeZoneId;
+            this.Draw = draw;
+            this.Interest = interest;
         }
         
         /// <summary>
-        /// Gets or Sets FacilityId
+        /// Gets or Sets LoanId
         /// </summary>
-        [DataMember(Name="facilityId", EmitDefaultValue=false)]
-        public string FacilityId { get; private set; }
+        [DataMember(Name="loanId", EmitDefaultValue=false)]
+        public string LoanId { get; private set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -78,16 +79,22 @@ namespace LoanStreet.LoanServicing.Model
         public List<FacilityInstitutionDto> Institutions { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tranches
+        /// Gets or Sets Draw
         /// </summary>
-        [DataMember(Name="tranches", EmitDefaultValue=false)]
-        public List<Tranche> Tranches { get; set; }
+        [DataMember(Name="draw", EmitDefaultValue=false)]
+        public DrawRules Draw { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Interest
+        /// </summary>
+        [DataMember(Name="interest", EmitDefaultValue=false)]
+        public InterestRules Interest { get; set; }
 
         /// <summary>
         /// Gets or Sets Borrowings
         /// </summary>
         [DataMember(Name="borrowings", EmitDefaultValue=false)]
-        public List<Borrowing> Borrowings { get; set; }
+        public List<Borrowing> Borrowings { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -96,12 +103,13 @@ namespace LoanStreet.LoanServicing.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Facility {\n");
-            sb.Append("  FacilityId: ").Append(FacilityId).Append("\n");
+            sb.Append("class Loan {\n");
+            sb.Append("  LoanId: ").Append(LoanId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  TimeZoneId: ").Append(TimeZoneId).Append("\n");
             sb.Append("  Institutions: ").Append(Institutions).Append("\n");
-            sb.Append("  Tranches: ").Append(Tranches).Append("\n");
+            sb.Append("  Draw: ").Append(Draw).Append("\n");
+            sb.Append("  Interest: ").Append(Interest).Append("\n");
             sb.Append("  Borrowings: ").Append(Borrowings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -123,24 +131,24 @@ namespace LoanStreet.LoanServicing.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Facility);
+            return this.Equals(input as Loan);
         }
 
         /// <summary>
-        /// Returns true if Facility instances are equal
+        /// Returns true if Loan instances are equal
         /// </summary>
-        /// <param name="input">Instance of Facility to be compared</param>
+        /// <param name="input">Instance of Loan to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Facility input)
+        public bool Equals(Loan input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.FacilityId == input.FacilityId ||
-                    (this.FacilityId != null &&
-                    this.FacilityId.Equals(input.FacilityId))
+                    this.LoanId == input.LoanId ||
+                    (this.LoanId != null &&
+                    this.LoanId.Equals(input.LoanId))
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -159,10 +167,14 @@ namespace LoanStreet.LoanServicing.Model
                     this.Institutions.SequenceEqual(input.Institutions)
                 ) && 
                 (
-                    this.Tranches == input.Tranches ||
-                    this.Tranches != null &&
-                    input.Tranches != null &&
-                    this.Tranches.SequenceEqual(input.Tranches)
+                    this.Draw == input.Draw ||
+                    (this.Draw != null &&
+                    this.Draw.Equals(input.Draw))
+                ) && 
+                (
+                    this.Interest == input.Interest ||
+                    (this.Interest != null &&
+                    this.Interest.Equals(input.Interest))
                 ) && 
                 (
                     this.Borrowings == input.Borrowings ||
@@ -181,16 +193,18 @@ namespace LoanStreet.LoanServicing.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FacilityId != null)
-                    hashCode = hashCode * 59 + this.FacilityId.GetHashCode();
+                if (this.LoanId != null)
+                    hashCode = hashCode * 59 + this.LoanId.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.TimeZoneId != null)
                     hashCode = hashCode * 59 + this.TimeZoneId.GetHashCode();
                 if (this.Institutions != null)
                     hashCode = hashCode * 59 + this.Institutions.GetHashCode();
-                if (this.Tranches != null)
-                    hashCode = hashCode * 59 + this.Tranches.GetHashCode();
+                if (this.Draw != null)
+                    hashCode = hashCode * 59 + this.Draw.GetHashCode();
+                if (this.Interest != null)
+                    hashCode = hashCode * 59 + this.Interest.GetHashCode();
                 if (this.Borrowings != null)
                     hashCode = hashCode * 59 + this.Borrowings.GetHashCode();
                 return hashCode;

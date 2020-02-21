@@ -80,6 +80,18 @@ namespace LoanStreet.LoanServicing.Test
         }
         
         /// <summary>
+        /// Test ListFunds
+        /// </summary>
+        [Fact]
+        public void ListFundsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string institutionId = null;
+            //var response = instance.ListFunds(institutionId);
+            //Assert.IsType<List<Fund>> (response, "response is List<Fund>");
+        }
+        
+        /// <summary>
         /// Test ListInstitutions
         /// </summary>
         [Fact]
@@ -88,6 +100,19 @@ namespace LoanStreet.LoanServicing.Test
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.ListInstitutions();
             //Assert.IsType<List<Institution>> (response, "response is List<Institution>");
+        }
+        
+        /// <summary>
+        /// Test PostFund
+        /// </summary>
+        [Fact]
+        public void PostFundTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string institutionId = null;
+            //Fund fund = null;
+            //var response = instance.PostFund(institutionId, fund);
+            //Assert.IsType<Fund> (response, "response is Fund");
         }
         
         /// <summary>

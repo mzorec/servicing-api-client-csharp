@@ -4,9 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Principal** | [**Object**](.md) |  | [optional] 
-**Details** | [**Object**](.md) |  | [optional] 
-**Authorities** | [**List&lt;GrantedAuthority&gt;**](GrantedAuthority.md) |  | [optional] 
 **Authenticated** | **bool** |  | [optional] 
+**Authorities** | [**List&lt;GrantedAuthority&gt;**](GrantedAuthority.md) |  | [optional] 
+**Details** | [**Object**](.md) |  | [optional] 
 **Credentials** | [**Object**](.md) |  | [optional] 
 **Name** | **string** |  | [optional] 
 

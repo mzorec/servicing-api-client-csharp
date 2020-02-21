@@ -3,14 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LoanId** | **string** |  | [readonly] 
-**FirstPaymentDate** | **DateTime** |  | 
-**Institutions** | [**List&lt;LoanRole&gt;**](LoanRole.md) |  | 
-**InterestTerms** | [**InterestTerms**](InterestTerms.md) |  | [optional] 
-**PrincipalAmount** | [**Money**](Money.md) |  | 
-**MaxParticipationPercent** | **string** |  | 
+**LoanId** | **string** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] 
-**TimeZoneId** | **string** |  | 
+**TimeZoneId** | **string** |  | [optional] 
+**Institutions** | [**List&lt;FacilityInstitutionDto&gt;**](FacilityInstitutionDto.md) |  | 
+**Draw** | [**DrawRules**](DrawRules.md) |  | [optional] 
+**Interest** | [**InterestRules**](InterestRules.md) |  | [optional] 
+**Borrowings** | [**List&lt;Borrowing&gt;**](Borrowing.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
