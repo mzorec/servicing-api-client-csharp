@@ -25,6 +25,9 @@ using OpenAPIDateConverter = LoanStreet.LoanServicing.Client.OpenAPIDateConverte
 
 namespace LoanStreet.LoanServicing.Model
 {
+    /// <summary>
+    /// Facility
+    /// </summary>
     [DataContract]
     public partial class Facility :  IEquatable<Facility>, IValidatableObject
     {

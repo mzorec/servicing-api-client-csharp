@@ -35,7 +35,7 @@ namespace LoanStreet.LoanServicing.Model
         /// Initializes a new instance of the <see cref="RevolverDrawRulesAllOf" /> class.
         /// </summary>
         /// <param name="commitment">commitment.</param>
-        public RevolverDrawRulesAllOf(Money commitment = default(Money))
+        public RevolverDrawRulesAllOf(LoanStreet.LoanServicing.Money commitment = default(LoanStreet.LoanServicing.Money))
         {
             this.Commitment = commitment;
         }
@@ -44,7 +44,7 @@ namespace LoanStreet.LoanServicing.Model
         /// Gets or Sets Commitment
         /// </summary>
         [DataMember(Name="commitment", EmitDefaultValue=false)]
-        public Money Commitment { get; set; }
+        public LoanStreet.LoanServicing.Money Commitment { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

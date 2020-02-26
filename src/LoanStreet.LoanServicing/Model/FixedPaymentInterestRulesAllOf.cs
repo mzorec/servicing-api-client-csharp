@@ -205,7 +205,7 @@ namespace LoanStreet.LoanServicing.Model
         /// <param name="numPeriods">numPeriods.</param>
         /// <param name="paymentAmount">paymentAmount.</param>
         /// <param name="paymentFrequency">paymentFrequency.</param>
-        public FixedPaymentInterestRulesAllOf(double annualRate = default(double), CompoundingEnum? compounding = default(CompoundingEnum?), DayCountEnum? dayCount = default(DayCountEnum?), int numPeriods = default(int), Money paymentAmount = default(Money), PaymentFrequencyEnum? paymentFrequency = default(PaymentFrequencyEnum?))
+        public FixedPaymentInterestRulesAllOf(double annualRate = default(double), CompoundingEnum? compounding = default(CompoundingEnum?), DayCountEnum? dayCount = default(DayCountEnum?), int numPeriods = default(int), LoanStreet.LoanServicing.Money paymentAmount = default(LoanStreet.LoanServicing.Money), PaymentFrequencyEnum? paymentFrequency = default(PaymentFrequencyEnum?))
         {
             this.AnnualRate = annualRate;
             this.Compounding = compounding;
@@ -231,7 +231,7 @@ namespace LoanStreet.LoanServicing.Model
         /// Gets or Sets PaymentAmount
         /// </summary>
         [DataMember(Name="paymentAmount", EmitDefaultValue=false)]
-        public Money PaymentAmount { get; set; }
+        public LoanStreet.LoanServicing.Money PaymentAmount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

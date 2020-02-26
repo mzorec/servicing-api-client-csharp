@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Compounding** | **string** |  | 
 **DayCount** | **string** |  | 
 **NumPeriods** | **int** |  | 
-**PaymentAmount** | [**Money**](Money.md) |  | 
+**PaymentAmount** | [**LoanStreet.LoanServicing.Money**](LoanStreet.LoanServicing.Money.md) |  | 
 **PaymentFrequency** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

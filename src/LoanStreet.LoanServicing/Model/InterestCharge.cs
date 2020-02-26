@@ -42,7 +42,7 @@ namespace LoanStreet.LoanServicing.Model
         /// <param name="period">period.</param>
         /// <param name="amount">amount (required).</param>
         /// <param name="type">type (required).</param>
-        public InterestCharge(LocalDatePeriod period = default(LocalDatePeriod), Money amount = default(Money), string type = default(string)) : base(period, amount, type)
+        public InterestCharge(LocalDatePeriod period = default(LocalDatePeriod), LoanStreet.LoanServicing.Money amount = default(LoanStreet.LoanServicing.Money), string type = default(string)) : base(period, amount, type)
         {
         }
         

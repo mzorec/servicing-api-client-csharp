@@ -44,7 +44,7 @@ namespace LoanStreet.LoanServicing.Model
         /// <param name="firstPaymentDate">firstPaymentDate (required).</param>
         /// <param name="principal">principal (required).</param>
         /// <param name="interest">interest.</param>
-        public Borrowing(string tranche = default(string), DateTime originationDate = default(DateTime), DateTime firstPaymentDate = default(DateTime), Money principal = default(Money), InterestTerms interest = default(InterestTerms))
+        public Borrowing(string tranche = default(string), DateTime originationDate = default(DateTime), DateTime firstPaymentDate = default(DateTime), LoanStreet.LoanServicing.Money principal = default(LoanStreet.LoanServicing.Money), InterestTerms interest = default(InterestTerms))
         {
             this.OriginationDate = originationDate;
             this.FirstPaymentDate = firstPaymentDate;
@@ -90,7 +90,7 @@ namespace LoanStreet.LoanServicing.Model
         /// Gets or Sets Principal
         /// </summary>
         [DataMember(Name="principal", EmitDefaultValue=false)]
-        public Money Principal { get; set; }
+        public LoanStreet.LoanServicing.Money Principal { get; set; }
 
         /// <summary>
         /// Gets or Sets Interest

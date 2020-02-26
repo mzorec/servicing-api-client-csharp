@@ -42,7 +42,7 @@ namespace LoanStreet.LoanServicing.Model
         /// <param name="dated">dated.</param>
         /// <param name="firstPaymentDate">firstPaymentDate (required).</param>
         /// <param name="amount">amount (required).</param>
-        public Draw(DateTime dated = default(DateTime), DateTime firstPaymentDate = default(DateTime), Money amount = default(Money))
+        public Draw(DateTime dated = default(DateTime), DateTime firstPaymentDate = default(DateTime), LoanStreet.LoanServicing.Money amount = default(LoanStreet.LoanServicing.Money))
         {
             this.FirstPaymentDate = firstPaymentDate;
             // to ensure "amount" is required (not null)
@@ -74,7 +74,7 @@ namespace LoanStreet.LoanServicing.Model
         /// Gets or Sets Amount
         /// </summary>
         [DataMember(Name="amount", EmitDefaultValue=false)]
-        public Money Amount { get; set; }
+        public LoanStreet.LoanServicing.Money Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

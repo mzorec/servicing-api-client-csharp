@@ -38,7 +38,7 @@ namespace LoanStreet.LoanServicing.Model
         /// <param name="maxNumDraws">maxNumDraws.</param>
         /// <param name="numDraws">numDraws.</param>
         /// <param name="minDrawAmount">minDrawAmount.</param>
-        public MultipleDrawRulesAllOf(Money commitment = default(Money), int maxNumDraws = default(int), int numDraws = default(int), Money minDrawAmount = default(Money))
+        public MultipleDrawRulesAllOf(LoanStreet.LoanServicing.Money commitment = default(LoanStreet.LoanServicing.Money), int maxNumDraws = default(int), int numDraws = default(int), LoanStreet.LoanServicing.Money minDrawAmount = default(LoanStreet.LoanServicing.Money))
         {
             this.Commitment = commitment;
             this.MaxNumDraws = maxNumDraws;
@@ -50,7 +50,7 @@ namespace LoanStreet.LoanServicing.Model
         /// Gets or Sets Commitment
         /// </summary>
         [DataMember(Name="commitment", EmitDefaultValue=false)]
-        public Money Commitment { get; set; }
+        public LoanStreet.LoanServicing.Money Commitment { get; set; }
 
         /// <summary>
         /// Gets or Sets MaxNumDraws
@@ -68,7 +68,7 @@ namespace LoanStreet.LoanServicing.Model
         /// Gets or Sets MinDrawAmount
         /// </summary>
         [DataMember(Name="minDrawAmount", EmitDefaultValue=false)]
-        public Money MinDrawAmount { get; set; }
+        public LoanStreet.LoanServicing.Money MinDrawAmount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -48,7 +48,7 @@ namespace LoanStreet.LoanServicing.Model
         /// <param name="period">period.</param>
         /// <param name="amount">amount (required).</param>
         /// <param name="type">type (required).</param>
-        public Charge(LocalDatePeriod period = default(LocalDatePeriod), Money amount = default(Money), string type = default(string))
+        public Charge(LocalDatePeriod period = default(LocalDatePeriod), LoanStreet.LoanServicing.Money amount = default(LoanStreet.LoanServicing.Money), string type = default(string))
         {
             // to ensure "amount" is required (not null)
             this.Amount = amount ?? throw new ArgumentNullException("amount is a required property for Charge and cannot be null");;
@@ -73,7 +73,7 @@ namespace LoanStreet.LoanServicing.Model
         /// Gets or Sets Amount
         /// </summary>
         [DataMember(Name="amount", EmitDefaultValue=false)]
-        public Money Amount { get; set; }
+        public LoanStreet.LoanServicing.Money Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets Type

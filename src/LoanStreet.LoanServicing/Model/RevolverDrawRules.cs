@@ -42,7 +42,7 @@ namespace LoanStreet.LoanServicing.Model
         /// <param name="commitment">commitment (required).</param>
         /// <param name="effectiveDate">effectiveDate.</param>
         /// <param name="type">type (required).</param>
-        public RevolverDrawRules(Money commitment = default(Money), DateTime effectiveDate = default(DateTime), string type = default(string)) : base(effectiveDate, type)
+        public RevolverDrawRules(LoanStreet.LoanServicing.Money commitment = default(LoanStreet.LoanServicing.Money), DateTime effectiveDate = default(DateTime), string type = default(string)) : base(effectiveDate, type)
         {
             // to ensure "commitment" is required (not null)
             this.Commitment = commitment ?? throw new ArgumentNullException("commitment is a required property for RevolverDrawRules and cannot be null");;
@@ -52,7 +52,7 @@ namespace LoanStreet.LoanServicing.Model
         /// Gets or Sets Commitment
         /// </summary>
         [DataMember(Name="commitment", EmitDefaultValue=false)]
-        public Money Commitment { get; set; }
+        public LoanStreet.LoanServicing.Money Commitment { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
