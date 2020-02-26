@@ -5,5 +5,8 @@
   "netCoreProjectFile": true,
   "optionalProjectFile": false,
   "optionalAssemblyInfo": false,
-  "optionalEmitDefaultValues": false
+  "optionalEmitDefaultValues": false,
+  "importMappings": {
+    "Money": "LoanStreet.LoanServicing.Money"
+  }
 }
