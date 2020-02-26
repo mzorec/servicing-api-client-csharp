@@ -93,6 +93,7 @@ namespace BuildScript
                 .SetDescription("Publishes nuget package.")
                 .AddCoreTask(x => x.NugetPush(
                         Path.Combine(PackagesFolder, NugetPackageName(context)))
+                    .ServerUrl("https://www.nuget.org/api/v2/package")
                     .ApiKey(NuGetAPIKey)
                 )
                 .DependsOn(package);
