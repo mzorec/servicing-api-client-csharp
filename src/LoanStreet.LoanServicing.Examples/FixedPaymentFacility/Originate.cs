@@ -48,7 +48,7 @@ namespace LoanStreet.LoanServicing.Examples.FixedPaymentFacility
             );
 
             // Our Borrowing Principal matches the DrawAmount
-            Assert.Equal(borrowing.Principal.ToDecimal(), drawAmount.ToDecimal());
+            Assert.Equal(borrowing.Principal.Amount, drawAmount.Amount);
 
             return borrowing;
         }

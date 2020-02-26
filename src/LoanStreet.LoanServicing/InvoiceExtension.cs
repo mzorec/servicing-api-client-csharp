@@ -16,12 +16,12 @@ namespace LoanStreet.LoanServicing.Model
             {
                 if (!this.Charges.Any())
                 {
-                    return new Money("0", currency: "USD");
+                    return new Money(0, currency: "USD");
                 }
                 
                 var currency = this.Charges.First().Amount.Currency;
-                var sum = this.Charges.Select(x => x.Amount.ToDecimal()).Sum();
-                return new Money(sum.ToString(), currency);
+                var sum = this.Charges.Select(x => x.Amount.Amount).Sum();
+                return new Money(sum, currency);
             }
         }
         

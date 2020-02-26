@@ -79,7 +79,7 @@ namespace LoanStreet.LoanServicing.Examples.FixedPaymentFacility
             var pendingPayment = new Payment(
                 new DateTime(2019, 10, 1),
                 new Money(
-                    "36437.56",
+                    new Decimal(36437.56),
                     "USD"
                 )
             );

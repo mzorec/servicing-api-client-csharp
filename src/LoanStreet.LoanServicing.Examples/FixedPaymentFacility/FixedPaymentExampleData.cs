@@ -10,8 +10,8 @@ namespace LoanStreet.LoanServicing.Examples.FixedPaymentFacility
     public static class FixedPaymentExampleData
     {
         public static readonly double InterestRate = 0.04375d;
-        public static readonly Money FixedPaymentAmount = new Money("36437.56", "USD");
-        public static readonly Money CommitmentAmount = new Money("7300000.00", "USD");
+        public static readonly Money FixedPaymentAmount = new Money(new Decimal(36437.56), "USD");
+        public static readonly Money CommitmentAmount = new Money(new Decimal(7300000.00), "USD");
         public static readonly DateTime OriginationDate = new DateTime(2019, 9, 3);
         public static DateTime FirstInvoiceDueDate = new DateTime(2019, 10, 1);
         public static DateTime FacilityMaturityDate = new DateTime(2024, 9, 1);
