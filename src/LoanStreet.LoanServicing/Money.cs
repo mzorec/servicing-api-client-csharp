@@ -19,18 +19,18 @@ using System.ComponentModel.DataAnnotations;
 namespace LoanStreet.LoanServicing
 {
     /// <summary>
-    ///     Money
+    /// Money
     /// </summary>
     [DataContract]
     public class Money :  IEquatable<Money>, IValidatableObject
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Money" /> class.
+        /// Initializes a new instance of the <see cref="Money" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected Money() { }
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Money" /> class.
+        /// Initializes a new instance of the <see cref="Money" /> class.
         /// </summary>
         /// <param name="amount">amount (required).</param>
         /// <param name="currency">currency (required).</param>
@@ -42,19 +42,19 @@ namespace LoanStreet.LoanServicing
         }
         
         /// <summary>
-        ///     Gets or Sets Amount
+        /// Gets or Sets Amount
         /// </summary>
         [DataMember(Name="amount", EmitDefaultValue=false)]
         public decimal Amount { get; set; }
 
         /// <summary>
-        ///     Gets or Sets Currency
+        /// Gets or Sets Currency
         /// </summary>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; set; }
 
         /// <summary>
-        ///     Returns the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
@@ -68,7 +68,7 @@ namespace LoanStreet.LoanServicing
         }
   
         /// <summary>
-        ///     Returns the JSON string presentation of the object
+        /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
@@ -77,7 +77,7 @@ namespace LoanStreet.LoanServicing
         }
 
         /// <summary>
-        ///     Returns true if objects are equal
+        /// Returns true if objects are equal
         /// </summary>
         /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
@@ -87,7 +87,7 @@ namespace LoanStreet.LoanServicing
         }
 
         /// <summary>
-        ///     Returns true if Money instances are equal
+        /// Returns true if Money instances are equal
         /// </summary>
         /// <param name="input">Instance of Money to be compared</param>
         /// <returns>Boolean</returns>
@@ -109,7 +109,7 @@ namespace LoanStreet.LoanServicing
         }
 
         /// <summary>
-        ///     Gets the hash code
+        /// Gets the hash code
         /// </summary>
         /// <returns>Hash code</returns>
         public override int GetHashCode()
@@ -125,7 +125,7 @@ namespace LoanStreet.LoanServicing
         }
 
         /// <summary>
-        ///     To validate all properties of the instance
+        /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
